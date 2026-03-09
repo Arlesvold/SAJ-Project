@@ -1,0 +1,3209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Green School - Sekolah Hijau untuk Masa Depan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f7f0;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: #1a5c2a;
+            color: #fff;
+            font-size: 13px;
+            padding: 6px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar .date-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar .date-info i {
+            font-size: 14px;
+        }
+
+        .top-bar .quick-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .top-bar .quick-links a {
+            color: #c5e8cc;
+            transition: color .3s;
+        }
+
+        .top-bar .quick-links a:hover {
+            color: #fff;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER / NAVBAR ===== */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2e7d32;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            color: #888;
+            letter-spacing: .5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu li a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #444;
+            border-radius: 6px;
+            transition: all .3s;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 25px;
+            padding: 6px 14px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 13px;
+            width: 160px;
+        }
+
+        .search-box i {
+            color: #999;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2e7d32;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 40%, #43a047 70%, #66bb6a 100%);
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .hero-slider {
+            position: relative;
+            min-height: 480px;
+        }
+
+        .hero-slide {
+            display: none;
+            min-height: 480px;
+            align-items: center;
+        }
+
+        .hero-slide.active {
+            display: flex;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 0;
+        }
+
+        .hero-content .container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-left {
+            flex: 1;
+            color: #fff;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,.18);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #c8e6c9;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,.2);
+        }
+
+        .hero-left h2 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-left h2 span {
+            color: #a5d6a7;
+        }
+
+        .hero-left p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255,255,255,.85);
+            margin-bottom: 30px;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #2e7d32;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all .3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #c8e6c9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid rgba(255,255,255,.4);
+            transition: all .3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,.15);
+            border-color: #fff;
+        }
+
+        .hero-right {
+            flex: 0 0 380px;
+            position: relative;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .hero-card h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .eco-stat {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .eco-stat:last-child {
+            border-bottom: none;
+        }
+
+        .eco-stat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .eco-stat-info h4 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .eco-stat-info span {
+            color: rgba(255,255,255,.7);
+            font-size: 12px;
+        }
+
+        .hero-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.4);
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .hero-dot.active {
+            background: #fff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .hero-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-bg-shapes .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: .06;
+            background: #fff;
+        }
+
+        .hero-bg-shapes .shape:nth-child(1) { width: 300px; height: 300px; top: -100px; right: -50px; }
+        .hero-bg-shapes .shape:nth-child(2) { width: 200px; height: 200px; bottom: -60px; left: 10%; }
+        .hero-bg-shapes .shape:nth-child(3) { width: 150px; height: 150px; top: 40%; left: 30%; }
+
+        /* ===== ECO STATS STRIP ===== */
+        .eco-strip {
+            background: #fff;
+            padding: 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .eco-strip .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.08);
+            overflow: hidden;
+        }
+
+        .eco-strip-item {
+            padding: 28px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-right: 1px solid #f0f0f0;
+            transition: background .3s;
+        }
+
+        .eco-strip-item:last-child {
+            border-right: none;
+        }
+
+        .eco-strip-item:hover {
+            background: #e8f5e9;
+        }
+
+        .eco-strip-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .eco-strip-icon.green { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
+        .eco-strip-icon.blue { background: linear-gradient(135deg, #1565c0, #42a5f5); }
+        .eco-strip-icon.orange { background: linear-gradient(135deg, #e65100, #ff9800); }
+        .eco-strip-icon.purple { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+
+        .eco-strip-info h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .eco-strip-info span {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .section-title h2 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1b5e20;
+        }
+
+        .section-title p {
+            font-size: 14px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .see-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid #2e7d32;
+            color: #2e7d32;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all .3s;
+        }
+
+        .see-all:hover {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        /* ===== PROGRAM SECTION (like Cuaca Saat Ini) ===== */
+        .programs-section {
+            padding: 60px 0 40px;
+        }
+
+        .programs-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .programs-tabs .tab {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .programs-tabs .tab.active {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        .programs-tabs .tab:hover:not(.active) {
+            background: #e0e0e0;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .program-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+            transition: all .3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,.12);
+        }
+
+        .program-card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .program-card-img .tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(46,125,50,.9);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .program-card-body {
+            padding: 20px;
+        }
+
+        .program-card-body h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .program-card-body p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .program-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .program-card-footer .date {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .program-card-footer .read-more {
+            font-size: 13px;
+            color: #2e7d32;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .program-card-footer .read-more:hover {
+            gap: 8px;
+        }
+
+        /* ===== INFO HIGHLIGHT (like Gempa Bumi Terkini) ===== */
+        .info-highlight {
+            padding: 40px 0 60px;
+        }
+
+        .info-highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .info-main-card {
+            background: linear-gradient(135deg, #1b5e20, #388e3c);
+            border-radius: 20px;
+            padding: 36px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-main-card::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.06);
+            top: -60px;
+            right: -40px;
+        }
+
+        .info-main-card .label {
+            font-size: 12px;
+            color: #a5d6a7;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .info-main-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .info-main-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255,255,255,.85);
+            margin-bottom: 24px;
+        }
+
+        .info-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-stat-item {
+            text-align: center;
+        }
+
+        .info-stat-item .val {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .info-stat-item .lbl {
+            font-size: 11px;
+            color: rgba(255,255,255,.7);
+        }
+
+        .info-side-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .info-side-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: all .3s;
+        }
+
+        .info-side-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,.1);
+        }
+
+        .info-side-card .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .info-side-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .info-side-card p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .info-side-card .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .badge-green { background: #e8f5e9; color: #2e7d32; }
+        .badge-blue { background: #e3f2fd; color: #1565c0; }
+        .badge-orange { background: #fff3e0; color: #e65100; }
+
+        /* ===== GALLERY / VISUALIZATION (like Visualisasi Cuaca) ===== */
+        .gallery-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            height: 240px;
+            cursor: pointer;
+            background: #e8f5e9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,.7));
+            padding: 20px;
+            color: #fff;
+        }
+
+        .gallery-item .overlay h4 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .gallery-item .overlay span {
+            font-size: 12px;
+            color: rgba(255,255,255,.7);
+        }
+
+        /* ===== QUICK ACCESS (like Akses Informasi Lainnya) ===== */
+        .quick-access {
+            padding: 60px 0;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .quick-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+            transition: all .3s;
+        }
+
+        .quick-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0,0,0,.12);
+        }
+
+        .quick-item .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+            margin: 0 auto 16px;
+        }
+
+        .quick-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .quick-item p {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        /* ===== NEWS SECTION (like Berita Terbaru) ===== */
+        .news-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .news-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .news-tabs .tab {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #666;
+            background: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .news-tabs .tab.active {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        .news-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .news-featured {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+            min-height: 420px;
+            background: linear-gradient(135deg, #1b5e20, #43a047);
+        }
+
+        .news-featured img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-featured .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,.85));
+            color: #fff;
+        }
+
+        .news-featured .content .date {
+            font-size: 12px;
+            color: #a5d6a7;
+            margin-bottom: 8px;
+        }
+
+        .news-featured .content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .news-featured .content p {
+            font-size: 13px;
+            color: rgba(255,255,255,.75);
+            line-height: 1.5;
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 16px;
+            background: #f9fdf9;
+            border-radius: 14px;
+            padding: 16px;
+            transition: all .3s;
+        }
+
+        .news-item:hover {
+            background: #e8f5e9;
+        }
+
+        .news-item-img {
+            width: 110px;
+            height: 90px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #c8e6c9;
+        }
+
+        .news-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-item-body .date {
+            font-size: 11px;
+            color: #2e7d32;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .news-item-body h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .news-item-body p {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.4;
+        }
+
+        /* ===== CTA / PRESS RELEASE (like Siaran Pers) ===== */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.04);
+            top: -200px;
+            left: -100px;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.04);
+            bottom: -150px;
+            right: -50px;
+        }
+
+        .cta-section h2 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255,255,255,.8);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        /* ===== PARTNERS ===== */
+        .partners-section {
+            padding: 50px 0;
+            background: #f9fdf9;
+        }
+
+        .partners-section h3 {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
+            font-size: 24px;
+            color: #aaa;
+            transition: all .3s;
+        }
+
+        .partner-logo:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,.1);
+            color: #2e7d32;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1a3a1f;
+            color: #ccc;
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about .logo-footer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .footer-about .logo-footer .icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-about .logo-footer h3 {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-about p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #a0b0a3;
+            margin-bottom: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255,255,255,.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0b0a3;
+            font-size: 16px;
+            transition: all .3s;
+        }
+
+        .footer-social a:hover {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: #a0b0a3;
+            transition: color .3s;
+        }
+
+        .footer-links a:hover {
+            color: #66bb6a;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            color: #a0b0a3;
+        }
+
+        .footer-contact li i {
+            color: #66bb6a;
+            margin-top: 2px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.08);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 13px;
+            color: #7a8a7d;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #2e7d32;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 16px rgba(46,125,50,.3);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s;
+            z-index: 999;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #1b5e20;
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-left h2 { font-size: 32px; }
+            .hero-right { flex: 0 0 300px; }
+            .eco-strip .container { grid-template-columns: repeat(2, 1fr); }
+            .programs-grid { grid-template-columns: repeat(2, 1fr); }
+            .quick-grid { grid-template-columns: repeat(3, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu { display: none; }
+            .nav-menu.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                padding: 16px;
+                box-shadow: 0 8px 20px rgba(0,0,0,.1);
+            }
+            .search-box { display: none; }
+            .hero-content .container { flex-direction: column; }
+            .hero-right { flex: none; width: 100%; }
+            .hero-left h2 { font-size: 28px; }
+            .hero-slide { min-height: auto; }
+            .hero-slider { min-height: auto; }
+            .eco-strip .container { grid-template-columns: 1fr; }
+            .eco-strip { margin-top: -20px; }
+            .programs-grid { grid-template-columns: 1fr; }
+            .info-highlight-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .quick-grid { grid-template-columns: repeat(2, 1fr); }
+            .news-layout { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .top-bar .quick-links { display: none; }
+            .cta-section h2 { font-size: 24px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .7s cubic-bezier(.25,.46,.45,.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all .7s cubic-bezier(.25,.46,.45,.94);
+        }
+        .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all .7s cubic-bezier(.25,.46,.45,.94);
+        }
+        .fade-in-right.visible { opacity: 1; transform: translateX(0); }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(.85);
+            transition: all .6s cubic-bezier(.25,.46,.45,.94);
+        }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity .6s, visibility .6s;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; }
+        .preloader-icon {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.15);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+            animation: preloaderPulse 1.5s ease infinite;
+        }
+        .preloader-icon i { font-size: 36px; color: #a5d6a7; }
+        .preloader-text { color: #c8e6c9; font-size: 14px; font-weight: 500; letter-spacing: 2px; }
+        .preloader-bar {
+            width: 200px; height: 3px; background: rgba(255,255,255,.15);
+            border-radius: 3px; margin-top: 16px; overflow: hidden;
+        }
+        .preloader-bar-inner {
+            width: 0%; height: 100%; background: #66bb6a;
+            border-radius: 3px; transition: width .3s;
+            animation: preloaderLoad 2s ease forwards;
+        }
+        @keyframes preloaderPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(102,187,106,.4); }
+            50% { transform: scale(1.08); box-shadow: 0 0 0 20px rgba(102,187,106,0); }
+        }
+        @keyframes preloaderLoad {
+            0% { width: 0%; } 40% { width: 60%; } 80% { width: 85%; } 100% { width: 100%; }
+        }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: linear-gradient(90deg, #66bb6a, #2e7d32, #1b5e20);
+            z-index: 10001;
+            transition: width .1s;
+        }
+
+        /* ===== DARK MODE ===== */
+        .dark-toggle {
+            position: fixed; bottom: 90px; right: 30px;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: #2e7d32; color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; cursor: pointer; border: none;
+            box-shadow: 0 4px 16px rgba(46,125,50,.3);
+            z-index: 999; transition: all .3s;
+        }
+        .dark-toggle:hover { background: #1b5e20; transform: translateY(-3px); }
+
+        body.dark-mode { background: #121a13; color: #d0d8d2; }
+        body.dark-mode .header { background: #1a2e1e; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+        body.dark-mode .nav-menu li a { color: #b0c4b4; }
+        body.dark-mode .nav-menu li a:hover,
+        body.dark-mode .nav-menu li a.active { background: #243828; color: #66bb6a; }
+        body.dark-mode .search-box { background: #243828; border-color: #344a38; }
+        body.dark-mode .search-box input { color: #d0d8d2; }
+        body.dark-mode .logo-text h1 { color: #66bb6a; }
+        body.dark-mode .logo-text span { color: #7a8a7d; }
+        body.dark-mode .eco-strip .container { background: #1a2e1e; box-shadow: 0 8px 30px rgba(0,0,0,.3); }
+        body.dark-mode .eco-strip-item { border-right-color: #2a3e2e; }
+        body.dark-mode .eco-strip-item:hover { background: #243828; }
+        body.dark-mode .eco-strip-info h4 { color: #e0e8e2; }
+        body.dark-mode .eco-strip-info span { color: #7a8a7d; }
+        body.dark-mode .section-title h2 { color: #66bb6a; }
+        body.dark-mode .programs-tabs .tab { background: #1a2e1e; color: #7a8a7d; }
+        body.dark-mode .programs-tabs .tab:hover:not(.active) { background: #243828; }
+        body.dark-mode .program-card { background: #1a2e1e; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+        body.dark-mode .program-card-body h3 { color: #e0e8e2; }
+        body.dark-mode .program-card-body p { color: #8a9a8d; }
+        body.dark-mode .program-card-footer .date { color: #5a6a5d; }
+        body.dark-mode .info-side-card { background: #1a2e1e; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+        body.dark-mode .info-side-card h4 { color: #e0e8e2; }
+        body.dark-mode .info-side-card p { color: #8a9a8d; }
+        body.dark-mode .gallery-section { background: #151f16; }
+        body.dark-mode .gallery-item { background: #1a2e1e; }
+        body.dark-mode .quick-item { background: #1a2e1e; box-shadow: 0 4px 16px rgba(0,0,0,.3); }
+        body.dark-mode .quick-item h4 { color: #e0e8e2; }
+        body.dark-mode .quick-item p { color: #7a8a7d; }
+        body.dark-mode .news-section { background: #151f16; }
+        body.dark-mode .news-item { background: #1a2e1e; }
+        body.dark-mode .news-item:hover { background: #243828; }
+        body.dark-mode .news-item-body h4 { color: #e0e8e2; }
+        body.dark-mode .news-tabs .tab { background: #1a2e1e; color: #7a8a7d; }
+        body.dark-mode .partners-section { background: #151f16; }
+        body.dark-mode .partner-logo { background: #1a2e1e; box-shadow: 0 2px 8px rgba(0,0,0,.3); color: #5a6a5d; }
+        body.dark-mode .footer { background: #0d150e; }
+        body.dark-mode .see-all { border-color: #66bb6a; color: #66bb6a; }
+        body.dark-mode .see-all:hover { background: #2e7d32; color: #fff; }
+        body.dark-mode .nav-menu.open { background: #1a2e1e; }
+
+        /* ===== LIGHTBOX MODAL ===== */
+        .lightbox {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,.92);
+            z-index: 100000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: all .4s;
+        }
+        .lightbox.active { opacity: 1; visibility: visible; }
+        .lightbox img {
+            max-width: 85%; max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+            transform: scale(.9); transition: transform .4s;
+        }
+        .lightbox.active img { transform: scale(1); }
+        .lightbox-close {
+            position: absolute; top: 24px; right: 32px;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: rgba(255,255,255,.12); border: none;
+            color: #fff; font-size: 22px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .3s;
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,.25); }
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 52px; height: 52px; border-radius: 50%;
+            background: rgba(255,255,255,.12); border: none;
+            color: #fff; font-size: 20px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all .3s;
+        }
+        .lightbox-nav:hover { background: rgba(255,255,255,.25); }
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
+        .lightbox-caption {
+            position: absolute; bottom: 30px; left: 50%;
+            transform: translateX(-50%);
+            color: #fff; text-align: center;
+            background: rgba(0,0,0,.5); padding: 10px 24px;
+            border-radius: 12px; backdrop-filter: blur(8px);
+        }
+        .lightbox-caption h4 { font-size: 16px; font-weight: 600; }
+        .lightbox-caption span { font-size: 12px; color: rgba(255,255,255,.65); }
+        .lightbox-counter {
+            position: absolute; top: 28px; left: 32px;
+            color: rgba(255,255,255,.7); font-size: 14px;
+        }
+
+        /* ===== FLOATING LEAVES CANVAS ===== */
+        .leaves-canvas {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
+        }
+
+        /* ===== TYPING CURSOR ===== */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px; height: 1em;
+            background: #a5d6a7;
+            margin-left: 4px;
+            animation: blink .7s step-end infinite;
+            vertical-align: text-bottom;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* ===== HEADER SHRINK ===== */
+        .header.shrink .container { height: 56px; }
+        .header.shrink .logo-icon { width: 38px; height: 38px; font-size: 18px; }
+        .header.shrink .logo-text h1 { font-size: 16px; }
+        .header.shrink .logo-text span { font-size: 10px; }
+        .header { transition: all .3s; }
+        .header .container { transition: height .3s; }
+        .logo-icon, .logo-text h1, .logo-text span { transition: all .3s; }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        .toast-container {
+            position: fixed; top: 80px; right: 24px;
+            z-index: 10002; display: flex; flex-direction: column; gap: 10px;
+        }
+        .toast {
+            background: #fff; border-radius: 12px;
+            padding: 14px 20px; min-width: 300px;
+            box-shadow: 0 8px 32px rgba(0,0,0,.15);
+            display: flex; align-items: center; gap: 12px;
+            transform: translateX(120%); transition: transform .4s cubic-bezier(.68,-.55,.27,1.55);
+        }
+        .toast.show { transform: translateX(0); }
+        .toast-icon {
+            width: 38px; height: 38px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; flex-shrink: 0;
+        }
+        .toast-icon.success { background: #e8f5e9; color: #2e7d32; }
+        .toast-icon.info { background: #e3f2fd; color: #1565c0; }
+        .toast-icon.warning { background: #fff3e0; color: #e65100; }
+        .toast-body h5 { font-size: 13px; font-weight: 600; color: #333; }
+        .toast-body p { font-size: 11px; color: #888; margin-top: 2px; }
+        body.dark-mode .toast { background: #1a2e1e; box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+        body.dark-mode .toast-body h5 { color: #e0e8e2; }
+        body.dark-mode .toast-body p { color: #7a8a7d; }
+
+        /* ===== LIVE CLOCK ===== */
+        .live-clock { font-family: 'Poppins', monospace; margin-left: 14px; color: #a5d6a7; }
+        .live-clock i { margin-right: 4px; }
+
+        /* ===== HERO SLIDE TRANSITIONS ===== */
+        .hero-slide {
+            display: none;
+            min-height: 480px;
+            align-items: center;
+            animation: heroFadeIn .8s ease;
+        }
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== PROGRAM CARD FILTER TRANSITION ===== */
+        .program-card {
+            transition: all .4s cubic-bezier(.25,.46,.45,.94);
+        }
+        .program-card.hiding {
+            opacity: 0; transform: scale(.8); pointer-events: none;
+            position: absolute; visibility: hidden;
+        }
+        .programs-grid {
+            position: relative; min-height: 200px;
+        }
+
+        /* ===== PARALLAX TEXT SHADOW ===== */
+        .hero-left h2 {
+            text-shadow: 0 2px 20px rgba(0,0,0,.15);
+        }
+
+        /* ===== CUSTOM TOOLTIP ===== */
+        .tooltip-custom {
+            position: absolute; bottom: calc(100% + 10px); left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background: #333; color: #fff; padding: 6px 14px;
+            border-radius: 8px; font-size: 12px; white-space: nowrap;
+            opacity: 0; visibility: hidden; transition: all .3s;
+            pointer-events: none; z-index: 10;
+        }
+        .tooltip-custom::after {
+            content: ''; position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent; border-top-color: #333;
+        }
+        .partner-logo { position: relative; }
+        .partner-logo:hover .tooltip-custom {
+            opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+        }
+
+        /* ===== ECO COUNTER ANIMATION ===== */
+        .eco-strip-info h4 {
+            transition: all .3s;
+        }
+
+        /* ===== SWIPE INDICATOR ===== */
+        .swipe-hint {
+            position: absolute; bottom: 55px; left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,.4); font-size: 12px;
+            display: none; z-index: 5;
+        }
+        @media (max-width: 768px) {
+            .swipe-hint { display: block; }
+        }
+
+        /* ===== CONFETTI CANVAS ===== */
+        .confetti-canvas {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 100001;
+        }
+    </style>
+</head>
+</head>
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-icon"><i class="fas fa-leaf"></i></div>
+        <div class="preloader-text">GO GREEN SCHOOL</div>
+        <div class="preloader-bar"><div class="preloader-bar-inner"></div></div>
+    </div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- DARK MODE TOGGLE -->
+    <button class="dark-toggle" id="darkToggle" title="Mode Gelap">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="date-info">
+                <i class="far fa-calendar-alt"></i>
+                <span id="currentDate">Senin, 2 Maret 2026</span>
+                <span class="live-clock" id="liveClock"><i class="far fa-clock"></i> --:--:--</span>
+            </div>
+            <div class="quick-links">
+                <a href="#"><i class="fas fa-phone-alt"></i> Hubungi Kami</a>
+                <a href="#"><i class="fas fa-envelope"></i> Email</a>
+                <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Go Green School</h1>
+                    <span>Sekolah Hijau untuk Masa Depan</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="active">Beranda</a></li>
+                <li><a href="#programs">Program</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#news">Berita</a></li>
+                <li><a href="#access">Informasi</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Cari informasi...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
+        <div class="hero-bg-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="hero-slider">
+            <!-- Slide 1 -->
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-left">
+                            <div class="hero-badge"><i class="fas fa-seedling"></i>&nbsp; Go Green School 2026</div>
+                            <h2>Membangun Generasi <span>Peduli Lingkungan</span></h2>
+                            <p>Program sekolah hijau yang mengintegrasikan pendidikan lingkungan ke dalam kurikulum sekolah untuk menciptakan generasi yang bertanggung jawab terhadap kelestarian bumi.</p>
+                            <div class="hero-buttons">
+                                <a href="#programs" class="btn-primary"><i class="fas fa-play-circle"></i> Lihat Program</a>
+                                <a href="#" class="btn-outline"><i class="fas fa-file-alt"></i> Unduh Panduan</a>
+                            </div>
+                        </div>
+                        <div class="hero-right">
+                            <div class="hero-card">
+                                <h3><i class="fas fa-chart-line"></i> Pencapaian Tahun Ini</h3>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(76,175,80,.3)">
+                                        <i class="fas fa-tree"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>5.200+</h4>
+                                        <span>Pohon Ditanam</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(33,150,243,.3)">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>35%</h4>
+                                        <span>Hemat Penggunaan Air</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(255,152,0,.3)">
+                                        <i class="fas fa-solar-panel"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>1.800 kWh</h4>
+                                        <span>Energi Surya Dihasilkan</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(156,39,176,.3)">
+                                        <i class="fas fa-recycle"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>2.4 Ton</h4>
+                                        <span>Sampah Didaur Ulang</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-left">
+                            <div class="hero-badge"><i class="fas fa-award"></i>&nbsp; Penghargaan Adiwiyata</div>
+                            <h2>Raih Penghargaan <span>Adiwiyata Mandiri</span> 2026</h2>
+                            <p>Sekolah kami berhasil meraih penghargaan tertinggi Adiwiyata Mandiri dari Kementerian Lingkungan Hidup dan Kehutanan atas komitmen dalam pengelolaan lingkungan sekolah.</p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn-primary"><i class="fas fa-trophy"></i> Lihat Prestasi</a>
+                                <a href="#" class="btn-outline"><i class="fas fa-images"></i> Dokumentasi</a>
+                            </div>
+                        </div>
+                        <div class="hero-right">
+                            <div class="hero-card">
+                                <h3><i class="fas fa-medal"></i> Prestasi Adiwiyata</h3>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(76,175,80,.3)">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>Mandiri</h4>
+                                        <span>Level Adiwiyata</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(33,150,243,.3)">
+                                        <i class="fas fa-school"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>12 Sekolah</h4>
+                                        <span>Binaan Lingkungan</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(255,152,0,.3)">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>3.500+</h4>
+                                        <span>Siswa Terlibat</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(156,39,176,.3)">
+                                        <i class="fas fa-handshake"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>25+</h4>
+                                        <span>Mitra Kerjasama</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-left">
+                            <div class="hero-badge"><i class="fas fa-recycle"></i>&nbsp; Zero Waste Campaign</div>
+                            <h2>Menuju Sekolah <span>Tanpa Sampah</span></h2>
+                            <p>Kampanye pengurangan sampah plastik dan penerapan prinsip 3R (Reduce, Reuse, Recycle) di seluruh lingkungan sekolah demi masa depan bumi yang lebih bersih.</p>
+                            <div class="hero-buttons">
+                                <a href="#" class="btn-primary"><i class="fas fa-hands-helping"></i> Ikut Berpartisipasi</a>
+                                <a href="#" class="btn-outline"><i class="fas fa-info-circle"></i> Pelajari Lebih</a>
+                            </div>
+                        </div>
+                        <div class="hero-right">
+                            <div class="hero-card">
+                                <h3><i class="fas fa-trash-alt"></i> Pengurangan Sampah</h3>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(76,175,80,.3)">
+                                        <i class="fas fa-ban"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>Zero</h4>
+                                        <span>Plastik Sekali Pakai</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(33,150,243,.3)">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>78%</h4>
+                                        <span>Reduksi Sampah</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(255,152,0,.3)">
+                                        <i class="fas fa-dumpster-fire"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>Bank Sampah</h4>
+                                        <span>Dikelola Siswa</span>
+                                    </div>
+                                </div>
+                                <div class="eco-stat">
+                                    <div class="eco-stat-icon" style="background:rgba(156,39,176,.3)">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <div class="eco-stat-info">
+                                        <h4>Kompos</h4>
+                                        <span>Dari Sampah Organik</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero dots -->
+        <div class="hero-dots">
+            <div class="hero-dot active" data-slide="0"></div>
+            <div class="hero-dot" data-slide="1"></div>
+            <div class="hero-dot" data-slide="2"></div>
+        </div>
+        <div class="swipe-hint"><i class="fas fa-hand-point-up"></i> Geser untuk slide berikutnya</div>
+    </section>
+
+    <!-- ECO STATS STRIP -->
+    <section class="eco-strip">
+        <div class="container">
+            <div class="eco-strip-item">
+                <div class="eco-strip-icon green"><i class="fas fa-tree"></i></div>
+                <div class="eco-strip-info">
+                    <h4>5.200+</h4>
+                    <span>Pohon Ditanam</span>
+                </div>
+            </div>
+            <div class="eco-strip-item">
+                <div class="eco-strip-icon blue"><i class="fas fa-tint"></i></div>
+                <div class="eco-strip-info">
+                    <h4>35%</h4>
+                    <span>Penghematan Air</span>
+                </div>
+            </div>
+            <div class="eco-strip-item">
+                <div class="eco-strip-icon orange"><i class="fas fa-solar-panel"></i></div>
+                <div class="eco-strip-info">
+                    <h4>1.800 kWh</h4>
+                    <span>Energi Terbarukan</span>
+                </div>
+            </div>
+            <div class="eco-strip-item">
+                <div class="eco-strip-icon purple"><i class="fas fa-recycle"></i></div>
+                <div class="eco-strip-info">
+                    <h4>2.4 Ton</h4>
+                    <span>Sampah Didaur Ulang</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS SECTION -->
+    <section class="programs-section" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h2>Program Unggulan</h2>
+                    <p>Program lingkungan yang dijalankan di sekolah kami</p>
+                </div>
+                <a href="#" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="programs-tabs">
+                <button class="tab active">Semua</button>
+                <button class="tab">Penghijauan</button>
+                <button class="tab">Energi</button>
+                <button class="tab">Daur Ulang</button>
+                <button class="tab">Edukasi</button>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card fade-in" data-category="penghijauan">
+                    <div class="program-card-img" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80')">
+                        <span class="tag">Penghijauan</span>
+                    </div>
+                    <div class="program-card-body">
+                        <h3>Program Seribu Pohon untuk Sekolah</h3>
+                        <p>Penanaman pohon di lingkungan sekolah dan sekitarnya untuk meningkatkan kualitas udara dan menciptakan ruang hijau.</p>
+                        <div class="program-card-footer">
+                            <span class="date"><i class="far fa-calendar"></i> 15 Februari 2026</span>
+                            <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card fade-in" data-category="daur ulang">
+                    <div class="program-card-img" style="background-image: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80')">
+                        <span class="tag">Daur Ulang</span>
+                    </div>
+                    <div class="program-card-body">
+                        <h3>Bank Sampah Sekolah: Kelola Limbah Jadi Berkah</h3>
+                        <p>Program pengelolaan sampah yang melibatkan seluruh siswa dalam memilah, mengumpulkan, dan mendaur ulang sampah.</p>
+                        <div class="program-card-footer">
+                            <span class="date"><i class="far fa-calendar"></i> 10 Februari 2026</span>
+                            <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card fade-in" data-category="energi">
+                    <div class="program-card-img" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80')">
+                        <span class="tag">Energi</span>
+                    </div>
+                    <div class="program-card-body">
+                        <h3>Panel Surya di Atap Sekolah</h3>
+                        <p>Pemanfaatan energi surya melalui pemasangan panel surya untuk kebutuhan listrik sekolah sebagai upaya energi terbarukan.</p>
+                        <div class="program-card-footer">
+                            <span class="date"><i class="far fa-calendar"></i> 5 Februari 2026</span>
+                            <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card fade-in" data-category="edukasi">
+                    <div class="program-card-img" style="background-image: url('https://images.unsplash.com/photo-1594818379496-da1e345b0ded?w=600&q=80')">
+                        <span class="tag">Edukasi</span>
+                    </div>
+                    <div class="program-card-body">
+                        <h3>Kurikulum Hijau: Belajar Sambil Menjaga Bumi</h3>
+                        <p>Integrasi pendidikan lingkungan hidup ke dalam mata pelajaran untuk membentuk karakter siswa yang peduli lingkungan.</p>
+                        <div class="program-card-footer">
+                            <span class="date"><i class="far fa-calendar"></i> 1 Februari 2026</span>
+                            <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card fade-in" data-category="penghijauan">
+                    <div class="program-card-img" style="background-image: url('https://images.unsplash.com/photo-1501004318855-b174af8a8ade?w=600&q=80')">
+                        <span class="tag">Penghijauan</span>
+                    </div>
+                    <div class="program-card-body">
+                        <h3>Taman Edukasi & Greenhouse Sekolah</h3>
+                        <p>Pembangunan taman edukasi dan rumah kaca untuk praktik langsung siswa dalam mempelajari ekosistem dan pertanian organik.</p>
+                        <div class="program-card-footer">
+                            <span class="date"><i class="far fa-calendar"></i> 28 Januari 2026</span>
+                            <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card fade-in" data-category="daur ulang">
+                    <div class="program-card-img" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80')">
+                        <span class="tag">Daur Ulang</span>
+                    </div>
+                    <div class="program-card-body">
+                        <h3>Komposting: Ubah Sampah Jadi Pupuk</h3>
+                        <p>Pelatihan pembuatan kompos dari sampah organik dapur kantin dan daun-daun kering di lingkungan sekolah.</p>
+                        <div class="program-card-footer">
+                            <span class="date"><i class="far fa-calendar"></i> 20 Januari 2026</span>
+                            <a href="#" class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO HIGHLIGHT -->
+    <section class="info-highlight">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h2>Status Lingkungan Sekolah</h2>
+                    <p>Monitoring kondisi lingkungan terkini</p>
+                </div>
+                <a href="#" class="see-all">Detail Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="info-highlight-grid">
+                <div class="info-main-card fade-in">
+                    <div class="label"><i class="fas fa-chart-bar"></i>&ensp;Indeks Lingkungan Sekolah</div>
+                    <h3>Kualitas Lingkungan Sekolah Dalam Kondisi Sangat Baik</h3>
+                    <p>Berdasarkan audit lingkungan bulan Februari 2026, seluruh indikator menunjukkan peningkatan signifikan. Penghijauan meningkat 25%, pengelolaan sampah membaik, dan kualitas udara sekolah berada di level optimal.</p>
+                    <div class="info-stats-row">
+                        <div class="info-stat-item">
+                            <div class="val">92</div>
+                            <div class="lbl">Skor Lingkungan</div>
+                        </div>
+                        <div class="info-stat-item">
+                            <div class="val">A+</div>
+                            <div class="lbl">Grade Kebersihan</div>
+                        </div>
+                        <div class="info-stat-item">
+                            <div class="val">Baik</div>
+                            <div class="lbl">Kualitas Udara</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary" style="font-size:13px; padding:10px 22px;">
+                        <i class="fas fa-file-pdf"></i> Unduh Laporan Lengkap
+                    </a>
+                </div>
+
+                <div class="info-side-cards fade-in">
+                    <div class="info-side-card">
+                        <div class="icon-box" style="background:#e8f5e9; color:#2e7d32;">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div>
+                            <h4>Kualitas Udara Sekolah</h4>
+                            <p>PM2.5: 12.8 µg/m³ — Udara bersih dan sehat berkat penghijauan yang masif.</p>
+                            <span class="badge badge-green">Baik</span>
+                        </div>
+                    </div>
+                    <div class="info-side-card">
+                        <div class="icon-box" style="background:#e3f2fd; color:#1565c0;">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div>
+                            <h4>Penampungan Air Hujan</h4>
+                            <p>Kapasitas 85% terisi. Air digunakan untuk menyiram taman dan toilet.</p>
+                            <span class="badge badge-blue">Optimal</span>
+                        </div>
+                    </div>
+                    <div class="info-side-card">
+                        <div class="icon-box" style="background:#fff3e0; color:#e65100;">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h4>Penggunaan Energi</h4>
+                            <p>Konsumsi listrik bulan ini turun 20% dibanding bulan lalu berkat panel surya.</p>
+                            <span class="badge badge-orange">Hemat</span>
+                        </div>
+                    </div>
+                    <div class="info-side-card">
+                        <div class="icon-box" style="background:#e8f5e9; color:#2e7d32;">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div>
+                            <h4>Kebun Sekolah</h4>
+                            <p>Panen sayuran organik minggu ini: kangkung, bayam, dan tomat untuk kantin.</p>
+                            <span class="badge badge-green">Produktif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h2>Galeri Kegiatan</h2>
+                    <p>Dokumentasi kegiatan lingkungan di sekolah</p>
+                </div>
+                <a href="#" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&q=80" alt="Penanaman Pohon">
+                    <div class="overlay">
+                        <h4>Penanaman Pohon Bersama</h4>
+                        <span>15 Februari 2026</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=600&q=80" alt="Kebun Sekolah">
+                    <div class="overlay">
+                        <h4>Panen Kebun Sekolah</h4>
+                        <span>10 Februari 2026</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" alt="Daur Ulang">
+                    <div class="overlay">
+                        <h4>Workshop Daur Ulang</h4>
+                        <span>5 Februari 2026</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80" alt="Taman Sekolah">
+                    <div class="overlay">
+                        <h4>Taman Kupu-Kupu</h4>
+                        <span>1 Februari 2026</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Energi Surya">
+                    <div class="overlay">
+                        <h4>Instalasi Panel Surya</h4>
+                        <span>28 Januari 2026</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80" alt="Edukasi Lingkungan">
+                    <div class="overlay">
+                        <h4>Edukasi Lingkungan Outdoor</h4>
+                        <span>20 Januari 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK ACCESS -->
+    <section class="quick-access" id="access">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h2>Akses Informasi</h2>
+                    <p>Akses cepat ke berbagai layanan dan informasi</p>
+                </div>
+            </div>
+
+            <div class="quick-grid">
+                <a href="#" class="quick-item fade-in">
+                    <div class="icon" style="background: linear-gradient(135deg, #2e7d32, #66bb6a);">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Penghijauan</h4>
+                    <p>Program penanaman pohon & taman sekolah</p>
+                </a>
+                <a href="#" class="quick-item fade-in">
+                    <div class="icon" style="background: linear-gradient(135deg, #1565c0, #42a5f5);">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h4>Konservasi Air</h4>
+                    <p>Pengelolaan sumber daya air di sekolah</p>
+                </a>
+                <a href="#" class="quick-item fade-in">
+                    <div class="icon" style="background: linear-gradient(135deg, #e65100, #ff9800);">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h4>Energi Bersih</h4>
+                    <p>Pemanfaatan energi terbarukan</p>
+                </a>
+                <a href="#" class="quick-item fade-in">
+                    <div class="icon" style="background: linear-gradient(135deg, #6a1b9a, #ab47bc);">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h4>Daur Ulang</h4>
+                    <p>Program reduce, reuse, recycle</p>
+                </a>
+                <a href="#" class="quick-item fade-in">
+                    <div class="icon" style="background: linear-gradient(135deg, #c62828, #ef5350);">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>Edukasi</h4>
+                    <p>Kurikulum pendidikan lingkungan</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section class="news-section" id="news">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h2>Berita Terbaru</h2>
+                    <p>Berita dan kegiatan terkini dari Go Green School</p>
+                </div>
+                <a href="#" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="news-tabs">
+                <button class="tab active">Berita Utama</button>
+                <button class="tab">Kegiatan</button>
+                <button class="tab">Prestasi</button>
+            </div>
+
+            <div class="news-layout">
+                <div class="news-featured fade-in">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80" alt="Featured News">
+                    <div class="content">
+                        <div class="date"><i class="far fa-calendar"></i> 28 Februari 2026</div>
+                        <h3>Go Green School Raih Penghargaan Sekolah Adiwiyata Mandiri Tingkat Nasional</h3>
+                        <p>Sekolah kami berhasil meraih penghargaan tertinggi dari Kementerian Lingkungan Hidup atas komitmen dalam pengelolaan lingkungan sekolah yang berkelanjutan.</p>
+                    </div>
+                </div>
+
+                <div class="news-list">
+                    <a href="#" class="news-item fade-in">
+                        <div class="news-item-img">
+                            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=300&q=80" alt="News">
+                        </div>
+                        <div class="news-item-body">
+                            <div class="date">25 Februari 2026</div>
+                            <h4>1.000 Pohon Baru Ditanam di Area Sekolah dan Desa Sekitar</h4>
+                            <p>Kegiatan penanaman melibatkan siswa, guru, dan masyarakat sekitar.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="news-item fade-in">
+                        <div class="news-item-img">
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=300&q=80" alt="News">
+                        </div>
+                        <div class="news-item-body">
+                            <div class="date">20 Februari 2026</div>
+                            <h4>Bank Sampah Sekolah Hasilkan Pendapatan Rp 5 Juta Per Bulan</h4>
+                            <p>Dana digunakan untuk biaya operasional program lingkungan sekolah.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="news-item fade-in">
+                        <div class="news-item-img">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=300&q=80" alt="News">
+                        </div>
+                        <div class="news-item-body">
+                            <div class="date">15 Februari 2026</div>
+                            <h4>Pemasangan Panel Surya Fase 2 Berhasil Menghemat 40% Listrik</h4>
+                            <p>Sekolah mengurangi ketergantungan pada energi fosil secara signifikan.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="news-item fade-in">
+                        <div class="news-item-img">
+                            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=300&q=80" alt="News">
+                        </div>
+                        <div class="news-item-body">
+                            <div class="date">10 Februari 2026</div>
+                            <h4>Workshop Edukasi Lingkungan Diikuti 500 Siswa dari 12 Sekolah</h4>
+                            <p>Siswa belajar tentang pengelolaan sampah dan konservasi energi.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Mari Bersama Menjaga Bumi Kita</h2>
+            <p>Bergabunglah dengan gerakan Go Green School. Setiap langkah kecil yang kita lakukan hari ini akan menciptakan perubahan besar untuk masa depan bumi.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary"><i class="fas fa-user-plus"></i> Daftar Sekarang</a>
+                <a href="#" class="btn-outline"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="partners-section">
+        <div class="container">
+            <h3>Didukung Oleh</h3>
+            <div class="partners-logos">
+                <div class="partner-logo">
+                    <span class="tooltip-custom">Kementerian LHK</span>
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="partner-logo">
+                    <span class="tooltip-custom">Dinas Pendidikan</span>
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="partner-logo">
+                    <span class="tooltip-custom">WWF Indonesia</span>
+                    <i class="fas fa-paw"></i>
+                </div>
+                <div class="partner-logo">
+                    <span class="tooltip-custom">WALHI</span>
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <div class="partner-logo">
+                    <span class="tooltip-custom">PLN Green</span>
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="partner-logo">
+                    <span class="tooltip-custom">Komunitas Peduli Lingkungan</span>
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo-footer">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Go Green School</h3>
+                    </div>
+                    <p>Go Green School adalah program sekolah hijau yang bertujuan membangun kesadaran lingkungan sejak dini melalui pendidikan, aksi nyata, dan kolaborasi seluruh warga sekolah untuk masa depan bumi yang lebih baik.</p>
+                    <div class="footer-social">
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Tautan Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Program Lingkungan</a></li>
+                        <li><a href="#">Galeri Kegiatan</a></li>
+                        <li><a href="#">Berita & Artikel</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Program</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Penghijauan Sekolah</a></li>
+                        <li><a href="#">Bank Sampah</a></li>
+                        <li><a href="#">Energi Terbarukan</a></li>
+                        <li><a href="#">Konservasi Air</a></li>
+                        <li><a href="#">Edukasi Lingkungan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Kontak Kami</h4>
+                    <ul class="footer-links footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Pendidikan Hijau No. 10, Jakarta Selatan 12345</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(021) 1234-5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@gogreenschool.id</span>
+                        </li>
+                        <li>
+                            <i class="far fa-clock"></i>
+                            <span>Senin - Jumat: 07.00 - 16.00 WIB</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Go Green School — Sekolah Hijau untuk Masa Depan. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-counter" id="lightboxCounter">1 / 6</span>
+        <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext"><i class="fas fa-chevron-right"></i></button>
+        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption">
+            <h4></h4><span></span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ============================================
+        // UTILITIES
+        // ============================================
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+        const days = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+        const months = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+
+        // ============================================
+        // 1. PRELOADER
+        // ============================================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = $('#preloader');
+                preloader.classList.add('hidden');
+                setTimeout(() => preloader.remove(), 600);
+                // Show welcome toast after load
+                showToast('Selamat Datang!', 'Selamat datang di Go Green School 🌿', 'success');
+            }, 2200);
+        });
+
+        // ============================================
+        // 2. DYNAMIC DATE & LIVE CLOCK
+        // ============================================
+        const dateEl = $('#currentDate');
+        const clockEl = $('#liveClock');
+        function updateDateTime() {
+            const now = new Date();
+            dateEl.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+            const h = String(now.getHours()).padStart(2,'0');
+            const m = String(now.getMinutes()).padStart(2,'0');
+            const s = String(now.getSeconds()).padStart(2,'0');
+            clockEl.innerHTML = `<i class="far fa-clock"></i> ${h}:${m}:${s} WIB`;
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // ============================================
+        // 3. SCROLL PROGRESS BAR
+        // ============================================
+        const scrollProgress = $('#scrollProgress');
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        }
+
+        // ============================================
+        // 4. HEADER SHRINK ON SCROLL
+        // ============================================
+        const header = $('.header');
+        const backToTop = $('#backToTop');
+        function handleScroll() {
+            const scrollY = window.scrollY;
+            // Shrink header
+            if (scrollY > 80) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+            // Back to top
+            if (scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            // Scroll progress
+            updateScrollProgress();
+            // Parallax shapes
+            updateParallax(scrollY);
+        }
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ============================================
+        // 5. PARALLAX EFFECT ON HERO SHAPES
+        // ============================================
+        const shapes = $$('.hero-bg-shapes .shape');
+        function updateParallax(scrollY) {
+            const heroHeight = $('.hero').offsetHeight;
+            if (scrollY < heroHeight) {
+                const factor = scrollY / heroHeight;
+                shapes.forEach((shape, i) => {
+                    const speed = (i + 1) * 30;
+                    shape.style.transform = `translateY(${factor * speed}px) rotate(${factor * 20}deg)`;
+                });
+            }
+        }
+
+        // ============================================
+        // 6. MOBILE MENU TOGGLE
+        // ============================================
+        const hamburger = $('#hamburger');
+        const navMenu = $('#navMenu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // ============================================
+        // 7. HERO SLIDER WITH TOUCH/SWIPE
+        // ============================================
+        const slides = $$('.hero-slide');
+        const dots = $$('.hero-dot');
+        let currentSlide = 0;
+        let slideInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function showSlide(index, direction = 'next') {
+            const prev = currentSlide;
+            slides.forEach(s => { s.classList.remove('active'); s.style.animation = 'none'; });
+            dots.forEach(d => d.classList.remove('active'));
+            slides[index].classList.add('active');
+            slides[index].style.animation = 'heroFadeIn .8s ease';
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() { showSlide((currentSlide + 1) % slides.length, 'next'); }
+        function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length, 'prev'); }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.slide));
+                resetAutoSlide();
+            });
+        });
+
+        function startAutoSlide() { slideInterval = setInterval(nextSlide, 5000); }
+        function resetAutoSlide() { clearInterval(slideInterval); startAutoSlide(); }
+        startAutoSlide();
+
+        // Touch/Swipe support
+        const heroEl = $('.hero');
+        heroEl.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        heroEl.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide(); else prevSlide();
+                resetAutoSlide();
+            }
+        }, { passive: true });
+
+        // Keyboard navigation for hero
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') { nextSlide(); resetAutoSlide(); }
+            if (e.key === 'ArrowLeft') { prevSlide(); resetAutoSlide(); }
+        });
+
+        // ============================================
+        // 8. SCROLL ANIMATIONS (IntersectionObserver)
+        // ============================================
+        const animElements = $$('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Staggered delay
+                    const siblings = entry.target.parentElement.children;
+                    const siblingIndex = [...siblings].indexOf(entry.target);
+                    entry.target.style.transitionDelay = (siblingIndex * 0.1) + 's';
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        animElements.forEach(el => scrollObserver.observe(el));
+
+        // ============================================
+        // 9. COUNTER ANIMATION (Eco Stats)
+        // ============================================
+        const counterData = [
+            { target: 5200, suffix: '+', prefix: '' },
+            { target: 35, suffix: '%', prefix: '' },
+            { target: 1800, suffix: ' kWh', prefix: '' },
+            { target: 2.4, suffix: ' Ton', prefix: '', decimal: true }
+        ];
+        let counterAnimated = false;
+
+        function animateCounters() {
+            if (counterAnimated) return;
+            const items = $$('.eco-strip-info h4');
+            if (items.length < 4) return;
+
+            counterAnimated = true;
+            items.forEach((el, i) => {
+                const data = counterData[i];
+                if (!data) return;
+                const duration = 2000;
+                const start = performance.now();
+
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    let current = data.target * eased;
+                    if (data.decimal) {
+                        el.textContent = current.toFixed(1).replace('.', ',') + data.suffix;
+                    } else {
+                        el.textContent = data.prefix + Math.floor(current).toLocaleString('id-ID') + data.suffix;
+                    }
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+        }
+
+        const ecoStrip = $('.eco-strip');
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) animateCounters();
+        }, { threshold: 0.3 });
+        if (ecoStrip) counterObserver.observe(ecoStrip);
+
+        // ============================================
+        // 10. PROGRAM TAB FILTERING
+        // ============================================
+        const programCards = $$('.program-card');
+        const programTabs = $$('.programs-tabs .tab');
+
+        programTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                programTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.textContent.toLowerCase().trim();
+
+                programCards.forEach((card, index) => {
+                    const category = (card.dataset.category || '').toLowerCase();
+                    if (filter === 'semua' || category === filter) {
+                        card.classList.remove('hiding');
+                        card.style.transitionDelay = (index * 0.08) + 's';
+                        card.style.display = '';
+                    } else {
+                        card.classList.add('hiding');
+                        setTimeout(() => {
+                            if (card.classList.contains('hiding')) card.style.display = 'none';
+                        }, 400);
+                    }
+                });
+
+                showToast('Filter Diterapkan', `Menampilkan program: ${this.textContent}`, 'info');
+            });
+        });
+
+        // ============================================
+        // 11. NEWS TABS (Dynamic Content)
+        // ============================================
+        const newsTabData = {
+            'Berita Utama': {
+                featured: { img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80', date: '28 Februari 2026', title: 'Go Green School Raih Penghargaan Sekolah Adiwiyata Mandiri Tingkat Nasional', desc: 'Sekolah kami berhasil meraih penghargaan tertinggi dari Kementerian Lingkungan Hidup atas komitmen dalam pengelolaan lingkungan sekolah yang berkelanjutan.' },
+                items: [
+                    { img: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=300&q=80', date: '25 Februari 2026', title: '1.000 Pohon Baru Ditanam di Area Sekolah dan Desa Sekitar', desc: 'Kegiatan penanaman melibatkan siswa, guru, dan masyarakat sekitar.' },
+                    { img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=300&q=80', date: '20 Februari 2026', title: 'Bank Sampah Sekolah Hasilkan Pendapatan Rp 5 Juta Per Bulan', desc: 'Dana digunakan untuk biaya operasional program lingkungan sekolah.' },
+                    { img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=300&q=80', date: '15 Februari 2026', title: 'Pemasangan Panel Surya Fase 2 Berhasil Menghemat 40% Listrik', desc: 'Sekolah mengurangi ketergantungan pada energi fosil secara signifikan.' },
+                    { img: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=300&q=80', date: '10 Februari 2026', title: 'Workshop Edukasi Lingkungan Diikuti 500 Siswa dari 12 Sekolah', desc: 'Siswa belajar tentang pengelolaan sampah dan konservasi energi.' }
+                ]
+            },
+            'Kegiatan': {
+                featured: { img: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&q=80', date: '22 Februari 2026', title: 'Aksi Bersih Sungai Bersama Warga dan Siswa Go Green School', desc: 'Lebih dari 300 siswa dan warga sekitar turut dalam aksi membersihkan sungai dari sampah plastik dan limbah rumah tangga.' },
+                items: [
+                    { img: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=300&q=80', date: '18 Februari 2026', title: 'Lomba Kreasi Daur Ulang Antar Kelas Berlangsung Meriah', desc: 'Siswa berlomba menciptakan karya seni dari bahan bekas.' },
+                    { img: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=300&q=80', date: '12 Februari 2026', title: 'Panen Raya Kebun Organik Sekolah: Hasilnya Menakjubkan', desc: 'Hasil panen 50 kg sayuran organik untuk kantin sekolah.' },
+                    { img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=300&q=80', date: '5 Februari 2026', title: 'Pelatihan Eco-Enzyme dari Limbah Buah untuk Guru & Siswa', desc: 'Peserta antusias belajar membuat pembersih alami.' },
+                    { img: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=300&q=80', date: '1 Februari 2026', title: 'Field Trip ke Taman Nasional: Belajar dari Alam Langsung', desc: 'Siswa kelas 8 mempelajari ekosistem hutan tropis.' }
+                ]
+            },
+            'Prestasi': {
+                featured: { img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80', date: '26 Februari 2026', title: 'Tim Eco-Robot Go Green School Juara 1 Kompetisi Nasional', desc: 'Robot pembersih sampah otomatis buatan siswa berhasil menyisihkan 120 tim dari seluruh Indonesia dalam kompetisi teknologi hijau.' },
+                items: [
+                    { img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=300&q=80', date: '20 Februari 2026', title: 'Siswa Raih Medali Emas Olimpiade Lingkungan Hidup Asia', desc: 'Prestasi membanggakan di kancah internasional.' },
+                    { img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=300&q=80', date: '14 Februari 2026', title: 'Penghargaan Best Innovation Award di Green School Summit', desc: 'Inovasi bank sampah digital siswa mendapat apresiasi.' },
+                    { img: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=300&q=80', date: '8 Februari 2026', title: 'Go Green School Masuk 10 Besar Sekolah Hijau se-ASEAN', desc: 'Diapresiasi oleh UNESCO untuk program lingkungannya.' },
+                    { img: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=300&q=80', date: '3 Februari 2026', title: 'Guru Lingkungan Terbaik Nasional dari Go Green School', desc: 'Ibu Ratna meraih penghargaan atas dedikasi 10 tahun.' }
+                ]
+            }
+        };
+
+        const newsTabs = $$('.news-tabs .tab');
+        newsTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                newsTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const tabName = this.textContent.trim();
+                const data = newsTabData[tabName];
+                if (!data) return;
+
+                // Update featured
+                const featured = $('.news-featured');
+                featured.style.opacity = '0';
+                featured.style.transform = 'scale(.95)';
+                setTimeout(() => {
+                    featured.querySelector('img').src = data.featured.img;
+                    featured.querySelector('.date').innerHTML = `<i class="far fa-calendar"></i> ${data.featured.date}`;
+                    featured.querySelector('h3').textContent = data.featured.title;
+                    featured.querySelector('p').textContent = data.featured.desc;
+                    featured.style.opacity = '1';
+                    featured.style.transform = 'scale(1)';
+                }, 300);
+
+                // Update list
+                const newsItems = $$('.news-list .news-item');
+                newsItems.forEach((item, i) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(20px)';
+                    setTimeout(() => {
+                        const d = data.items[i];
+                        if (!d) return;
+                        item.querySelector('.news-item-img img').src = d.img;
+                        item.querySelector('.date').textContent = d.date;
+                        item.querySelector('h4').textContent = d.title;
+                        item.querySelector('p').textContent = d.desc;
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }, 300 + (i * 100));
+                });
+
+                // Add transition styles
+                featured.style.transition = 'all .4s ease';
+                newsItems.forEach(item => item.style.transition = 'all .4s ease');
+            });
+        });
+
+        // ============================================
+        // 12. GALLERY LIGHTBOX
+        // ============================================
+        const lightbox = $('#lightbox');
+        const lightboxImg = $('#lightboxImg');
+        const lightboxCaption = $('#lightboxCaption');
+        const lightboxCounter = $('#lightboxCounter');
+        const galleryItems = $$('.gallery-item');
+        let currentGalleryIndex = 0;
+
+        function openLightbox(index) {
+            currentGalleryIndex = index;
+            const item = galleryItems[index];
+            const img = item.querySelector('img');
+            const title = item.querySelector('.overlay h4').textContent;
+            const subtitle = item.querySelector('.overlay span').textContent;
+
+            lightboxImg.src = img.src.replace('w=600', 'w=1200');
+            lightboxCaption.querySelector('h4').textContent = title;
+            lightboxCaption.querySelector('span').textContent = subtitle;
+            lightboxCounter.textContent = `${index + 1} / ${galleryItems.length}`;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(dir) {
+            currentGalleryIndex = (currentGalleryIndex + dir + galleryItems.length) % galleryItems.length;
+            const item = galleryItems[currentGalleryIndex];
+            lightboxImg.style.opacity = '0';
+            lightboxImg.style.transform = 'scale(.9)';
+            setTimeout(() => {
+                lightboxImg.src = item.querySelector('img').src.replace('w=600', 'w=1200');
+                lightboxCaption.querySelector('h4').textContent = item.querySelector('.overlay h4').textContent;
+                lightboxCaption.querySelector('span').textContent = item.querySelector('.overlay span').textContent;
+                lightboxCounter.textContent = `${currentGalleryIndex + 1} / ${galleryItems.length}`;
+                lightboxImg.style.opacity = '1';
+                lightboxImg.style.transform = 'scale(1)';
+            }, 200);
+            lightboxImg.style.transition = 'all .3s ease';
+        }
+
+        galleryItems.forEach((item, i) => {
+            item.addEventListener('click', () => openLightbox(i));
+        });
+        $('#lightboxClose').addEventListener('click', closeLightbox);
+        $('#lightboxPrev').addEventListener('click', () => navigateLightbox(-1));
+        $('#lightboxNext').addEventListener('click', () => navigateLightbox(1));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // ============================================
+        // 13. DARK MODE TOGGLE
+        // ============================================
+        const darkToggle = $('#darkToggle');
+        const darkIcon = darkToggle.querySelector('i');
+        let isDark = localStorage.getItem('darkMode') === 'true';
+
+        function applyDarkMode(dark) {
+            document.body.classList.toggle('dark-mode', dark);
+            darkIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+            darkToggle.title = dark ? 'Mode Terang' : 'Mode Gelap';
+            localStorage.setItem('darkMode', dark);
+        }
+        applyDarkMode(isDark);
+
+        darkToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            applyDarkMode(isDark);
+            showToast(
+                isDark ? 'Mode Gelap Aktif' : 'Mode Terang Aktif',
+                isDark ? 'Tampilan berubah ke mode gelap' : 'Tampilan berubah ke mode terang',
+                'info'
+            );
+        });
+
+        // ============================================
+        // 14. TOAST NOTIFICATION SYSTEM
+        // ============================================
+        const toastContainer = $('#toastContainer');
+        function showToast(title, message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            const iconMap = { success: 'fa-check-circle', info: 'fa-info-circle', warning: 'fa-exclamation-triangle' };
+            toast.innerHTML = `
+                <div class="toast-icon ${type}"><i class="fas ${iconMap[type] || iconMap.success}"></i></div>
+                <div class="toast-body"><h5>${title}</h5><p>${message}</p></div>
+            `;
+            toastContainer.appendChild(toast);
+            // Trigger animation
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => toast.classList.add('show'));
+            });
+            // Auto remove after 4s
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 4000);
+        }
+
+        // ============================================
+        // 15. SMOOTH SCROLL FOR NAV LINKS + ACTIVE TRACKING
+        // ============================================
+        const navLinks = $$('.nav-menu a[href^="#"]');
+        const sections = $$('section[id]');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = header.offsetHeight + 10;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                    navMenu.classList.remove('open');
+                    const icon = hamburger.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                }
+            });
+        });
+
+        // Active section tracking
+        function updateActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === '#' + current || (current === '' && href === '#')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+        // ============================================
+        // 16. SEARCH FUNCTIONALITY
+        // ============================================
+        const searchInput = $('.search-box input');
+        const searchIcon = $('.search-box i');
+        if (searchInput) {
+            let searchTimeout;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const query = this.value.toLowerCase().trim();
+                    if (query.length < 2) {
+                        // Reset all highlights
+                        programCards.forEach(card => {
+                            card.style.display = '';
+                            card.classList.remove('hiding');
+                            card.style.boxShadow = '';
+                        });
+                        return;
+                    }
+                    let found = 0;
+                    programCards.forEach(card => {
+                        const text = card.textContent.toLowerCase();
+                        if (text.includes(query)) {
+                            card.style.display = '';
+                            card.classList.remove('hiding');
+                            card.style.boxShadow = '0 0 0 3px #66bb6a';
+                            found++;
+                        } else {
+                            card.style.display = 'none';
+                            card.classList.add('hiding');
+                            card.style.boxShadow = '';
+                        }
+                    });
+                    if (found > 0) {
+                        document.querySelector('#programs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        showToast('Hasil Pencarian', `Ditemukan ${found} program terkait "${this.value}"`, 'info');
+                    } else {
+                        showToast('Tidak Ditemukan', `Tidak ada hasil untuk "${this.value}"`, 'warning');
+                    }
+                }, 500);
+            });
+
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') e.preventDefault();
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    searchInput.dispatchEvent(new Event('input'));
+                }
+            });
+        }
+
+        // ============================================
+        // 17. FLOATING LEAVES ANIMATION (Canvas)
+        // ============================================
+        const leavesCanvas = $('#leavesCanvas');
+        if (leavesCanvas) {
+            const ctx = leavesCanvas.getContext('2d');
+            let leaves = [];
+            const leafCount = 15;
+
+            function resizeCanvas() {
+                const hero = leavesCanvas.parentElement;
+                leavesCanvas.width = hero.offsetWidth;
+                leavesCanvas.height = hero.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            class Leaf {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * leavesCanvas.width;
+                    this.y = -20 - Math.random() * 100;
+                    this.size = 8 + Math.random() * 14;
+                    this.speedX = (Math.random() - 0.5) * 1.5;
+                    this.speedY = 0.5 + Math.random() * 1.5;
+                    this.rotation = Math.random() * Math.PI * 2;
+                    this.rotSpeed = (Math.random() - 0.5) * 0.04;
+                    this.opacity = 0.15 + Math.random() * 0.25;
+                    this.wobble = Math.random() * Math.PI * 2;
+                    this.wobbleSpeed = 0.02 + Math.random() * 0.03;
+                }
+                update() {
+                    this.wobble += this.wobbleSpeed;
+                    this.x += this.speedX + Math.sin(this.wobble) * 0.5;
+                    this.y += this.speedY;
+                    this.rotation += this.rotSpeed;
+                    if (this.y > leavesCanvas.height + 20 || this.x < -30 || this.x > leavesCanvas.width + 30) {
+                        this.reset();
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation);
+                    ctx.globalAlpha = this.opacity;
+                    ctx.fillStyle = '#a5d6a7';
+                    // Draw a leaf shape
+                    ctx.beginPath();
+                    ctx.moveTo(0, -this.size / 2);
+                    ctx.bezierCurveTo(this.size / 2, -this.size / 3, this.size / 2, this.size / 3, 0, this.size / 2);
+                    ctx.bezierCurveTo(-this.size / 2, this.size / 3, -this.size / 2, -this.size / 3, 0, -this.size / 2);
+                    ctx.fill();
+                    // Leaf vein
+                    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(0, -this.size / 2);
+                    ctx.lineTo(0, this.size / 2);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+
+            for (let i = 0; i < leafCount; i++) {
+                const l = new Leaf();
+                l.y = Math.random() * leavesCanvas.height;
+                leaves.push(l);
+            }
+
+            function animateLeaves() {
+                ctx.clearRect(0, 0, leavesCanvas.width, leavesCanvas.height);
+                leaves.forEach(leaf => { leaf.update(); leaf.draw(); });
+                requestAnimationFrame(animateLeaves);
+            }
+            animateLeaves();
+        }
+
+        // ============================================
+        // 18. TYPING EFFECT ON HERO
+        // ============================================
+        const heroTitle = slides[0]?.querySelector('h2');
+        if (heroTitle) {
+            const originalHTML = heroTitle.innerHTML;
+            const spanText = heroTitle.querySelector('span');
+            if (spanText) {
+                const text = spanText.textContent;
+                spanText.textContent = '';
+                const cursor = document.createElement('span');
+                cursor.className = 'typing-cursor';
+                spanText.after(cursor);
+
+                let charIndex = 0;
+                function typeChar() {
+                    if (charIndex < text.length) {
+                        spanText.textContent += text[charIndex];
+                        charIndex++;
+                        setTimeout(typeChar, 60 + Math.random() * 40);
+                    } else {
+                        setTimeout(() => cursor.remove(), 2000);
+                    }
+                }
+                // Start typing after preloader
+                setTimeout(typeChar, 2800);
+            }
+        }
+
+        // ============================================
+        // 19. CTA BUTTON CONFETTI EFFECT
+        // ============================================
+        const ctaBtn = $('.cta-section .btn-primary');
+        if (ctaBtn) {
+            ctaBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                launchConfetti();
+                showToast('Terima Kasih! 🎉', 'Kami sangat senang Anda tertarik bergabung!', 'success');
+            });
+        }
+
+        function launchConfetti() {
+            const canvas = document.createElement('canvas');
+            canvas.className = 'confetti-canvas';
+            document.body.appendChild(canvas);
+            const cCtx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const confetti = [];
+            const colors = ['#2e7d32','#66bb6a','#a5d6a7','#fff9c4','#81d4fa','#ff8a65','#ce93d8'];
+            for (let i = 0; i < 100; i++) {
+                confetti.push({
+                    x: canvas.width / 2 + (Math.random() - 0.5) * 200,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 15,
+                    vy: -8 - Math.random() * 12,
+                    w: 6 + Math.random() * 8,
+                    h: 4 + Math.random() * 6,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    rotSpeed: (Math.random() - 0.5) * 15,
+                    gravity: 0.3 + Math.random() * 0.2,
+                    opacity: 1
+                });
+            }
+
+            let frame = 0;
+            function drawConfetti() {
+                cCtx.clearRect(0, 0, canvas.width, canvas.height);
+                let alive = false;
+                confetti.forEach(c => {
+                    c.vy += c.gravity;
+                    c.x += c.vx;
+                    c.y += c.vy;
+                    c.vx *= 0.99;
+                    c.rotation += c.rotSpeed;
+                    if (frame > 60) c.opacity -= 0.02;
+                    if (c.opacity > 0) alive = true;
+
+                    cCtx.save();
+                    cCtx.translate(c.x, c.y);
+                    cCtx.rotate(c.rotation * Math.PI / 180);
+                    cCtx.globalAlpha = Math.max(0, c.opacity);
+                    cCtx.fillStyle = c.color;
+                    cCtx.fillRect(-c.w / 2, -c.h / 2, c.w, c.h);
+                    cCtx.restore();
+                });
+                frame++;
+                if (alive && frame < 200) {
+                    requestAnimationFrame(drawConfetti);
+                } else {
+                    canvas.remove();
+                }
+            }
+            requestAnimationFrame(drawConfetti);
+        }
+
+        // ============================================
+        // 20. QUICK ACCESS CARD HOVER RIPPLE EFFECT
+        // ============================================
+        $$('.quick-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position:absolute; border-radius:50%; background:rgba(46,125,50,.15);
+                    width:0; height:0; transform:translate(-50%,-50%);
+                    pointer-events:none; animation: rippleEffect .6s ease forwards;
+                `;
+                const rect = this.getBoundingClientRect();
+                ripple.style.left = (e.clientX - rect.left) + 'px';
+                ripple.style.top = (e.clientY - rect.top) + 'px';
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+
+                const title = this.querySelector('h4')?.textContent || 'Informasi';
+                showToast(title, 'Halaman detail sedang dikembangkan', 'info');
+            });
+        });
+
+        // Ripple animation keyframes (inject once)
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes rippleEffect {
+                to { width: 400px; height: 400px; opacity: 0; }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // ============================================
+        // 21. ECO STRIP HOVER COUNTER BUMP
+        // ============================================
+        $$('.eco-strip-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const h4 = this.querySelector('h4');
+                h4.style.transform = 'scale(1.15)';
+                h4.style.color = '#2e7d32';
+            });
+            item.addEventListener('mouseleave', function() {
+                const h4 = this.querySelector('h4');
+                h4.style.transform = 'scale(1)';
+                h4.style.color = '';
+            });
+        });
+
+        // ============================================
+        // 22. INFO SIDE CARD LIVE PULSE ANIMATION
+        // ============================================
+        $$('.info-side-card .badge').forEach(badge => {
+            setInterval(() => {
+                badge.style.transform = 'scale(1.1)';
+                setTimeout(() => badge.style.transform = 'scale(1)', 300);
+            }, 3000 + Math.random() * 2000);
+            badge.style.transition = 'transform .3s ease';
+        });
+
+        // ============================================
+        // 23. PARTNER LOGOS ROTATION ANIMATION
+        // ============================================
+        $$('.partner-logo').forEach((logo, i) => {
+            logo.addEventListener('mouseenter', function() {
+                this.querySelector('i').style.transform = 'rotate(360deg) scale(1.2)';
+                this.querySelector('i').style.transition = 'transform .5s ease';
+            });
+            logo.addEventListener('mouseleave', function() {
+                this.querySelector('i').style.transform = 'rotate(0deg) scale(1)';
+            });
+        });
+
+        // ============================================
+        // 24. SECTION REVEAL ON SCROLL (EXTRA)
+        // ============================================
+        $$('.section-title').forEach(title => {
+            title.classList.add('fade-in');
+            scrollObserver.observe(title);
+        });
+
+        // ============================================
+        // 25. KEYBOARD SHORTCUTS
+        // ============================================
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+K = Focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                if (searchInput) {
+                    searchInput.focus();
+                    showToast('Pencarian', 'Ketik untuk mencari program...', 'info');
+                }
+            }
+            // D = Toggle dark mode
+            if (e.key === 'd' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
+                isDark = !isDark;
+                applyDarkMode(isDark);
+            }
+        });
+
+        console.log('%c🌿 Go Green School - Interactive Landing Page', 'color: #2e7d32; font-size: 16px; font-weight: bold;');
+        console.log('%cKeyboard shortcuts: Ctrl+K=Search | D=Dark Mode | ←→=Slider/Lightbox | Esc=Close', 'color: #66bb6a; font-size: 12px;');
+
+    })();
+    </script>
+
+</body>
+</html>
