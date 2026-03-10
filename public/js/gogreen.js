@@ -29,18 +29,17 @@
     // ============================================
     safeExecute(function () {
         window.addEventListener('load', function () {
-            setTimeout(function () {
-                try {
-                    const preloader = $('#preloader');
-                    if (preloader) {
-                        preloader.classList.add('hidden');
-                        setTimeout(function () { preloader.remove(); }, 600);
-                    }
-                    showToast('Selamat Datang!', 'Selamat datang di Go Green School', 'success');
-                } catch (e) {
-                    console.warn('[GoGreen] Preloader error:', e.message);
+            // Langsung sembunyikan preloader setelah halaman selesai dimuat
+            try {
+                const preloader = $('#preloader');
+                if (preloader) {
+                    preloader.classList.add('hidden');
+                    setTimeout(function () { preloader.remove(); }, 600);
                 }
-            }, 2200);
+                showToast('Selamat Datang!', 'Selamat datang di Go Green School', 'success');
+            } catch (e) {
+                console.warn('[GoGreen] Preloader error:', e.message);
+            }
         });
     }, 'Preloader');
 

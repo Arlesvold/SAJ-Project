@@ -193,7 +193,8 @@
                         <h2>Program Unggulan</h2>
                         <p>Program lingkungan yang dijalankan di sekolah kami</p>
                     </div>
-                    <a href="#" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('programs') }}" class="see-all">Lihat Semua <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="programs-tabs">
@@ -206,7 +207,8 @@
 
                 <div class="programs-grid">
                     @foreach ($programs as $program)
-                        <div class="program-card fade-in" data-category="{{ $program['category'] }}">
+                        <a href="{{ route('programs') }}" class="program-card fade-in"
+                            data-category="{{ $program['category'] }}" style="text-decoration:none; color:inherit;">
                             <div class="program-card-img" style="background-image: url('{{ $program['image'] }}')">
                                 <span class="tag">{{ $program['tag'] }}</span>
                             </div>
@@ -216,11 +218,10 @@
                                 <div class="program-card-footer">
                                     <span class="date"><i class="far fa-calendar"></i>
                                         {{ $program['date'] }}</span>
-                                    <a href="#" class="read-more">Selengkapnya <i
-                                            class="fas fa-arrow-right"></i></a>
+                                    <span class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></span>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
@@ -236,7 +237,8 @@
                         <h2>Status Lingkungan Sekolah</h2>
                         <p>Monitoring kondisi lingkungan terkini</p>
                     </div>
-                    <a href="#" class="see-all">Detail Lengkap <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('information') }}" class="see-all">Detail Lengkap <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="info-highlight-grid">
@@ -259,7 +261,8 @@
                                 <div class="lbl">Kualitas Udara</div>
                             </div>
                         </div>
-                        <a href="#" class="btn-primary" style="font-size:13px; padding:10px 22px;">
+                        <a href="{{ route('information') }}" class="btn-primary"
+                            style="font-size:13px; padding:10px 22px;">
                             <i class="fas fa-file-pdf"></i> Unduh Laporan Lengkap
                         </a>
                     </div>
@@ -294,7 +297,8 @@
                         <h2>Galeri Kegiatan</h2>
                         <p>Dokumentasi kegiatan lingkungan di sekolah</p>
                     </div>
-                    <a href="#" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('gallery') }}" class="see-all">Lihat Semua <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="gallery-grid">
@@ -325,7 +329,7 @@
 
                 <div class="quick-grid">
                     @foreach ($quickAccess as $item)
-                        <a href="#" class="quick-item fade-in">
+                        <a href="{{ route('information') }}" class="quick-item fade-in">
                             <div class="icon" style="background: {{ $item['gradient'] }};">
                                 <i class="{{ $item['icon'] }}"></i>
                             </div>
@@ -347,7 +351,7 @@
                         <h2>Berita Terbaru</h2>
                         <p>Berita dan kegiatan terkini dari Go Green School</p>
                     </div>
-                    <a href="#" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route('news') }}" class="see-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="news-tabs">
@@ -358,7 +362,8 @@
 
                 <div class="news-layout">
                     {{-- Featured News --}}
-                    <div class="news-featured fade-in">
+                    <a href="{{ route('news') }}" class="news-featured fade-in"
+                        style="display:block; text-decoration:none; color:inherit;">
                         <img src="{{ $news['featured']['image'] }}" alt="{{ $news['featured']['title'] }}"
                             loading="lazy">
                         <div class="content">
@@ -366,12 +371,12 @@
                             <h3>{{ $news['featured']['title'] }}</h3>
                             <p>{{ $news['featured']['desc'] }}</p>
                         </div>
-                    </div>
+                    </a>
 
                     {{-- News List --}}
                     <div class="news-list">
                         @foreach ($news['items'] as $item)
-                            <a href="#" class="news-item fade-in">
+                            <a href="{{ route('news') }}" class="news-item fade-in">
                                 <div class="news-item-img">
                                     <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
                                 </div>
@@ -450,22 +455,22 @@
                 <div>
                     <h4>Tautan Cepat</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#programs">Program Lingkungan</a></li>
-                        <li><a href="#gallery">Galeri Kegiatan</a></li>
-                        <li><a href="#news">Berita & Artikel</a></li>
-                        <li><a href="#contact">Tentang Kami</a></li>
+                        <li><a href="{{ route('home') }}">Beranda</a></li>
+                        <li><a href="{{ route('programs') }}">Program Lingkungan</a></li>
+                        <li><a href="{{ route('gallery') }}">Galeri Kegiatan</a></li>
+                        <li><a href="{{ route('news') }}">Berita & Artikel</a></li>
+                        <li><a href="{{ route('contact') }}">Tentang Kami</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4>Program</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Penghijauan Sekolah</a></li>
-                        <li><a href="#">Bank Sampah</a></li>
-                        <li><a href="#">Energi Terbarukan</a></li>
-                        <li><a href="#">Konservasi Air</a></li>
-                        <li><a href="#">Edukasi Lingkungan</a></li>
+                        <li><a href="{{ route('programs') }}">Penghijauan Sekolah</a></li>
+                        <li><a href="{{ route('programs') }}">Bank Sampah</a></li>
+                        <li><a href="{{ route('programs') }}">Energi Terbarukan</a></li>
+                        <li><a href="{{ route('programs') }}">Konservasi Air</a></li>
+                        <li><a href="{{ route('programs') }}">Edukasi Lingkungan</a></li>
                     </ul>
                 </div>
 
