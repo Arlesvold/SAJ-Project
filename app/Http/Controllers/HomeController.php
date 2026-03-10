@@ -14,10 +14,10 @@ class HomeController extends Controller
     {
         try {
             $data = $this->getSiteData();
-            return view('home', $data);
+            return view('beranda', $data);
         } catch (\Throwable $e) {
             report($e);
-            return view('home', $this->getDefaultData());
+            return view('beranda', $this->getDefaultData());
         }
     }
 
