@@ -31,4 +31,9 @@ class PageController extends Controller
     {
         return view('pages.contact');
     }
+
+    public function wasteCalculator(): View
+    {
+        return view('pages.waste-calculator');
+    }
 }

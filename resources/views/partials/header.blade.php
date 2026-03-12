@@ -25,6 +25,8 @@
                         class="{{ request()->routeIs('information') ? 'active' : '' }}">Informasi</a></li>
                 <li><a href="{{ route('contact') }}"
                         class="{{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a></li>
+                <li><a href="{{ route('waste-calculator') }}"
+                        class="{{ request()->routeIs('waste-calculator') ? 'active' : '' }}">Kalkulator Sampah</a></li>
             </ul>
         </nav>
 
