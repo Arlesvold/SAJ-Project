@@ -3,21 +3,41 @@
 @section('title', 'Informasi - Go Green School')
 
 @section('content')
-    <section class="hero" style="min-height: 350px; padding: 100px 0 60px; margin-top: 60px;">
-        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="hero-bg-shapes">
+    <section class="page-hero">
+        <div class="page-hero-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <div class="hero-content" style="position: relative; z-index: 2;">
-            <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: white; font-weight: 800; text-align: center;">
-                    Pusat Informasi & Laporan</h1>
-                <p
-                    style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.85); text-align: center;">
-                    Transparansi adalah kunci. Telusuri infografis, laporan status lingkungan sekolah, dan unduhan dokumen
-                    standar lingkungan kami.</p>
+        <div class="page-hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
+        <div class="page-hero-content">
+            <div class="container">
+                <div class="page-hero-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="page-hero-badge">
+                    <i class="fas fa-circle"></i> Transparansi & Laporan
+                </div>
+                <h1>Pusat <span class="highlight">Informasi</span> & Laporan</h1>
+                <div class="page-hero-decor-line"></div>
+                <p class="page-hero-desc">
+                    Transparansi adalah kunci. Telusuri infografis, laporan status lingkungan sekolah, dan unduhan dokumen standar lingkungan kami.
+                </p>
+                <div class="page-hero-breadcrumb">
+                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Informasi</span>
+                </div>
             </div>
         </div>
     </section>
@@ -33,7 +53,7 @@
 
             <div
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px;">
-                <div
+                <div class="info-dashboard-card"
                     style="background: #f9fcfa; padding: 30px; border-radius: 15px; border-top: 4px solid var(--primary); text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
                     <div style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"><i class="fas fa-wind"></i>
                     </div>
@@ -43,7 +63,7 @@
                         kegiatan luar ruangan anak-anak)</p>
                 </div>
 
-                <div
+                <div class="info-dashboard-card"
                     style="background: #f9fcfa; padding: 30px; border-radius: 15px; border-top: 4px solid var(--accent); text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
                     <div style="font-size: 3rem; color: var(--accent); margin-bottom: 15px;"><i class="fas fa-bolt"></i>
                     </div>
@@ -53,7 +73,7 @@
                         penggunaan bulan lalu)</p>
                 </div>
 
-                <div
+                <div class="info-dashboard-card"
                     style="background: #f9fcfa; padding: 30px; border-radius: 15px; border-top: 4px solid #3498db; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
                     <div style="font-size: 3rem; color: #3498db; margin-bottom: 15px;"><i class="fas fa-recycle"></i></div>
                     <h3 style="font-size: 1.2rem; color: var(--dark); margin-bottom: 10px;">Daur Ulang Sampah</h3>
@@ -64,7 +84,7 @@
                 </div>
             </div>
 
-            <div
+            <div class="info-report-card"
                 style="background: #f4f6f5; padding: 40px; border-radius: 15px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; justify-content: space-between;">
                 <div style="flex: 1 1 300px;">
                     <h3 style="color: var(--dark); font-size: 1.5rem; margin-bottom: 15px;">Laporan Tahunan Lingkungan
@@ -84,7 +104,7 @@
                     Seputar Lingkungan Sekolah (FAQ)</h3>
                 <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
 
-                    <div style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
+                    <div class="faq-card" style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
                         <h4 style="margin-bottom: 10px; color: var(--primary);">Apakah kantin benar-benar tidak menyediakan
                             plastik?</h4>
                         <p style="color: var(--gray); font-size: 0.95rem; margin:0;">Benar. Kami bekerja sama dengan vendor
@@ -92,7 +112,7 @@
                             Jajanan dibungkus menggunakan daun pisang atau kertas food-grade yang bio-degradable.</p>
                     </div>
 
-                    <div style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
+                    <div class="faq-card" style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
                         <h4 style="margin-bottom: 10px; color: var(--primary);">Bagaimana sistem poin Bank Sampah bekerja?
                         </h4>
                         <p style="color: var(--gray); font-size: 0.95rem; margin:0;">Setiap 1 kg sampah anorganik terpilah
@@ -100,7 +120,7 @@
                             ditukarkan dengan alat tulis atau diskon buku di koperasi sekolah.</p>
                     </div>
 
-                    <div style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
+                    <div class="faq-card" style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
                         <h4 style="margin-bottom: 10px; color: var(--primary);">Apakah orang tua dijinkan ikut serta?</h4>
                         <p style="color: var(--gray); font-size: 0.95rem; margin:0;">Tentu sangat dianjurkan! Kami memiliki
                             Komite Hijau Orang Tua yang pertemuannya diadakan sebulan sekali untuk menyukseskan

@@ -3,21 +3,41 @@
 @section('title', 'Berita & Artikel - Go Green School')
 
 @section('content')
-    <section class="hero" style="min-height: 350px; padding: 100px 0 60px; margin-top: 60px;">
-        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="hero-bg-shapes">
+    <section class="page-hero">
+        <div class="page-hero-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <div class="hero-content" style="position: relative; z-index: 2;">
-            <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: white; font-weight: 800; text-align: center;">
-                    Berita & Artikel Lingkungan</h1>
-                <p
-                    style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.85); text-align: center;">
-                    Dapatkan pembaruan terbaru seputar kegiatan, prestasi, serta artikel edukatif mengenai pelestarian
-                    lingkungan di sekolah kami.</p>
+        <div class="page-hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
+        <div class="page-hero-content">
+            <div class="container">
+                <div class="page-hero-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <div class="page-hero-badge">
+                    <i class="fas fa-circle"></i> Update Terbaru
+                </div>
+                <h1>Berita & <span class="highlight">Artikel</span> Lingkungan</h1>
+                <div class="page-hero-decor-line"></div>
+                <p class="page-hero-desc">
+                    Dapatkan pembaruan terbaru seputar kegiatan, prestasi, serta artikel edukatif mengenai pelestarian lingkungan di sekolah kami.
+                </p>
+                <div class="page-hero-breadcrumb">
+                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Berita</span>
+                </div>
             </div>
         </div>
     </section>
@@ -32,7 +52,7 @@
 
                     {{-- Featured Big News --}}
                     <div class="news-card big-news"
-                        style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px; transition: transform 0.3s;">
+                        style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px;">
                         <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
                             alt="Penghargaan" style="width: 100%; height: 350px; object-fit: cover;">
                         <div style="padding: 30px;">
@@ -124,7 +144,7 @@
                 <div class="sidebar-column" style="flex: 1 1 30%; max-width: 350px;">
 
                     {{-- Search --}}
-                    <div
+                    <div class="news-sidebar-card"
                         style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 30px;">
                         <h4 style="margin-bottom: 15px; border-left: 3px solid var(--primary); padding-left: 10px;">Cari
                             Berita</h4>
@@ -138,7 +158,7 @@
                     </div>
 
                     {{-- Categories --}}
-                    <div
+                    <div class="news-sidebar-card"
                         style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 30px;">
                         <h4 style="margin-bottom: 15px; border-left: 3px solid var(--primary); padding-left: 10px;">Kategori
                             Berita</h4>
@@ -167,7 +187,7 @@
                     </div>
 
                     {{-- Popular Tags --}}
-                    <div
+                    <div class="news-sidebar-card"
                         style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.03);">
                         <h4 style="margin-bottom: 15px; border-left: 3px solid var(--primary); padding-left: 10px;">Tag
                             Populer</h4>

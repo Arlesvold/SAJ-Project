@@ -3,21 +3,41 @@
 @section('title', 'Galeri Kegiatan - Go Green School')
 
 @section('content')
-    <section class="hero" style="min-height: 350px; padding: 100px 0 60px; margin-top: 60px;">
-        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="hero-bg-shapes">
+    <section class="page-hero">
+        <div class="page-hero-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <div class="hero-content" style="position: relative; z-index: 2;">
-            <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: white; font-weight: 800; text-align: center;">
-                    Galeri Kegiatan Lingkungan</h1>
-                <p
-                    style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.85); text-align: center;">
-                    Dokumentasi berbagai aktivitas dan program lingkungan sehat yang telah dijalankan warga sekolah dalam
-                    mewujudkan sekolah hijau.</p>
+        <div class="page-hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
+        <div class="page-hero-content">
+            <div class="container">
+                <div class="page-hero-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <div class="page-hero-badge">
+                    <i class="fas fa-circle"></i> Dokumentasi Kegiatan
+                </div>
+                <h1>Galeri <span class="highlight">Kegiatan</span> Lingkungan</h1>
+                <div class="page-hero-decor-line"></div>
+                <p class="page-hero-desc">
+                    Dokumentasi berbagai aktivitas dan program lingkungan sehat yang telah dijalankan warga sekolah dalam mewujudkan sekolah hijau.
+                </p>
+                <div class="page-hero-breadcrumb">
+                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Galeri</span>
+                </div>
             </div>
         </div>
     </section>

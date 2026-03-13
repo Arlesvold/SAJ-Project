@@ -662,7 +662,124 @@
     }, 'DarkMode');
 
     // ============================================
-    // 14. TOAST NOTIFICATION SYSTEM
+    // 14. LANGUAGE TOGGLE (ID/EN)
+    // ============================================
+    safeExecute(function () {
+        var langToggle = $('#langToggle');
+        if (!langToggle) return;
+
+        var langText = langToggle.querySelector('.lang-toggle-text');
+        var preferredLang = 'id';
+
+        try {
+            preferredLang = localStorage.getItem('preferredLanguage') || 'id';
+        } catch (e) {
+            preferredLang = 'id';
+        }
+
+        function updateToggleUI(lang) {
+            var isEnglish = lang === 'en';
+            langToggle.classList.toggle('active-en', isEnglish);
+            if (langText) langText.textContent = isEnglish ? 'EN' : 'ID';
+            langToggle.title = isEnglish ? 'Switch to Indonesian' : 'Ganti ke Bahasa Inggris';
+            document.documentElement.lang = isEnglish ? 'en' : 'id';
+        }
+
+        function setGoogleTranslateCookie(lang) {
+            var value = '/id/' + lang;
+            document.cookie = 'googtrans=' + value + ';path=/';
+            document.cookie = 'googtrans=' + value + ';path=/;domain=' + window.location.hostname;
+        }
+
+        function applyGoogleLanguage(lang) {
+            var combo = document.querySelector('.goog-te-combo');
+            if (!combo) return false;
+            combo.value = lang;
+            combo.dispatchEvent(new Event('change'));
+            return true;
+        }
+
+        function applyLanguage(lang, silentToast) {
+            var targetLang = lang === 'en' ? 'en' : 'id';
+            updateToggleUI(targetLang);
+            setGoogleTranslateCookie(targetLang);
+
+            try {
+                localStorage.setItem('preferredLanguage', targetLang);
+            } catch (e) {
+                // localStorage unavailable
+            }
+
+            var applied = applyGoogleLanguage(targetLang);
+            if (!silentToast) {
+                if (applied) {
+                    showToast(
+                        targetLang === 'en' ? 'Language Switched' : 'Bahasa Diubah',
+                        targetLang === 'en' ? 'Page is now in English' : 'Halaman sekarang menggunakan Bahasa Indonesia',
+                        'info'
+                    );
+                } else {
+                    showToast(
+                        targetLang === 'en' ? 'Preparing English' : 'Menyiapkan Bahasa Indonesia',
+                        targetLang === 'en' ? 'Translation engine is loading...' : 'Mesin penerjemah sedang dimuat...',
+                        'info'
+                    );
+                }
+            }
+        }
+
+        function initGoogleTranslate() {
+            if (!window.google || !window.google.translate || !window.google.translate.TranslateElement) return;
+            if (window._goGreenTranslateInitialized) return;
+
+            new window.google.translate.TranslateElement({
+                pageLanguage: 'id',
+                includedLanguages: 'id,en',
+                autoDisplay: false,
+                layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            window._goGreenTranslateInitialized = true;
+            setTimeout(function () {
+                applyLanguage(preferredLang, true);
+            }, 450);
+        }
+
+        function loadGoogleTranslateScript() {
+            if (window._goGreenTranslateScriptLoading) return;
+            if (window.google && window.google.translate) {
+                initGoogleTranslate();
+                return;
+            }
+
+            window._goGreenTranslateScriptLoading = true;
+            window.googTranslateElementInit = function () {
+                initGoogleTranslate();
+            };
+
+            var script = document.createElement('script');
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googTranslateElementInit';
+            script.async = true;
+            script.onerror = function () {
+                window._goGreenTranslateScriptLoading = false;
+                showToast('Terjemahan Gagal', 'Koneksi ke layanan terjemahan tidak tersedia', 'warning');
+            };
+            document.body.appendChild(script);
+        }
+
+        updateToggleUI(preferredLang);
+        setGoogleTranslateCookie(preferredLang);
+        loadGoogleTranslateScript();
+
+        langToggle.addEventListener('click', function () {
+            var current = (langText && langText.textContent === 'EN') ? 'en' : 'id';
+            var nextLang = current === 'id' ? 'en' : 'id';
+            applyLanguage(nextLang, false);
+        });
+    }, 'LanguageToggle');
+
+    // ============================================
+    // 15. TOAST NOTIFICATION SYSTEM
     // ============================================
     var toastContainer = null;
     safeExecute(function () {

@@ -32,6 +32,13 @@
         <i class="fas fa-moon"></i>
     </button>
 
+    {{-- Language Toggle --}}
+    <button class="lang-toggle" id="langToggle" title="Ganti Bahasa" aria-label="Toggle language">
+        <i class="fas fa-language"></i>
+        <span class="lang-toggle-text">ID</span>
+    </button>
+    <div id="google_translate_element" class="google-translate-element" aria-hidden="true"></div>
+
     {{-- Top Bar --}}
     @include('partials.topbar')
 

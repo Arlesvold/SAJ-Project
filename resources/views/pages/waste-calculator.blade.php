@@ -498,20 +498,41 @@
 
 @section('content')
     {{-- Hero Section --}}
-    <section class="hero" style="min-height: 350px; padding: 100px 0 60px; margin-top: 60px;">
-        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="hero-bg-shapes">
+    <section class="page-hero">
+        <div class="page-hero-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <div class="hero-content" style="position: relative; z-index: 2;">
-            <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: white; font-weight: 800; text-align: center;">
-                    Kalkulator Sampah Kelas</h1>
-                <p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.85); text-align: center;">
-                    Hitung dan analisis jumlah sampah di kelasmu. Pantau komposisi sampah organik, anorganik, dan plastik
-                    untuk lingkungan sekolah yang lebih bersih.</p>
+        <div class="page-hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
+        <div class="page-hero-content">
+            <div class="container">
+                <div class="page-hero-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <div class="page-hero-badge">
+                    <i class="fas fa-circle"></i> Analisis Sampah
+                </div>
+                <h1>Kalkulator <span class="highlight">Sampah</span> Kelas</h1>
+                <div class="page-hero-decor-line"></div>
+                <p class="page-hero-desc">
+                    Hitung dan analisis jumlah sampah di kelasmu. Pantau komposisi sampah organik, anorganik, dan plastik untuk lingkungan sekolah yang lebih bersih.
+                </p>
+                <div class="page-hero-breadcrumb">
+                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Kalkulator Sampah</span>
+                </div>
             </div>
         </div>
     </section>

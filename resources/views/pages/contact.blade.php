@@ -3,21 +3,41 @@
 @section('title', 'Kontak - Go Green School')
 
 @section('content')
-    <section class="hero" style="min-height: 350px; padding: 100px 0 60px; margin-top: 60px;">
-        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="hero-bg-shapes">
+    <section class="page-hero">
+        <div class="page-hero-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <div class="hero-content" style="position: relative; z-index: 2;">
-            <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: white; font-weight: 800; text-align: center;">
-                    Hubungi Kami</h1>
-                <p
-                    style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; line-height: 1.6; color: rgba(255,255,255,0.85); text-align: center;">
-                    Punya pertanyaan, ide kolaborasi, atau butuh informasi pendaftaran? Jangan ragu untuk menghubungi tim Go
-                    Green School.</p>
+        <div class="page-hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
+        <div class="page-hero-content">
+            <div class="container">
+                <div class="page-hero-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="page-hero-badge">
+                    <i class="fas fa-circle"></i> Go Green School
+                </div>
+                <h1><span class="highlight">Hubungi</span> Kami</h1>
+                <div class="page-hero-decor-line"></div>
+                <p class="page-hero-desc">
+                    Punya pertanyaan, ide kolaborasi, atau butuh informasi pendaftaran? Jangan ragu untuk menghubungi tim Go Green School.
+                </p>
+                <div class="page-hero-breadcrumb">
+                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current">Hubungi Kami</span>
+                </div>
             </div>
         </div>
     </section>
@@ -28,7 +48,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 50px;">
 
                 {{-- Contact Info --}}
-                <div style="flex: 1 1 40%;">
+                <div class="contact-info-card" style="flex: 1 1 40%;">
                     <h2 style="font-size: 2rem; color: var(--dark); margin-bottom: 20px;">Informasi Kontak</h2>
                     <p style="color: var(--gray); line-height: 1.6; margin-bottom: 40px;">Kami senang mendengar dari Anda!
                         Silakan kunjung sekolah kami di jam kerja atau hubungi kami melalui kanal di bawah ini.</p>
@@ -88,7 +108,7 @@
                 </div>
 
                 {{-- Contact Form --}}
-                <div
+                <div class="contact-form-card"
                     style="flex: 1 1 50%; background: #f9fcfa; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <h3 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 25px;">Kirim Pesan Langsung</h3>
                     <form action="#" method="POST">

@@ -40,6 +40,13 @@
         <i class="fas fa-moon"></i>
     </button>
 
+    {{-- Language Toggle --}}
+    <button class="lang-toggle" id="langToggle" title="Ganti Bahasa" aria-label="Toggle language">
+        <i class="fas fa-language"></i>
+        <span class="lang-toggle-text">ID</span>
+    </button>
+    <div id="google_translate_element" class="google-translate-element" aria-hidden="true"></div>
+
     {{-- Top Bar --}}
     {{-- Top Bar --}}
     <div class="top-bar">
@@ -165,6 +172,41 @@
                 @endforeach
             </div>
             <div class="swipe-hint"><i class="fas fa-hand-point-up"></i> Geser untuk slide berikutnya</div>
+        </section>
+
+        {{-- Description / Tentang Section --}}
+        <section class="about-section" style="padding: 80px 0; background: #ffffff;">
+            <div class="container">
+                <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 50px;">
+                    <div class="about-content fade-in" style="flex: 1; min-width: 300px;">
+                        <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                            <h2 style="margin-bottom: 10px;">Tentang Go Green School</h2>
+                            <div style="width: 80px; height: 4px; background: var(--primary-color, #2e7d32); border-radius: 2px;"></div>
+                        </div>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+                            <strong>Go Green School</strong> adalah inisiatif pendidikan berkelanjutan yang didedikasikan untuk menanamkan kesadaran lingkungan pada generasi muda. Kami percaya bahwa sekolah bukan hanya tempat belajar akademis, tetapi juga laboratorium hidup untuk mempraktikkan gaya hidup ramah lingkungan.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px;">
+                            Melalui berbagai program terpadu seperti pengelolaan sampah, efisiensi energi, dan pelestarian ruang terbuka hijau, kami mengajak seluruh warga sekolah untuk mengambil peran aktif dalam menjaga kelestarian bumi demi masa depan yang lebih baik.
+                        </p>
+                        <a href="{{ route('information') }}" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-info-circle"></i> Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                    <div class="about-visual fade-in" style="flex: 1; min-width: 300px;">
+                        <div class="hover-lift" style="background: linear-gradient(145deg, #f1f8e9, #e8f5e9); padding: 40px; border-radius: 20px; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(46,125,50,0.1);">
+                            <i class="fas fa-globe-asia" style="font-size: 5rem; color: var(--primary-color, #2e7d32); margin-bottom: 20px;"></i>
+                            <h3 style="font-size: 1.5rem; color: #333; margin-bottom: 15px;">Visi Hijau Kami</h3>
+                            <p style="color: #666; line-height: 1.6; position: relative; z-index: 2;">
+                                Menciptakan ekosistem pendidikan yang harmonis dengan alam, mencetak pemimpin masa depan yang proaktif, peduli, dan bertanggung jawab terhadap lingkungan sekitarnya.
+                            </p>
+                            <!-- Decorative Elements -->
+                            <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(129,199,132,0.3); border-radius: 50%; filter: blur(20px);"></div>
+                            <div style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; background: rgba(46,125,50,0.2); border-radius: 50%; filter: blur(20px);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
