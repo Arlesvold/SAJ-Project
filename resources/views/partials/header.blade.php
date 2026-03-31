@@ -2,9 +2,7 @@
 <header class="header">
     <div class="container">
         <a href="{{ route('home') }}" class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-leaf"></i>
-            </div>
+            <img src="{{ asset('images/logo.png') }}" class="navbar-logo" alt="Logo Go Green School">
             <div class="logo-text">
                 <h1>Go Green School</h1>
                 <span>Sekolah Hijau untuk Masa Depan</span>
@@ -23,6 +21,8 @@
                 </li>
                 <li><a href="{{ route('information') }}"
                         class="{{ request()->routeIs('information') ? 'active' : '' }}">Informasi</a></li>
+                <li><a href="{{ route('procedure') }}"
+                        class="{{ request()->routeIs('procedure') ? 'active' : '' }}">Prosedur</a></li>
                 <li><a href="{{ route('contact') }}"
                         class="{{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a></li>
                 <li><a href="{{ route('waste-calculator') }}"
@@ -31,10 +31,6 @@
         </nav>
 
         <div class="nav-right">
-            <div class="search-box">
-                <input type="text" placeholder="Cari informasi..." aria-label="Search">
-                <i class="fas fa-search"></i>
-            </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>

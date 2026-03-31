@@ -31,7 +31,8 @@
                 <h1><span class="highlight">Hubungi</span> Kami</h1>
                 <div class="page-hero-decor-line"></div>
                 <p class="page-hero-desc">
-                    Punya pertanyaan, ide kolaborasi, atau butuh informasi pendaftaran? Jangan ragu untuk menghubungi tim Go Green School.
+                    Punya pertanyaan, ide kolaborasi, atau butuh informasi pendaftaran? Jangan ragu untuk menghubungi tim Go
+                    Green School.
                 </p>
                 <div class="page-hero-breadcrumb">
                     <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
@@ -48,7 +49,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 50px;">
 
                 {{-- Contact Info --}}
-                <div class="contact-info-card" style="flex: 1 1 40%;">
+                <div class="contact-info-card hover-lift" style="flex: 1 1 40%;">
                     <h2 style="font-size: 2rem; color: var(--dark); margin-bottom: 20px;">Informasi Kontak</h2>
                     <p style="color: var(--gray); line-height: 1.6; margin-bottom: 40px;">Kami senang mendengar dari Anda!
                         Silakan kunjung sekolah kami di jam kerja atau hubungi kami melalui kanal di bawah ini.</p>
@@ -108,7 +109,7 @@
                 </div>
 
                 {{-- Contact Form --}}
-                <div class="contact-form-card"
+                <div class="contact-form-card hover-lift"
                     style="flex: 1 1 50%; background: #f9fcfa; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
                     <h3 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 25px;">Kirim Pesan Langsung</h3>
                     <form action="#" method="POST">

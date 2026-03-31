@@ -36,4 +36,9 @@ class PageController extends Controller
     {
         return view('pages.waste-calculator');
     }
+
+    public function procedure(): View
+    {
+        return view('pages.procedure');
+    }
 }

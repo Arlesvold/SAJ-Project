@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -57,9 +56,9 @@ class HomeController extends Controller
         return [
             [
                 'badge'   => ['icon' => 'fas fa-seedling', 'text' => 'Go Green School 2026'],
-                'title'   => 'Membangun Generasi',
-                'accent'  => 'Peduli Lingkungan',
-                'desc'    => 'Program sekolah hijau yang mengintegrasikan pendidikan lingkungan ke dalam kurikulum sekolah untuk menciptakan generasi yang bertanggung jawab terhadap kelestarian bumi.',
+                'title'   => 'Membentuk Generasi',
+                'accent'  => 'Berkarakter Hijau',
+                'desc'    => 'Kami menghadirkan pengalaman belajar yang menggabungkan ilmu, aksi nyata, dan kebiasaan ramah lingkungan agar siswa tumbuh sebagai agen perubahan untuk masa depan bumi.',
                 'buttons' => [
                     ['href' => '#programs', 'class' => 'btn-primary', 'icon' => 'fas fa-play-circle', 'text' => 'Lihat Program'],
                     ['href' => '#', 'class' => 'btn-outline', 'icon' => 'fas fa-file-alt', 'text' => 'Unduh Panduan'],
@@ -77,9 +76,9 @@ class HomeController extends Controller
             ],
             [
                 'badge'   => ['icon' => 'fas fa-award', 'text' => 'Penghargaan Adiwiyata'],
-                'title'   => 'Raih Penghargaan',
-                'accent'  => 'Adiwiyata Mandiri 2026',
-                'desc'    => 'Sekolah kami berhasil meraih penghargaan tertinggi Adiwiyata Mandiri dari Kementerian Lingkungan Hidup dan Kehutanan atas komitmen dalam pengelolaan lingkungan sekolah.',
+                'title'   => 'Komitmen Nyata',
+                'accent'  => 'Sekolah Berkelanjutan',
+                'desc'    => 'Setiap program dirancang untuk membangun budaya sekolah yang bersih, sehat, dan berkelanjutan melalui kolaborasi siswa, guru, dan orang tua.',
                 'buttons' => [
                     ['href' => '#', 'class' => 'btn-primary', 'icon' => 'fas fa-trophy', 'text' => 'Lihat Prestasi'],
                     ['href' => '#', 'class' => 'btn-outline', 'icon' => 'fas fa-images', 'text' => 'Dokumentasi'],
@@ -97,9 +96,9 @@ class HomeController extends Controller
             ],
             [
                 'badge'   => ['icon' => 'fas fa-recycle', 'text' => 'Zero Waste Campaign'],
-                'title'   => 'Menuju Sekolah',
-                'accent'  => 'Tanpa Sampah',
-                'desc'    => 'Kampanye pengurangan sampah plastik dan penerapan prinsip 3R (Reduce, Reuse, Recycle) di seluruh lingkungan sekolah demi masa depan bumi yang lebih bersih.',
+                'title'   => 'Gerakan Bersama',
+                'accent'  => 'Bumi Lebih Lestari',
+                'desc'    => 'Dari ruang kelas hingga lingkungan sekitar, kami menumbuhkan kebiasaan 3R secara konsisten untuk menciptakan dampak positif yang berkelanjutan.',
                 'buttons' => [
                     ['href' => '#', 'class' => 'btn-primary', 'icon' => 'fas fa-hands-helping', 'text' => 'Ikut Berpartisipasi'],
                     ['href' => '#', 'class' => 'btn-outline', 'icon' => 'fas fa-info-circle', 'text' => 'Pelajari Lebih'],

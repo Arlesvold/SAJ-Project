@@ -8,6 +8,8 @@
         content="Go Green School - Sekolah Hijau untuk Masa Depan. Program pendidikan lingkungan untuk generasi peduli bumi.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Go Green School - Sekolah Hijau untuk Masa Depan')</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -70,9 +72,7 @@
     <header class="header">
         <div class="container">
             <a href="{{ route('home') }}" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
+                <img src="{{ asset('images/logo.png') }}" class="navbar-logo" alt="Logo Go Green School">
                 <div class="logo-text">
                     <h1>Go Green School</h1>
                     <span>Sekolah Hijau untuk Masa Depan</span>
@@ -87,16 +87,13 @@
                     <li><a href="{{ route('gallery') }}">Galeri</a></li>
                     <li><a href="{{ route('news') }}">Berita</a></li>
                     <li><a href="{{ route('information') }}">Informasi</a></li>
+                    <li><a href="{{ route('procedure') }}">Prosedur</a></li>
                     <li><a href="{{ route('contact') }}">Kontak</a></li>
                     <li><a href="{{ route('waste-calculator') }}">Kalkulator Sampah</a></li>
                 </ul>
             </nav>
 
             <div class="nav-right">
-                <div class="search-box">
-                    <input type="text" placeholder="Cari informasi..." aria-label="Search">
-                    <i class="fas fa-search"></i>
-                </div>
                 <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -114,6 +111,13 @@
 
         {{-- Hero Section --}}
         {{-- Hero Section --}}
+        @php
+            $heroImages = [
+                'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80',
+                'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=80',
+                'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1800&q=80',
+            ];
+        @endphp
         <section class="hero">
             <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
             <div class="hero-bg-shapes">
@@ -124,40 +128,13 @@
 
             <div class="hero-slider">
                 @foreach ($slides as $index => $slide)
-                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}">
+                    <div class="hero-slide {{ $index === 0 ? 'active' : '' }}"
+                        style="background-image: url('{{ $heroImages[$index % count($heroImages)] }}');">
                         <div class="hero-content">
                             <div class="container">
                                 <div class="hero-left">
-                                    <div class="hero-badge">
-                                        <i class="{{ $slide['badge']['icon'] }}"></i>&nbsp;
-                                        {{ $slide['badge']['text'] }}
-                                    </div>
                                     <h2>{{ $slide['title'] }} <span>{{ $slide['accent'] }}</span></h2>
                                     <p>{{ $slide['desc'] }}</p>
-                                    <div class="hero-buttons">
-                                        @foreach ($slide['buttons'] as $btn)
-                                            <a href="{{ $btn['href'] }}" class="{{ $btn['class'] }}">
-                                                <i class="{{ $btn['icon'] }}"></i> {{ $btn['text'] }}
-                                            </a>
-                                        @endforeach
-                                    </div>
-                                </div>
-                                <div class="hero-right">
-                                    <div class="hero-card">
-                                        <h3><i class="{{ $slide['card']['icon'] }}"></i> {{ $slide['card']['title'] }}
-                                        </h3>
-                                        @foreach ($slide['card']['stats'] as $stat)
-                                            <div class="eco-stat">
-                                                <div class="eco-stat-icon" style="background:{{ $stat['color'] }}">
-                                                    <i class="{{ $stat['icon'] }}"></i>
-                                                </div>
-                                                <div class="eco-stat-info">
-                                                    <h4>{{ $stat['value'] }}</h4>
-                                                    <span>{{ $stat['label'] }}</span>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,28 +158,43 @@
                     <div class="about-content fade-in" style="flex: 1; min-width: 300px;">
                         <div class="section-title" style="text-align: left; margin-bottom: 20px;">
                             <h2 style="margin-bottom: 10px;">Tentang Go Green School</h2>
-                            <div style="width: 80px; height: 4px; background: var(--primary-color, #2e7d32); border-radius: 2px;"></div>
+                            <div
+                                style="width: 80px; height: 4px; background: var(--primary-color, #2e7d32); border-radius: 2px;">
+                            </div>
                         </div>
                         <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
-                            <strong>Go Green School</strong> adalah inisiatif pendidikan berkelanjutan yang didedikasikan untuk menanamkan kesadaran lingkungan pada generasi muda. Kami percaya bahwa sekolah bukan hanya tempat belajar akademis, tetapi juga laboratorium hidup untuk mempraktikkan gaya hidup ramah lingkungan.
+                            <strong>Go Green School</strong> adalah inisiatif pendidikan berkelanjutan yang
+                            didedikasikan untuk menanamkan kesadaran lingkungan pada generasi muda. Kami percaya bahwa
+                            sekolah bukan hanya tempat belajar akademis, tetapi juga laboratorium hidup untuk
+                            mempraktikkan gaya hidup ramah lingkungan.
                         </p>
                         <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px;">
-                            Melalui berbagai program terpadu seperti pengelolaan sampah, efisiensi energi, dan pelestarian ruang terbuka hijau, kami mengajak seluruh warga sekolah untuk mengambil peran aktif dalam menjaga kelestarian bumi demi masa depan yang lebih baik.
+                            Melalui berbagai program terpadu seperti pengelolaan sampah, efisiensi energi, dan
+                            pelestarian ruang terbuka hijau, kami mengajak seluruh warga sekolah untuk mengambil peran
+                            aktif dalam menjaga kelestarian bumi demi masa depan yang lebih baik.
                         </p>
-                        <a href="{{ route('information') }}" class="btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <a href="{{ route('information') }}" class="btn-primary"
+                            style="display: inline-flex; align-items: center; gap: 8px;">
                             <i class="fas fa-info-circle"></i> Pelajari Lebih Lanjut
                         </a>
                     </div>
                     <div class="about-visual fade-in" style="flex: 1; min-width: 300px;">
-                        <div class="hover-lift" style="background: linear-gradient(145deg, #f1f8e9, #e8f5e9); padding: 40px; border-radius: 20px; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(46,125,50,0.1);">
-                            <i class="fas fa-globe-asia" style="font-size: 5rem; color: var(--primary-color, #2e7d32); margin-bottom: 20px;"></i>
+                        <div class="hover-lift"
+                            style="background: linear-gradient(145deg, #f1f8e9, #e8f5e9); padding: 40px; border-radius: 20px; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(46,125,50,0.1);">
+                            <i class="fas fa-globe-asia"
+                                style="font-size: 5rem; color: var(--primary-color, #2e7d32); margin-bottom: 20px;"></i>
                             <h3 style="font-size: 1.5rem; color: #333; margin-bottom: 15px;">Visi Hijau Kami</h3>
                             <p style="color: #666; line-height: 1.6; position: relative; z-index: 2;">
-                                Menciptakan ekosistem pendidikan yang harmonis dengan alam, mencetak pemimpin masa depan yang proaktif, peduli, dan bertanggung jawab terhadap lingkungan sekitarnya.
+                                Menciptakan ekosistem pendidikan yang harmonis dengan alam, mencetak pemimpin masa depan
+                                yang proaktif, peduli, dan bertanggung jawab terhadap lingkungan sekitarnya.
                             </p>
                             <!-- Decorative Elements -->
-                            <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(129,199,132,0.3); border-radius: 50%; filter: blur(20px);"></div>
-                            <div style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; background: rgba(46,125,50,0.2); border-radius: 50%; filter: blur(20px);"></div>
+                            <div
+                                style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: rgba(129,199,132,0.3); border-radius: 50%; filter: blur(20px);">
+                            </div>
+                            <div
+                                style="position: absolute; bottom: -30px; left: -30px; width: 120px; height: 120px; background: rgba(46,125,50,0.2); border-radius: 50%; filter: blur(20px);">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -250,7 +242,7 @@
 
                 <div class="programs-grid">
                     @foreach ($programs as $program)
-                        <a href="{{ route('programs') }}" class="program-card fade-in"
+                        <a href="{{ route('programs') }}" class="program-card hover-lift fade-in"
                             data-category="{{ $program['category'] }}" style="text-decoration:none; color:inherit;">
                             <div class="program-card-img" style="background-image: url('{{ $program['image'] }}')">
                                 <span class="tag">{{ $program['tag'] }}</span>

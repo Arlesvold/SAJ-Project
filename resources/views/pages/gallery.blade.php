@@ -2,6 +2,208 @@
 
 @section('title', 'Galeri Kegiatan - Go Green School')
 
+@push('styles')
+    <style>
+        /* ===== GALLERY PAGE STYLES ===== */
+        .gallery-page-section {
+            padding: 80px 0;
+            background: #fbfdfb;
+        }
+
+        /* Filter Buttons */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border: 2px solid #e8f5e9;
+            background: #fff;
+            color: #555;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color, #2e7d32);
+            color: #fff;
+            border-color: var(--primary-color, #2e7d32);
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        /* Gallery Item */
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            background: #eee;
+            /* The hover-lift class from global css will handle the lift effect */
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.08);
+        }
+
+        /* Overlay */
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 92, 42, 0.9) 0%, rgba(26, 92, 42, 0.3) 60%, transparent 100%);
+            opacity: 1;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            z-index: 1;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            background: linear-gradient(to top, rgba(26, 92, 42, 0.9) 0%, rgba(26, 92, 42, 0.5) 100%);
+        }
+
+        /* Zoom Icon */
+        .gallery-overlay-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            color: #fff;
+            font-size: 2.5rem;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover .gallery-overlay-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Category Badge */
+        .gallery-cat {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.4s ease;
+        }
+
+        /* Title */
+        .gallery-title {
+            color: #fff;
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.4s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.4;
+        }
+
+        .gallery-item:hover .gallery-cat,
+        .gallery-item:hover .gallery-title {
+            transform: translateY(-5px);
+        }
+
+        /* Load More Button */
+        .load-more-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .btn-load-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border-radius: 30px;
+            background: #fff;
+            color: var(--primary-color, #2e7d32);
+            border: 2px solid var(--primary-color, #2e7d32);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-load-more:hover {
+            background: var(--primary-color, #2e7d32);
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .gallery-page-section {
+                padding: 60px 0;
+            }
+
+            .gallery-filters {
+                gap: 8px;
+                margin-bottom: 35px;
+            }
+
+            .filter-btn {
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-overlay {
+                padding: 20px;
+            }
+
+            .gallery-title {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+@endpush
+
 @section('content')
     <section class="page-hero">
         <div class="page-hero-shapes">
@@ -31,7 +233,8 @@
                 <h1>Galeri <span class="highlight">Kegiatan</span> Lingkungan</h1>
                 <div class="page-hero-decor-line"></div>
                 <p class="page-hero-desc">
-                    Dokumentasi berbagai aktivitas dan program lingkungan sehat yang telah dijalankan warga sekolah dalam mewujudkan sekolah hijau.
+                    Dokumentasi berbagai aktivitas dan program lingkungan sehat yang telah dijalankan warga sekolah dalam
+                    mewujudkan sekolah hijau.
                 </p>
                 <div class="page-hero-breadcrumb">
                     <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
@@ -42,20 +245,18 @@
         </div>
     </section>
 
-    <section class="gallery-page-section" style="padding: 60px 0; background: #fff;">
+    <section class="gallery-page-section">
         <div class="container">
 
-            <div class="gallery-filters"
-                style="display:flex; justify-content:center; gap:10px; margin-bottom: 40px; flex-wrap: wrap;">
-                <button class="btn-primary" style="border-radius:30px;">Semua</button>
-                <button class="btn-outline" style="border-radius:30px;">Penanaman Pohon</button>
-                <button class="btn-outline" style="border-radius:30px;">Daur Ulang</button>
-                <button class="btn-outline" style="border-radius:30px;">Edukasi</button>
-                <button class="btn-outline" style="border-radius:30px;">Kebersihan</button>
+            <div class="gallery-filters fade-in">
+                <button class="filter-btn active">Semua</button>
+                <button class="filter-btn">Penanaman Pohon</button>
+                <button class="filter-btn">Daur Ulang</button>
+                <button class="filter-btn">Edukasi</button>
+                <button class="filter-btn">Kebersihan</button>
             </div>
 
-            <div class="gallery-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div class="gallery-grid">
 
                 {{-- Gallery Items --}}
                 @php
@@ -104,7 +305,7 @@
                         ],
                         [
                             'img' =>
-                                'https://images.unsplash.com/photo-1418065460487-3e41a6c8e1e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                                'https://images.unsplash.com/photo-1536147116438-62679a5e01f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                             'title' => 'Eksplorasi Keanekaragaman Hayati',
                             'cat' => 'Edukasi',
                         ],
@@ -118,42 +319,24 @@
                 @endphp
 
                 @foreach ($galleries as $g)
-                    <div class="gallery-item fade-in"
-                        style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer;">
-                        <img src="{{ $g['img'] }}" alt="{{ $g['title'] }}"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                        <div class="overlay"
-                            style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%); opacity: 0; transition: opacity 0.3s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;">
-                            <span
-                                style="color: var(--accent); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">{{ $g['cat'] }}</span>
-                            <h4
-                                style="color: white; margin: 0; font-size: 1.1rem; transform: translateY(10px); transition: transform 0.3s ease;">
-                                {{ $g['title'] }}</h4>
+                    <div class="gallery-item fade-in">
+                        <img src="{{ $g['img'] }}" alt="{{ $g['title'] }}" class="gallery-img" loading="lazy">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-overlay-icon"></i>
+                            <span class="gallery-cat">{{ $g['cat'] }}</span>
+                            <h4 class="gallery-title">{{ $g['title'] }}</h4>
                         </div>
                     </div>
                 @endforeach
 
             </div>
 
-            <div style="text-align: center; margin-top: 50px;">
-                <button class="btn-outline">Muat Lebih Banyak...</button>
+            <div class="load-more-container fade-in">
+                <button class="btn-load-more">
+                    <i class="fas fa-sync-alt"></i> Muat Lebih Banyak
+                </button>
             </div>
 
         </div>
     </section>
-
-    {{-- Pastikan ada style sedikit untuk interaksi hover di page gallery --}}
-    <style>
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
-
-        .gallery-item:hover .overlay h4 {
-            transform: translateY(0);
-        }
-    </style>
 @endsection
