@@ -24,7 +24,9 @@
 <body>
     {{-- Preloader --}}
     <div class="preloader" id="preloader">
-        <div class="preloader-icon"><i class="fas fa-leaf"></i></div>
+        <div class="preloader-icon">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo Go Green School" loading="eager">
+        </div>
         <div class="preloader-text">GO GREEN SCHOOL</div>
         <div class="preloader-bar">
             <div class="preloader-bar-inner"></div>

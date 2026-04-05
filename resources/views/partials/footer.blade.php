@@ -7,7 +7,8 @@
                     <div class="icon"><i class="fas fa-leaf"></i></div>
                     <h3>Go Green School</h3>
                 </div>
-                <p>Go Green School adalah program sekolah hijau yang bertujuan membangun kesadaran lingkungan sejak dini melalui pendidikan, aksi nyata, dan kolaborasi seluruh warga sekolah untuk masa depan bumi yang lebih baik.</p>
+                <p>Menciptakan ekosistem pendidikan yang harmonis dengan alam, mencetak pemimpin masa depan yang
+                    proaktif, peduli, dan bertanggung jawab terhadap lingkungan sekitarnya.</p>
                 <div class="footer-social">
                     <a href="#" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="#" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -29,7 +30,7 @@
             </div>
 
             <div>
-                <h4>Program</h4>
+                <h4>Berita</h4>
                 <ul class="footer-links">
                     <li><a href="#">Penghijauan Sekolah</a></li>
                     <li><a href="#">Bank Sampah</a></li>
@@ -44,15 +45,16 @@
                 <ul class="footer-links footer-contact">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Jl. Pendidikan Hijau No. 10, Jakarta Selatan 12345</span>
+                        <span>Jl. Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan
+                            Barat 78616</span>
                     </li>
                     <li>
                         <i class="fas fa-phone-alt"></i>
-                        <span>(021) 1234-5678</span>
+                        <span>(+62) 813-4705-3168</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <span>info@gogreenschool.id</span>
+                        <span>copilotke1@gmail.com</span>
                     </li>
                     <li>
                         <i class="far fa-clock"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\WasteCalculatorHistoryController;
@@ -11,6 +12,7 @@ Route::get('/galeri', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/berita', [PageController::class, 'news'])->name('news');
 Route::get('/informasi', [PageController::class, 'information'])->name('information');
 Route::get('/kontak', [PageController::class, 'contact'])->name('contact');
+Route::post('/kontak/kirim', [ContactController::class, 'submit'])->name('contact.submit');
 Route::get('/kalkulator-sampah', [PageController::class, 'wasteCalculator'])->name('waste-calculator');
 
 Route::get('/prosedur', [PageController::class, 'procedure'])->name('procedure');

@@ -233,8 +233,10 @@ img {
     position: relative;
     align-items: center;
     background-size: cover;
-    background-position: center;
+    background-position: center 50%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    will-change: background-position;
     animation: heroFadeIn .8s ease;
 }
 
@@ -243,8 +245,8 @@ img {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(100deg, rgba(14, 45, 21, 0.86) 8%, rgba(27, 94, 32, 0.68) 45%, rgba(27, 94, 32, 0.45) 100%),
-        radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.15), transparent 38%);
+        linear-gradient(100deg, rgba(10, 28, 18, 0.62) 8%, rgba(15, 58, 42, 0.42) 45%, rgba(17, 74, 55, 0.22) 100%),
+        radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.2), transparent 42%);
     z-index: 1;
 }
 
@@ -1801,9 +1803,10 @@ body {
     animation: preloaderPulse 1.5s ease infinite;
 }
 
-.preloader-icon i {
-    font-size: 36px;
-    color: #2e7d32;
+.preloader-icon img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
 }
 
 .preloader-text {
@@ -2134,6 +2137,17 @@ body {
     transform: scale(1);
 }
 
+/* Align beranda card lift timing with program page once element is visible */
+.fade-in.hover-lift.visible {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    transition-delay: 0s !important;
+}
+
+/* Keep card hover lift active after fade-in sets transform to translateY(0) */
+.fade-in.hover-lift.visible:hover {
+    transform: translateY(-10px) !important;
+}
+
 /* ===== KEYFRAMES ===== */
 @keyframes heroFadeIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -2301,6 +2315,8 @@ body.dark-mode .lang-toggle.active-en {
 
     .hero-slide {
         min-height: auto;
+        background-attachment: scroll;
+        background-position: center center !important;
     }
 
     .hero-slider {

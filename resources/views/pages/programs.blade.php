@@ -105,17 +105,6 @@
                 'tag_bg' => '#e67e22',
             ],
             [
-                'title' => 'Festival Upcycle Seni',
-                'category' => 'Daur Ulang',
-                'desc' =>
-                    'Acara tahunan di mana siswa berlomba membuat karya seni dan barang fungsional dari bahan bekas dan sampah anorganik.',
-                'schedule' => 'Acara Tahunan',
-                'icon' => 'fas fa-palette',
-                'image' =>
-                    'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                'tag_bg' => 'var(--accent, #f39c12)',
-            ],
-            [
                 'title' => 'Hemat Energi Listrik',
                 'category' => 'Konservasi',
                 'desc' =>
@@ -126,21 +115,11 @@
                     'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                 'tag_bg' => '#9b59b6',
             ],
-            [
-                'title' => 'Jumat Bersih Bersama',
-                'category' => 'Edukasi',
-                'desc' =>
-                    'Kegiatan gotong royong seluruh warga sekolah setiap hari Jumat untuk membersihkan lingkungan sekitar sekolah.',
-                'schedule' => 'Setiap Jumat',
-                'icon' => 'fas fa-broom',
-                'image' =>
-                    'https://images.unsplash.com/photo-1587578016768-1bc06579589d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-                'tag_bg' => '#e67e22',
-            ],
         ];
     @endphp
 
-    <section class="page-hero">
+    <section class="page-hero"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
         <div class="page-hero-shapes">
             <div class="shape"></div>
             <div class="shape"></div>
@@ -157,24 +136,32 @@
             <div class="particle"></div>
         </div>
         <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="page-hero-content">
+        <div class="page-hero-content" style="position: relative; z-index: 10; color: white; text-align: center;">
             <div class="container">
-                <div class="page-hero-icon">
+                <div class="page-hero-icon"
+                    style="background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); color: #fff; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 20px;">
                     <i class="fas fa-seedling"></i>
                 </div>
-                <div class="page-hero-badge">
-                    <i class="fas fa-circle"></i> Keberlanjutan Lingkungan
+                <div class="page-hero-badge"
+                    style="background: rgba(76, 175, 80, 0.8); color: white; border: none; padding: 8px 20px; font-weight: bold; border-radius: 30px; display: inline-block; margin-bottom: 20px;">
+                    <i class="fas fa-circle" style="color: #c8e6c9;"></i> Keberlanjutan Lingkungan
                 </div>
-                <h1>Program <span class="highlight">Unggulan</span> Sekolah</h1>
-                <div class="page-hero-decor-line"></div>
-                <p class="page-hero-desc">
+                <h1 style="color: white; font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    Program&nbsp;<span class="highlight"
+                        style="color: #a5d6a7; text-shadow: none;">Unggulan</span>&nbsp;Sekolah</h1>
+                <div class="page-hero-decor-line" style="background: #a5d6a7; height: 4px; width: 60px; margin: 20px auto;">
+                </div>
+                <p class="page-hero-desc"
+                    style="color: #e0e0e0; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                     Kami memiliki berbagai program keberlanjutan yang melibatkan seluruh warga sekolah untuk menciptakan
                     lingkungan yang lebih bersih dan sehat.
                 </p>
-                <div class="page-hero-breadcrumb">
-                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
-                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
-                    <span class="current">Program</span>
+                <div class="page-hero-breadcrumb"
+                    style="background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 20px; display: inline-flex; gap: 10px;">
+                    <a href="{{ route('home') }}" style="color: #a5d6a7; text-decoration: none;"><i class="fas fa-home"></i>
+                        Beranda</a>
+                    <span class="separator" style="color: #999;"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current" style="color: white;">Program</span>
                 </div>
             </div>
         </div>
@@ -205,6 +192,7 @@
 
                 @foreach ($programsData as $p)
                     <div class="program-card hover-lift" data-category="{{ $p['category'] }}"
+                        data-program-title="{{ $p['title'] }}"
                         onclick="openProgramModal(`{{ addslashes($p['title']) }}`, `{{ addslashes($p['category']) }}`, `{{ addslashes($p['desc']) }}`, `{{ addslashes($p['schedule']) }}`, `{{ addslashes($p['image']) }}`)"
                         style="cursor: pointer; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease;">
                         <div class="program-card-img"
@@ -329,6 +317,7 @@
             // Filter & Pagination functionality
             document.addEventListener('DOMContentLoaded', function() {
                 try {
+                    const selectedProgramTitle = @json(request()->query('program'));
                     const filterBtns = document.querySelectorAll('.btn-filter');
                     const programCards = Array.from(document.querySelectorAll('.program-card'));
                     const paginationControls = document.getElementById('paginationControls');
@@ -440,6 +429,45 @@
 
                     // Initial load
                     renderCards();
+
+                    // Auto-open modal for selected program from beranda card click
+                    if (selectedProgramTitle) {
+                        const targetCard = programCards.find(card => card.getAttribute('data-program-title') ===
+                            selectedProgramTitle);
+
+                        if (targetCard) {
+                            const targetIndex = programCards.indexOf(targetCard);
+                            currentFilter = 'all';
+                            currentPage = Math.floor(targetIndex / itemsPerPage) + 1;
+
+                            filterBtns.forEach(b => {
+                                b.classList.remove('active');
+                                b.style.background = 'transparent';
+                                b.style.color = 'var(--primary-color, #2e7d32)';
+                            });
+
+                            const allBtn = document.querySelector('.btn-filter[data-filter="all"]');
+                            if (allBtn) {
+                                allBtn.classList.add('active');
+                                allBtn.style.background = 'var(--primary-color, #2e7d32)';
+                                allBtn.style.color = 'white';
+                            }
+
+                            renderCards();
+
+                            setTimeout(() => {
+                                targetCard.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                                targetCard.click();
+                            }, 250);
+
+                            if (window.history.replaceState) {
+                                window.history.replaceState({}, document.title, window.location.pathname);
+                            }
+                        }
+                    }
 
                 } catch (e) {
                     console.error("Error setting up filters and pagination: ", e);

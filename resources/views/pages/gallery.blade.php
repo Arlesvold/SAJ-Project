@@ -205,7 +205,8 @@
 @endpush
 
 @section('content')
-    <section class="page-hero">
+    <section class="page-hero"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
         <div class="page-hero-shapes">
             <div class="shape"></div>
             <div class="shape"></div>
@@ -222,24 +223,33 @@
             <div class="particle"></div>
         </div>
         <canvas class="leaves-canvas" id="leavesCanvas"></canvas>
-        <div class="page-hero-content">
+        <div class="page-hero-content" style="position: relative; z-index: 10; color: white; text-align: center;">
             <div class="container">
-                <div class="page-hero-icon">
+                <div class="page-hero-icon"
+                    style="background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); color: #fff; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 20px;">
                     <i class="fas fa-images"></i>
                 </div>
-                <div class="page-hero-badge">
-                    <i class="fas fa-circle"></i> Dokumentasi Kegiatan
+                <div class="page-hero-badge"
+                    style="background: rgba(76, 175, 80, 0.8); color: white; border: none; padding: 8px 20px; font-weight: bold; border-radius: 30px; display: inline-block; margin-bottom: 20px;">
+                    <i class="fas fa-circle" style="color: #c8e6c9;"></i> Dokumentasi Kegiatan
                 </div>
-                <h1>Galeri <span class="highlight">Kegiatan</span> Lingkungan</h1>
-                <div class="page-hero-decor-line"></div>
-                <p class="page-hero-desc">
+                <h1 style="color: white; font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    Galeri&nbsp;<span class="highlight"
+                        style="color: #a5d6a7; text-shadow: none;">Kegiatan</span>&nbsp;Lingkungan
+                </h1>
+                <div class="page-hero-decor-line" style="background: #a5d6a7; height: 4px; width: 60px; margin: 20px auto;">
+                </div>
+                <p class="page-hero-desc"
+                    style="color: #e0e0e0; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                     Dokumentasi berbagai aktivitas dan program lingkungan sehat yang telah dijalankan warga sekolah dalam
                     mewujudkan sekolah hijau.
                 </p>
-                <div class="page-hero-breadcrumb">
-                    <a href="{{ route('home') }}"><i class="fas fa-home"></i> Beranda</a>
-                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
-                    <span class="current">Galeri</span>
+                <div class="page-hero-breadcrumb"
+                    style="background: rgba(0,0,0,0.4); padding: 10px 20px; border-radius: 20px; display: inline-flex; gap: 10px;">
+                    <a href="{{ route('home') }}" style="color: #a5d6a7; text-decoration: none;"><i class="fas fa-home"></i>
+                        Beranda</a>
+                    <span class="separator" style="color: #999;"><i class="fas fa-chevron-right"></i></span>
+                    <span class="current" style="color: white;">Galeri</span>
                 </div>
             </div>
         </div>

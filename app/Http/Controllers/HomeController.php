@@ -131,53 +131,59 @@ class HomeController extends Controller
     {
         return [
             [
-                'category' => 'penghijauan',
-                'image'    => 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80',
-                'tag'      => 'Penghijauan',
-                'title'    => 'Program Seribu Pohon untuk Sekolah',
-                'desc'     => 'Penanaman pohon di lingkungan sekolah dan sekitarnya untuk meningkatkan kualitas udara dan menciptakan ruang hijau.',
-                'date'     => '15 Februari 2026',
+                'title' => 'Satu Siswa Satu Pohon',
+                'category' => 'Penghijauan',
+                'desc' => 'Program wajib bagi seluruh siswa baru untuk menanam dan merawat satu pohon selama masa studi mereka di sekolah. Tujuannya adalah menanamkan rasa memiliki dan tanggung jawab terhadap lingkungan sekitar.',
+                'schedule' => 'Rutin Tahunan',
+                'icon' => 'far fa-calendar-check',
+                'image' => 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'tag_bg' => 'var(--primary, #2e7d32)',
             ],
             [
-                'category' => 'daur ulang',
-                'image'    => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80',
-                'tag'      => 'Daur Ulang',
-                'title'    => 'Bank Sampah Sekolah: Kelola Limbah Jadi Berkah',
-                'desc'     => 'Program pengelolaan sampah yang melibatkan seluruh siswa dalam memilah, mengumpulkan, dan mendaur ulang sampah.',
-                'date'     => '10 Februari 2026',
+                'title' => 'Bank Sampah Sekolah',
+                'category' => 'Daur Ulang',
+                'desc' => 'Sistem pengelolaan sampah terpadu dimana siswa dapat menyetorkan sampah anorganik terpilah dan menukarkannya dengan poin yang bisa digunakan untuk membeli buku.',
+                'schedule' => 'Setiap Jumat',
+                'icon' => 'fas fa-sync-alt',
+                'image' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'tag_bg' => 'var(--accent, #f39c12)',
             ],
             [
-                'category' => 'energi',
-                'image'    => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80',
-                'tag'      => 'Energi',
-                'title'    => 'Panel Surya di Atap Sekolah',
-                'desc'     => 'Pemanfaatan energi surya melalui pemasangan panel surya untuk kebutuhan listrik sekolah sebagai upaya energi terbarukan.',
-                'date'     => '5 Februari 2026',
+                'title' => 'Workshop Eco-Enzyme',
+                'category' => 'Edukasi',
+                'desc' => 'Pelatihan rutin pembuatan cairan serbaguna pembersih ramah lingkungan dari sisa buah dan sayuran kantin untuk mengurangi volume limbah organik.',
+                'schedule' => 'Program Bulanan',
+                'icon' => 'fas fa-flask',
+                'image' => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'tag_bg' => '#e67e22',
             ],
             [
-                'category' => 'edukasi',
-                'image'    => 'https://images.unsplash.com/photo-1594818379496-da1e345b0ded?w=600&q=80',
-                'tag'      => 'Edukasi',
-                'title'    => 'Kurikulum Hijau: Belajar Sambil Menjaga Bumi',
-                'desc'     => 'Integrasi pendidikan lingkungan hidup ke dalam mata pelajaran untuk membentuk karakter siswa yang peduli lingkungan.',
-                'date'     => '1 Februari 2026',
+                'title' => 'Pemanenan Air Hujan',
+                'category' => 'Konservasi',
+                'desc' => 'Sistem canggih penampungan dan penyaringan air hujan untuk keperluan non-konsumsi, seperti menyiram taman, mencuci kendaraan, dan flushing toilet.',
+                'schedule' => 'Infrastruktur Pasif',
+                'icon' => 'fas fa-tint',
+                'image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'tag_bg' => '#9b59b6',
             ],
             [
-                'category' => 'penghijauan',
-                'image'    => 'https://images.unsplash.com/photo-1501004318855-b174af8a8ade?w=600&q=80',
-                'tag'      => 'Penghijauan',
-                'title'    => 'Taman Edukasi & Greenhouse Sekolah',
-                'desc'     => 'Pembangunan taman edukasi dan rumah kaca untuk praktik langsung siswa dalam mempelajari ekosistem dan pertanian organik.',
-                'date'     => '28 Januari 2026',
+                'title' => 'Kebun Hidroponik & TOGA',
+                'category' => 'Edukasi',
+                'desc' => 'Pembelajaran life-skill siswa di mana mereka belajar bercocok tanam tanpa tanah (hidroponik) dan merawat Tanaman Obat Keluarga (TOGA).',
+                'schedule' => 'Ekstrakurikuler',
+                'icon' => 'fas fa-seedling',
+                'image' => 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'tag_bg' => 'var(--primary-dark, #1b5e20)',
             ],
             [
-                'category' => 'daur ulang',
-                'image'    => 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80',
-                'tag'      => 'Daur Ulang',
-                'title'    => 'Komposting: Ubah Sampah Jadi Pupuk',
-                'desc'     => 'Pelatihan pembuatan kompos dari sampah organik dapur kantin dan daun-daun kering di lingkungan sekolah.',
-                'date'     => '20 Januari 2026',
-            ],
+                'title' => 'Taman Vertikal Dinding',
+                'category' => 'Penghijauan',
+                'desc' => 'Pemanfaatan dinding-dinding kosong di sekitar sekolah untuk dijadikan taman vertikal menggunakan botol plastik bekas sebagai pot tanaman hias dan penyerap polutan.',
+                'schedule' => 'Diterapkan Harian',
+                'icon' => 'fas fa-leaf',
+                'image' => 'https://images.unsplash.com/photo-1534008897995-27a23e859048?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'tag_bg' => 'var(--primary, #2e7d32)',
+            ]
         ];
     }
 
@@ -234,23 +240,23 @@ class HomeController extends Controller
     private function getGallery(): array
     {
         return [
-            ['image' => 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&q=80', 'title' => 'Penanaman Pohon Bersama', 'date' => '15 Februari 2026'],
-            ['image' => 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=600&q=80', 'title' => 'Panen Kebun Sekolah',     'date' => '10 Februari 2026'],
-            ['image' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80', 'title' => 'Workshop Daur Ulang',      'date' => '5 Februari 2026'],
-            ['image' => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80', 'title' => 'Taman Kupu-Kupu',          'date' => '1 Februari 2026'],
-            ['image' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80', 'title' => 'Instalasi Panel Surya',     'date' => '28 Januari 2026'],
-            ['image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80', 'title' => 'Edukasi Lingkungan Outdoor', 'date' => '20 Januari 2026'],
+            ['image' => 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'title' => 'Aksi Tanam Pohon Baru', 'cat' => 'Penanaman Pohon'],
+            ['image' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'title' => 'Pengolahan Bank Sampah', 'cat' => 'Daur Ulang'],
+            ['image' => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'title' => 'Workshop Lingkungan Bebas Plastik', 'cat' => 'Edukasi'],
+            ['image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'title' => 'Sistem Pemanenan Air Hujan', 'cat' => 'Fasilitas'],
+            ['image' => 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'title' => 'Panen Sayur Hidroponik Kantin', 'cat' => 'Edukasi'],
+            ['image' => 'https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'title' => 'Kerja Bakti Jumat Bersih', 'cat' => 'Kebersihan'],
         ];
     }
 
     private function getQuickAccess(): array
     {
         return [
-            ['icon' => 'fas fa-leaf',        'gradient' => 'linear-gradient(135deg, #2e7d32, #66bb6a)', 'title' => 'Penghijauan',     'desc' => 'Program penanaman pohon & taman sekolah'],
-            ['icon' => 'fas fa-water',       'gradient' => 'linear-gradient(135deg, #1565c0, #42a5f5)', 'title' => 'Konservasi Air',   'desc' => 'Pengelolaan sumber daya air di sekolah'],
-            ['icon' => 'fas fa-solar-panel', 'gradient' => 'linear-gradient(135deg, #e65100, #ff9800)', 'title' => 'Energi Bersih',    'desc' => 'Pemanfaatan energi terbarukan'],
-            ['icon' => 'fas fa-recycle',     'gradient' => 'linear-gradient(135deg, #6a1b9a, #ab47bc)', 'title' => 'Daur Ulang',       'desc' => 'Program reduce, reuse, recycle'],
-            ['icon' => 'fas fa-book-open',   'gradient' => 'linear-gradient(135deg, #c62828, #ef5350)', 'title' => 'Edukasi',          'desc' => 'Kurikulum pendidikan lingkungan'],
+            ['icon' => 'fas fa-leaf',        'gradient' => 'linear-gradient(135deg, #2e7d32, #66bb6a)', 'title' => 'Penghijauan',   'desc' => 'Program penanaman pohon & taman sekolah', 'route' => 'programs'],
+            ['icon' => 'fas fa-water',       'gradient' => 'linear-gradient(135deg, #1565c0, #42a5f5)', 'title' => 'Konservasi Air', 'desc' => 'Pengelolaan sumber daya air di sekolah', 'route' => 'programs'],
+            ['icon' => 'fas fa-solar-panel', 'gradient' => 'linear-gradient(135deg, #e65100, #ff9800)', 'title' => 'Energi Bersih',  'desc' => 'Pemanfaatan energi terbarukan', 'route' => 'procedure'],
+            ['icon' => 'fas fa-recycle',     'gradient' => 'linear-gradient(135deg, #6a1b9a, #ab47bc)', 'title' => 'Daur Ulang',     'desc' => 'Program reduce, reuse, recycle', 'route' => 'waste-calculator'],
+            ['icon' => 'fas fa-book-open',   'gradient' => 'linear-gradient(135deg, #c62828, #ef5350)', 'title' => 'Edukasi',        'desc' => 'Kurikulum pendidikan lingkungan', 'route' => 'information'],
         ];
     }
 
@@ -258,16 +264,16 @@ class HomeController extends Controller
     {
         return [
             'featured' => [
-                'image' => 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
-                'date'  => '28 Februari 2026',
-                'title' => 'Go Green School Raih Penghargaan Sekolah Adiwiyata Mandiri Tingkat Nasional',
-                'desc'  => 'Sekolah kami berhasil meraih penghargaan tertinggi dari Kementerian Lingkungan Hidup atas komitmen dalam pengelolaan lingkungan sekolah yang berkelanjutan.',
+                'image' => 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                'date'  => '10 Maret 2026',
+                'title' => 'Sekolah Kami Meraih Penghargaan Adiwiyata Tingkat Nasional 2026',
+                'desc'  => 'Penghargaan prestisius ini diraih berkat konsistensi seluruh warga sekolah dalam menerapkan gaya hidup ramah lingkungan dan pengelolaan sampah terpadu yang telah berjalan selama 5 tahun terakhir...',
             ],
             'items' => [
-                ['image' => 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=300&q=80', 'date' => '25 Februari 2026', 'title' => '1.000 Pohon Baru Ditanam di Area Sekolah dan Desa Sekitar', 'desc' => 'Kegiatan penanaman melibatkan siswa, guru, dan masyarakat sekitar.'],
-                ['image' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=300&q=80', 'date' => '20 Februari 2026', 'title' => 'Bank Sampah Sekolah Hasilkan Pendapatan Rp 5 Juta Per Bulan', 'desc' => 'Dana digunakan untuk biaya operasional program lingkungan sekolah.'],
-                ['image' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=300&q=80', 'date' => '15 Februari 2026', 'title' => 'Pemasangan Panel Surya Fase 2 Berhasil Menghemat 40% Listrik', 'desc' => 'Sekolah mengurangi ketergantungan pada energi fosil secara signifikan.'],
-                ['image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=300&q=80', 'date' => '10 Februari 2026', 'title' => 'Workshop Edukasi Lingkungan Diikuti 500 Siswa dari 12 Sekolah', 'desc' => 'Siswa belajar tentang pengelolaan sampah dan konservasi energi.'],
+                ['image' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', 'date' => '05 Maret 2026', 'title' => 'Pengolahan Sampah Organik Menjadi Kompos Cair untuk Kebun', 'desc' => 'Inovasi terbaru siswa kelas 11 dalam mengolah sampah organik kantin menjadi pupuk kompos cair super.'],
+                ['image' => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', 'date' => '28 Feb 2026', 'title' => 'Workshop Pembuatan Eco-Brick dari Botol Plastik Bekas', 'desc' => 'Kolaborasi dengan komunitas relawan hijau untuk membuat fasilitas tempat duduk dari eco-brick.'],
+                ['image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', 'date' => '20 Feb 2026', 'title' => 'Sistem Pemanenan Air Hujan Berhasil Menghemat Air 40%', 'desc' => 'Fasilitas baru sekolah terbukti efektif menurunkan tagihan air dan mendukung konservasi air tanah.'],
+                ['image' => 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', 'date' => '15 Feb 2026', 'title' => 'Panen Perdana Sayuran Organik dari Greenhouse Sekolah', 'desc' => 'Sayuran bebas pestisida hasil kebun hidroponik sekolah mulai disuplai ke kantin sehat.'],
             ],
         ];
     }

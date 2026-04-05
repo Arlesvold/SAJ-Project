@@ -155,6 +155,15 @@
                     var speed = (i + 1) * 30;
                     shape.style.transform = 'translateY(' + (factor * speed) + 'px) rotate(' + (factor * 20) + 'deg)';
                 });
+
+                // Subtle hero background parallax for the active slide on desktop devices.
+                if (window.innerWidth > 768) {
+                    var activeSlide = $('.hero-slide.active');
+                    if (activeSlide) {
+                        var offset = (factor * 90).toFixed(2);
+                        activeSlide.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)';
+                    }
+                }
             }
         } catch (e) {
             // Silently ignore parallax errors
@@ -296,8 +305,19 @@
                         if (entry.isIntersecting) {
                             var siblings = entry.target.parentElement.children;
                             var siblingIndex = Array.from(siblings).indexOf(entry.target);
-                            entry.target.style.transitionDelay = (siblingIndex * 0.1) + 's';
+                            var isHoverLiftElement = entry.target.classList.contains('hover-lift');
+
+                            // Keep lift interactions responsive on cards while preserving stagger for non-card elements.
+                            entry.target.style.transitionDelay = isHoverLiftElement ? '0s' : (siblingIndex * 0.1) + 's';
                             entry.target.classList.add('visible');
+
+                            if (!isHoverLiftElement) {
+                                setTimeout(function () {
+                                    if (entry.target.classList.contains('visible')) {
+                                        entry.target.style.transitionDelay = '0s';
+                                    }
+                                }, (siblingIndex * 100) + 750);
+                            }
                         }
                     } catch (e) {
                         entry.target.classList.add('visible');
@@ -389,7 +409,7 @@
                         var category = (card.dataset.category || '').toLowerCase();
                         if (filter === 'semua' || category === filter) {
                             card.classList.remove('hiding');
-                            card.style.transitionDelay = (index * 0.08) + 's';
+                            card.style.transitionDelay = card.classList.contains('hover-lift') ? '0s' : (index * 0.08) + 's';
                             card.style.display = '';
                         } else {
                             card.classList.add('hiding');
@@ -1155,9 +1175,8 @@
     // ============================================
     safeExecute(function () {
         $$('.quick-item').forEach(function (item) {
-            item.addEventListener('click', function (e) {
+            item.addEventListener('pointerdown', function (e) {
                 try {
-                    e.preventDefault();
                     var ripple = document.createElement('div');
                     ripple.style.cssText =
                         'position:absolute; border-radius:50%; background:rgba(46,125,50,.15);' +
@@ -1172,9 +1191,6 @@
                     setTimeout(function () {
                         try { ripple.remove(); } catch (err) { /* ignore */ }
                     }, 600);
-
-                    var title = item.querySelector('h4');
-                    showToast(title ? title.textContent : 'Informasi', 'Halaman detail sedang dikembangkan', 'info');
                 } catch (e) {
                     console.warn('[GoGreen] Ripple error:', e.message);
                 }
@@ -1273,11 +1289,6 @@
                         showToast('Pencarian', 'Ketik untuk mencari program...', 'info');
                     }
                 }
-                // D = Toggle dark mode (only when not typing)
-                if (e.key === 'd' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-                    var darkToggle = $('#darkToggle');
-                    if (darkToggle) darkToggle.click();
-                }
             } catch (err) {
                 // Ignore keyboard shortcut errors
             }
@@ -1287,7 +1298,7 @@
     // Console branding
     try {
         console.log('%c🌿 Go Green School - Interactive Landing Page', 'color: #2e7d32; font-size: 16px; font-weight: bold;');
-        console.log('%cKeyboard shortcuts: Ctrl+K=Search | D=Dark Mode | ←→=Slider/Lightbox | Esc=Close', 'color: #66bb6a; font-size: 12px;');
+        console.log('%cKeyboard shortcuts: Ctrl+K=Search | ←→=Slider/Lightbox | Esc=Close', 'color: #66bb6a; font-size: 12px;');
     } catch (e) {
         // Ignore console styling errors
     }

@@ -24,7 +24,9 @@
 <body>
     {{-- Preloader --}}
     <div class="preloader" id="preloader">
-        <div class="preloader-icon"><i class="fas fa-leaf"></i></div>
+        <div class="preloader-icon">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo Go Green School" loading="eager">
+        </div>
         <div class="preloader-text">GO GREEN SCHOOL</div>
         <div class="preloader-bar">
             <div class="preloader-bar-inner"></div>
@@ -59,8 +61,7 @@
                 <span class="live-clock" id="liveClock"><i class="far fa-clock"></i> --:--:--</span>
             </div>
             <div class="quick-links">
-                <a href="#contact"><i class="fas fa-phone-alt"></i> Hubungi Kami</a>
-                <a href="mailto:info@gogreenschool.id"><i class="fas fa-envelope"></i> Email</a>
+                <a href="{{ route('contact') }}#contact"><i class="fas fa-phone-alt"></i> Hubungi Kami</a>
                 <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
             </div>
         </div>
@@ -113,7 +114,7 @@
         {{-- Hero Section --}}
         @php
             $heroImages = [
-                'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80',
+                'https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=1800&q=80',
                 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=80',
                 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1800&q=80',
             ];
@@ -205,25 +206,6 @@
                 </div>
             </div>
         </section>
-
-
-        {{-- Eco Stats Strip --}}
-        {{-- Eco Stats Strip --}}
-        <section class="eco-strip">
-            <div class="container">
-                @foreach ($ecoStats as $stat)
-                    <div class="eco-strip-item">
-                        <div class="eco-strip-icon {{ $stat['color'] }}"><i class="{{ $stat['icon'] }}"></i></div>
-                        <div class="eco-strip-info">
-                            <h4>{{ $stat['value'] }}</h4>
-                            <span>{{ $stat['label'] }}</span>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-
-
         {{-- Programs Section --}}
         {{-- Programs Section --}}
         <section class="programs-section" id="programs">
@@ -240,24 +222,27 @@
                 <div class="programs-tabs">
                     <button class="tab active">Semua</button>
                     <button class="tab">Penghijauan</button>
-                    <button class="tab">Energi</button>
+                    <button class="tab">Konservasi</button>
                     <button class="tab">Daur Ulang</button>
                     <button class="tab">Edukasi</button>
                 </div>
 
                 <div class="programs-grid">
                     @foreach ($programs as $program)
-                        <a href="{{ route('programs') }}" class="program-card hover-lift fade-in"
-                            data-category="{{ $program['category'] }}" style="text-decoration:none; color:inherit;">
+                        <a href="{{ route('programs', ['program' => $program['title']]) }}"
+                            class="program-card hover-lift fade-in"
+                            data-category="{{ strtolower($program['category']) }}"
+                            style="text-decoration:none; color:inherit;">
                             <div class="program-card-img" style="background-image: url('{{ $program['image'] }}')">
-                                <span class="tag">{{ $program['tag'] }}</span>
+                                <span class="tag"
+                                    style="background: {{ $program['tag_bg'] ?? 'var(--primary-color)' }}">{{ $program['category'] }}</span>
                             </div>
                             <div class="program-card-body">
                                 <h3>{{ $program['title'] }}</h3>
                                 <p>{{ $program['desc'] }}</p>
                                 <div class="program-card-footer">
-                                    <span class="date"><i class="far fa-calendar"></i>
-                                        {{ $program['date'] }}</span>
+                                    <span class="date"><i class="{{ $program['icon'] ?? 'far fa-calendar' }}"></i>
+                                        {{ $program['schedule'] ?? 'Setiap Hari' }}</span>
                                     <span class="read-more">Selengkapnya <i class="fas fa-arrow-right"></i></span>
                                 </div>
                             </div>
@@ -266,69 +251,6 @@
                 </div>
             </div>
         </section>
-
-
-        {{-- Info Highlight --}}
-        {{-- Info Highlight Section --}}
-        <section class="info-highlight">
-            <div class="container">
-                <div class="section-title">
-                    <div>
-                        <h2>Status Lingkungan Sekolah</h2>
-                        <p>Monitoring kondisi lingkungan terkini</p>
-                    </div>
-                    <a href="{{ route('information') }}" class="see-all">Detail Lengkap <i
-                            class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="info-highlight-grid">
-                    {{-- Main Card --}}
-                    <div class="info-main-card fade-in">
-                        <div class="label"><i class="fas fa-chart-bar"></i>&ensp;Indeks Lingkungan Sekolah</div>
-                        <h3>Kualitas Lingkungan Sekolah Dalam Kondisi Sangat Baik</h3>
-                        <p>{{ $envStatus['main']['desc'] }}</p>
-                        <div class="info-stats-row">
-                            <div class="info-stat-item">
-                                <div class="val">{{ $envStatus['main']['score'] }}</div>
-                                <div class="lbl">Skor Lingkungan</div>
-                            </div>
-                            <div class="info-stat-item">
-                                <div class="val">{{ $envStatus['main']['grade'] }}</div>
-                                <div class="lbl">Grade Kebersihan</div>
-                            </div>
-                            <div class="info-stat-item">
-                                <div class="val">{{ $envStatus['main']['airQuality'] }}</div>
-                                <div class="lbl">Kualitas Udara</div>
-                            </div>
-                        </div>
-                        <a href="{{ route('information') }}" class="btn-primary"
-                            style="font-size:13px; padding:10px 22px;">
-                            <i class="fas fa-file-pdf"></i> Unduh Laporan Lengkap
-                        </a>
-                    </div>
-
-                    {{-- Side Cards --}}
-                    <div class="info-side-cards fade-in">
-                        @foreach ($envStatus['cards'] as $card)
-                            <div class="info-side-card">
-                                <div class="icon-box"
-                                    style="background:{{ $card['iconBg'] }}; color:{{ $card['iconColor'] }};">
-                                    <i class="{{ $card['icon'] }}"></i>
-                                </div>
-                                <div>
-                                    <h4>{{ $card['title'] }}</h4>
-                                    <p>{{ $card['desc'] }}</p>
-                                    <span class="badge {{ $card['badgeClass'] }}">{{ $card['badge'] }}</span>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        {{-- Gallery Section --}}
         {{-- Gallery Section --}}
         <section class="gallery-section" id="gallery">
             <div class="container">
@@ -343,11 +265,11 @@
 
                 <div class="gallery-grid">
                     @foreach ($gallery as $item)
-                        <div class="gallery-item fade-in">
+                        <div class="gallery-item hover-lift fade-in">
                             <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
                             <div class="overlay">
                                 <h4>{{ $item['title'] }}</h4>
-                                <span>{{ $item['date'] }}</span>
+                                <span>{{ $item['cat'] ?? ($item['date'] ?? '') }}</span>
                             </div>
                         </div>
                     @endforeach
@@ -369,7 +291,7 @@
 
                 <div class="quick-grid">
                     @foreach ($quickAccess as $item)
-                        <a href="{{ route('information') }}" class="quick-item fade-in">
+                        <a href="{{ route($item['route'] ?? 'information') }}" class="quick-item hover-lift fade-in">
                             <div class="icon" style="background: {{ $item['gradient'] }};">
                                 <i class="{{ $item['icon'] }}"></i>
                             </div>
@@ -402,7 +324,7 @@
 
                 <div class="news-layout">
                     {{-- Featured News --}}
-                    <a href="{{ route('news') }}" class="news-featured fade-in"
+                    <a href="{{ route('news') }}" class="news-featured hover-lift fade-in"
                         style="display:block; text-decoration:none; color:inherit;">
                         <img src="{{ $news['featured']['image'] }}" alt="{{ $news['featured']['title'] }}"
                             loading="lazy">
@@ -416,7 +338,7 @@
                     {{-- News List --}}
                     <div class="news-list">
                         @foreach ($news['items'] as $item)
-                            <a href="{{ route('news') }}" class="news-item fade-in">
+                            <a href="{{ route('news') }}" class="news-item hover-lift fade-in">
                                 <div class="news-item-img">
                                     <img src="{{ $item['image'] }}" alt="{{ $item['title'] }}" loading="lazy">
                                 </div>
@@ -433,21 +355,6 @@
         </section>
 
 
-        {{-- CTA Section --}}
-        {{-- CTA Section --}}
-        <section class="cta-section">
-            <div class="container">
-                <h2>Mari Bersama Menjaga Bumi Kita</h2>
-                <p>Bergabunglah dengan gerakan Go Green School. Setiap langkah kecil yang kita lakukan hari ini akan
-                    menciptakan perubahan besar untuk masa depan bumi.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn-primary"><i class="fas fa-user-plus"></i> Daftar Sekarang</a>
-                    <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Hubungi Kami</a>
-                </div>
-            </div>
-        </section>
-
-
         {{-- Partners Section --}}
         {{-- Partners Section --}}
         <section class="partners-section">
@@ -455,7 +362,7 @@
                 <h3>Didukung Oleh</h3>
                 <div class="partners-logos">
                     @foreach ($partners as $partner)
-                        <div class="partner-logo">
+                        <div class="partner-logo hover-lift">
                             <span class="tooltip-custom">{{ $partner['name'] }}</span>
                             <i class="{{ $partner['icon'] }}"></i>
                         </div>
@@ -469,79 +376,7 @@
     </main>
 
     {{-- Footer --}}
-    {{-- Footer --}}
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <div class="logo-footer">
-                        <div class="icon"><i class="fas fa-leaf"></i></div>
-                        <h3>Go Green School</h3>
-                    </div>
-                    <p>Go Green School adalah program sekolah hijau yang bertujuan membangun kesadaran lingkungan sejak
-                        dini melalui pendidikan, aksi nyata, dan kolaborasi seluruh warga sekolah untuk masa depan bumi
-                        yang lebih baik.</p>
-                    <div class="footer-social">
-                        <a href="#" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" title="Facebook" aria-label="Facebook"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="#" title="Twitter" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" title="Instagram" aria-label="Instagram"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="#" title="TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4>Tautan Cepat</h4>
-                    <ul class="footer-links">
-                        <li><a href="{{ route('home') }}">Beranda</a></li>
-                        <li><a href="{{ route('programs') }}">Program Lingkungan</a></li>
-                        <li><a href="{{ route('gallery') }}">Galeri Kegiatan</a></li>
-                        <li><a href="{{ route('news') }}">Berita & Artikel</a></li>
-                        <li><a href="{{ route('contact') }}">Tentang Kami</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4>Program</h4>
-                    <ul class="footer-links">
-                        <li><a href="{{ route('programs') }}">Penghijauan Sekolah</a></li>
-                        <li><a href="{{ route('programs') }}">Bank Sampah</a></li>
-                        <li><a href="{{ route('programs') }}">Energi Terbarukan</a></li>
-                        <li><a href="{{ route('programs') }}">Konservasi Air</a></li>
-                        <li><a href="{{ route('programs') }}">Edukasi Lingkungan</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4>Kontak Kami</h4>
-                    <ul class="footer-links footer-contact">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Jl. Pendidikan Hijau No. 10, Jakarta Selatan 12345</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span>(021) 1234-5678</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@gogreenschool.id</span>
-                        </li>
-                        <li>
-                            <i class="far fa-clock"></i>
-                            <span>Senin - Jumat: 07.00 - 16.00 WIB</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                &copy; {{ date('Y') }} Go Green School &mdash; Sekolah Hijau untuk Masa Depan. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    @include('partials.footer')
 
 
     {{-- Back To Top --}}
