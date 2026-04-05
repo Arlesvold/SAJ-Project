@@ -141,6 +141,28 @@ class PageController extends Controller
         return view('pages.procedure');
     }
 
+    public function developerProfile(): View
+    {
+        try {
+            return view('pages.developer-profile', [
+                'projectMeta' => $this->getDeveloperProjectMeta(),
+                'developers' => $this->getDeveloperProfiles(),
+            ]);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return view('pages.developer-profile', [
+                'projectMeta' => [
+                    'project' => 'Go Green School',
+                    'year' => (string) now()->year,
+                    'stack' => 'Laravel + Blade + JavaScript',
+                    'school' => 'SMK Karya Bangsa Sintang',
+                ],
+                'developers' => [],
+            ]);
+        }
+    }
+
     /**
      * @return array<int, array<string, mixed>>
      */
@@ -296,5 +318,75 @@ class PageController extends Controller
             'tags' => $selectedTags !== [] ? implode(',', $selectedTags) : null,
             'q' => $search !== '' ? $search : null,
         ]);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    private function getDeveloperProjectMeta(): array
+    {
+        return [
+            'project' => 'Go Green School',
+            'year' => '2026',
+            'stack' => 'Laravel 11, PHP, Blade, CSS, JavaScript, Laragon',
+            'school' => 'SMK Karya Bangsa Sintang',
+        ];
+    }
+
+    /**
+     * @return array<int, array<string, string>>
+     */
+    private function getDeveloperProfiles(): array
+    {
+        return [
+            [
+                'name' => 'Charles Adrian',
+                'age' => '17 tahun',
+                'class' => 'XII RPL',
+                'school' => 'SMK Karya Bangsa Sintang',
+                'role' => 'Fullstack Developer',
+                'focus' => 'UI/UX, responsive layout, dan animasi antarmuka',
+                'contribution' => 'Merancang tampilan beranda, hero section, dan komponen visual utama.',
+                'year' => '27 Oktober 2008',
+                'email' => 'adrianrian7449@gmail.com',
+                'photo' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80',
+            ],
+            [
+                'name' => 'Calya De’prila Maheswari ',
+                'age' => '17 tahun',
+                'class' => 'XII RPL',
+                'school' => 'SMK Karya Bangsa Sintang',
+                'role' => 'Frontend Developer',
+                'focus' => 'Alur data, validasi form, dan integrasi API',
+                'contribution' => 'Membangun logika fitur kontak, pengiriman notifikasi, dan pengelolaan data JSON.',
+                'year' => '19 Juli 2008',
+                'email' => 'calyadeprilamaheswari@karyabangsa.sch.id',
+                'photo' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80',
+            ],
+            [
+                'name' => 'Lingga Arkananta M.',
+                'age' => '18 tahun',
+                'class' => 'XII RPL',
+                'school' => 'SMK Karya Bangsa Sintang',
+                'role' => 'Fullstack Developer',
+                'focus' => 'Arsitektur halaman, performa, dan pengujian fitur',
+                'contribution' => 'Menyatukan frontend-backend serta optimasi alur berita, filter, dan pagination.',
+                'year' => '7 Oktober 2008',
+                'email' => 'lingga@karyabangsa.sch.id',
+                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80',
+            ],
+            [
+                'name' => 'Ignasius Agri',
+                'age' => '17 tahun',
+                'class' => 'XII RPL',
+                'school' => 'SMK Karya Bangsa Sintang',
+                'role' => 'Frontend Developer',
+                'focus' => 'Uji fitur, konsistensi konten, dan aksesibilitas antarmuka',
+                'contribution' => 'Memastikan kualitas pengalaman pengguna serta ketepatan konten edukasi lingkungan.',
+                'year' => '10 Mei 2008',
+                'email' => 'ignasiusagri@karyabangsa.sch.id',
+                'photo' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80',
+            ],
+        ];
     }
 }

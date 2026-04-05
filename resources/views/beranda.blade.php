@@ -90,6 +90,7 @@
                     <li><a href="{{ route('information') }}">Informasi</a></li>
                     <li><a href="{{ route('procedure') }}">Prosedur</a></li>
                     <li><a href="{{ route('contact') }}">Kontak</a></li>
+                    <li><a href="{{ route('developer-profile') }}">Developer</a></li>
                     <li><a href="{{ route('waste-calculator') }}">Kalkulator Sampah</a></li>
                 </ul>
             </nav>

@@ -794,7 +794,13 @@
         langToggle.addEventListener('click', function () {
             var current = (langText && langText.textContent === 'EN') ? 'en' : 'id';
             var nextLang = current === 'id' ? 'en' : 'id';
-            applyLanguage(nextLang, false);
+            
+            try {
+                localStorage.setItem('preferredLanguage', nextLang);
+            } catch (e) {}
+            
+            setGoogleTranslateCookie(nextLang);
+            window.location.reload();
         });
     }, 'LanguageToggle');
 

@@ -25,6 +25,8 @@
                         class="{{ request()->routeIs('procedure') ? 'active' : '' }}">Prosedur</a></li>
                 <li><a href="{{ route('contact') }}"
                         class="{{ request()->routeIs('contact') ? 'active' : '' }}">Kontak</a></li>
+                <li><a href="{{ route('developer-profile') }}"
+                        class="{{ request()->routeIs('developer-profile') ? 'active' : '' }}">Developer</a></li>
                 <li><a href="{{ route('waste-calculator') }}"
                         class="{{ request()->routeIs('waste-calculator') ? 'active' : '' }}">Kalkulator Sampah</a></li>
             </ul>

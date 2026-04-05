@@ -457,7 +457,7 @@ img {
     position: relative;
     min-height: 400px;
     padding: 120px 0 70px;
-    margin-top: 60px;
+    margin-top: 0;
     background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 40%, #43a047 70%, #66bb6a 100%);
     overflow: hidden;
     display: flex;

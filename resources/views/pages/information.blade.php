@@ -2,6 +2,98 @@
 
 @section('title', 'Visi Misi - Go Green School')
 
+@push('styles')
+    <style>
+        .faq-modern-container {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-modern-item {
+            background: #ffffff;
+            border: 1px solid rgba(46, 125, 50, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-modern-item:hover {
+            border-color: rgba(46, 125, 50, 0.4);
+        }
+
+        .faq-modern-item.active {
+            border-color: #66bb6a;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+        }
+
+        .faq-question {
+            padding: 22px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-weight: 600;
+            color: #1f4e2f;
+            font-size: 1.1rem;
+            user-select: none;
+            gap: 20px;
+        }
+
+        .faq-question:hover {
+            color: #2e7d32;
+        }
+
+        .faq-icon-wrapper {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #e8f5e9;
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-modern-item.active .faq-icon-wrapper {
+            transform: rotate(180deg);
+            background: #2e7d32;
+            color: #ffffff;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 25px 25px;
+            color: #556b5d;
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+
+        .faq-header-badge {
+            display: inline-flex;
+            padding: 6px 16px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+@endpush
+
 @section('content')
     <section class="page-hero"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
@@ -154,32 +246,92 @@
                 </div>
             </div>
 
-            <div style="margin-top: 60px;">
-                <h3 style="color: var(--dark); font-size: 1.8rem; margin-bottom: 30px; text-align: center;">Tanya Jawab
-                    Seputar Lingkungan Sekolah (FAQ)</h3>
-                <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+            <div class="faq-section" style="margin-top: 80px; padding: 60px 0; background: #fafdfb; border-radius: 30px;">
+                <div style="text-align: center; margin-bottom: 50px; padding: 0 20px;">
+                    <br>
+                    <span class="faq-header-badge"><i class="fas fa-question-circle"></i> FAQ Lingkungan</span>
+                    <h3 style="color: #173d25; font-size: 2.2rem; font-weight: 800; margin-bottom: 15px;">Tanya Jawab
+                        Seputar Sekolah Hijau</h3>
+                    <p style="color: #556b5d; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Temukan jawaban dari
+                        pertanyaan yang paling sering diajukan terkait komitmen perlindungan lingkungan dan aksi
+                        keberlanjutan di Go Green School.</p>
+                </div>
 
-                    <div class="faq-card" style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
-                        <h4 style="margin-bottom: 10px; color: var(--primary);">Apakah kantin benar-benar tidak menyediakan
-                            plastik?</h4>
-                        <p style="color: var(--gray); font-size: 0.95rem; margin:0;">Benar. Kami bekerja sama dengan vendor
-                            kantin untuk hanya menggunakan piring/gelas kaca atau siswa membawa tumbler/kotak bekal sendiri.
-                            Jajanan dibungkus menggunakan daun pisang atau kertas food-grade yang bio-degradable.</p>
+                <div class="faq-modern-container">
+
+                    <div class="faq-modern-item">
+                        <div class="faq-question">
+                            <span>Bagaimana cara siswa berpartisipasi dalam program Bank Sampah?</span>
+                            <div class="faq-icon-wrapper"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Setiap siswa terdaftar akan mendapatkan Buku Tabungan Bank Sampah. Setiap hari Jumat pada
+                                jam istirahat, siswa dapat menyetorkan sampah anorganik terpilah (plastik bersih, kertas,
+                                botol minuman) ke posko sekolah. Setiap 1 kg sampah memiliki nilai poin yang dapat
+                                dikumpulkan dan ditukarkan dengan alat tulis atau bibit tanaman gratis.
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="faq-card" style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
-                        <h4 style="margin-bottom: 10px; color: var(--primary);">Bagaimana sistem poin Bank Sampah bekerja?
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.95rem; margin:0;">Setiap 1 kg sampah anorganik terpilah
-                            dihargai 10 poin. Poin tersebut tercatat di buku tabungan siswa dan jika mencapai 100 poin bisa
-                            ditukarkan dengan alat tulis atau diskon buku di koperasi sekolah.</p>
+                    <div class="faq-modern-item">
+                        <div class="faq-question">
+                            <span>Apakah ada aturan khusus terkait bekal atau jajan di area sekolah?</span>
+                            <div class="faq-icon-wrapper"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Betul. Go Green School menerapkan kawasan <strong>"Zero Single-Use Plastic"</strong>. Siswa
+                                diwajibkan membawa tumbler dan kotak makanan (Tupperware) sendiri dari rumah. Kantin sekolah
+                                kami tidak menyediakan kantong kresek, sedotan plastik, maupun kemasan stirofoam. Makanan
+                                dibungkus menggunakan daun pisang atau kertas yang mudah terurai (biodegradable).
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="faq-card" style="border: 1px solid #eee; border-radius: 10px; padding: 20px;">
-                        <h4 style="margin-bottom: 10px; color: var(--primary);">Apakah orang tua dijinkan ikut serta?</h4>
-                        <p style="color: var(--gray); font-size: 0.95rem; margin:0;">Tentu sangat dianjurkan! Kami memiliki
-                            Komite Hijau Orang Tua yang pertemuannya diadakan sebulan sekali untuk menyukseskan
-                            program-program kebun dan pemilahan sampah dari rumah.</p>
+                    <div class="faq-modern-item">
+                        <div class="faq-question">
+                            <span>Apa saja kegiatan rutin Go Green School untuk pelestarian lingkungan?</span>
+                            <div class="faq-icon-wrapper"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Kami rutin mengadakan kegiatan seperti <strong>Kerja Bakti Ekologis (Clean-up Day)</strong>
+                                di area sekitar sekolah setiap 2 bulan sekali, <strong>Jumat Bercocok Tanam
+                                    (Replant)</strong>, pembuatan pupuk kompos dari limbah sampah daun sekolah, dan seminar
+                                duta lingkungan yang mengundang aktivis pemuda peduli sampah dari daerah setempat.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-modern-item">
+                        <div class="faq-question">
+                            <span>Bagaimana pihak sekolah mengajarkan efisiensi energi dan air?</span>
+                            <div class="faq-icon-wrapper"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Sekolah kami membangun Instalasi Pemanenan Air Hujan (Rainwater Harvesting) untuk
+                                dimanfaatkan menyiram kebun botani dan toilet sekolah. Untuk efisiensi energi, desain ruang
+                                kelas kami memiliki jendela lebar yang memaksimalkan pencahayaan alami serta mematikan
+                                pendingin ruangan (AC/Kipas) sebelum jam 09.00 pagi.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-modern-item">
+                        <div class="faq-question">
+                            <span>Apakah orang tua dapat ikut serta dalam program hijau ini?</span>
+                            <div class="faq-icon-wrapper"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                Sangat dianjurkan! Kami memiliki kumpulan <strong>Komite Hijau Orang Tua</strong>. Orang tua
+                                dapat berpartisipasi dengan menerapkan pedoman pemilahan sampah "Pilah dari Rumah",
+                                memberikan donasi berupa bibit tanaman, hingga ikut serta sebagai relawan saat kegiatan
+                                peringatan Hari Lingkungan Hidup Nasional bersama anak-anak.
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -188,3 +340,34 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-modern-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Menutup semua accordion
+                    faqItems.forEach(faq => {
+                        faq.classList.remove('active');
+                        if (faq.querySelector('.faq-answer')) {
+                            faq.querySelector('.faq-answer').style.maxHeight = null;
+                        }
+                    });
+
+                    // Membuka yang sedang di-klik (jika sebelumnya tidak aktif)
+                    if (!isActive) {
+                        item.classList.add('active');
+                        const answer = item.querySelector('.faq-answer');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+@endpush
