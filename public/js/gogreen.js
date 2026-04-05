@@ -649,30 +649,63 @@
         if (!darkToggle) return;
 
         var darkIcon = darkToggle.querySelector('i');
+        var darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
         var isDark = false;
+        var hasManualPreference = false;
 
         try {
-            isDark = localStorage.getItem('darkMode') === 'true';
+            var storedPreference = localStorage.getItem('darkMode');
+            hasManualPreference = storedPreference !== null;
+            if (hasManualPreference) {
+                isDark = storedPreference === 'true';
+            } else if (darkMediaQuery) {
+                // Sediakan dukungan preferensi sistem jika tidak ada di localStorage
+                isDark = darkMediaQuery.matches;
+            }
         } catch (e) {
-            // localStorage not available
-        }
-
-        function applyDarkMode(dark) {
-            try {
-                document.body.classList.toggle('dark-mode', dark);
-                if (darkIcon) darkIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
-                darkToggle.title = dark ? 'Mode Terang' : 'Mode Gelap';
-                localStorage.setItem('darkMode', dark);
-            } catch (e) {
-                document.body.classList.toggle('dark-mode', dark);
+            // localStorage not available, gunakan preferensi sistem sebagai fallback
+            if (darkMediaQuery) {
+                isDark = darkMediaQuery.matches;
             }
         }
 
-        applyDarkMode(isDark);
+        function applyDarkMode(dark, persistPreference) {
+            document.body.classList.toggle('dark-mode', dark);
+            if (darkIcon) darkIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+            darkToggle.title = dark ? 'Mode Terang' : 'Mode Gelap';
+
+            if (!persistPreference) return;
+
+            try {
+                localStorage.setItem('darkMode', String(dark));
+            } catch (e) {
+                // localStorage unavailable
+            }
+        }
+
+        // Terapkan tema awal tanpa memaksa preferensi sistem ke localStorage.
+        applyDarkMode(isDark, false);
+
+        function handleSystemThemeChange(e) {
+            if (hasManualPreference) return;
+            isDark = !!e.matches;
+            applyDarkMode(isDark, false);
+        }
+
+        // Pantau perubahan preferensi sistem
+        if (darkMediaQuery) {
+            if (typeof darkMediaQuery.addEventListener === 'function') {
+                darkMediaQuery.addEventListener('change', handleSystemThemeChange);
+            } else if (typeof darkMediaQuery.addListener === 'function') {
+                // Fallback untuk browser lama.
+                darkMediaQuery.addListener(handleSystemThemeChange);
+            }
+        }
 
         darkToggle.addEventListener('click', function () {
             isDark = !isDark;
-            applyDarkMode(isDark);
+            hasManualPreference = true;
+            applyDarkMode(isDark, true);
             showToast(
                 isDark ? 'Mode Gelap Aktif' : 'Mode Terang Aktif',
                 isDark ? 'Tampilan berubah ke mode gelap' : 'Tampilan berubah ke mode terang',
@@ -791,14 +824,18 @@
         setGoogleTranslateCookie(preferredLang);
         loadGoogleTranslateScript();
 
-        langToggle.addEventListener('click', function () {
+        langToggle.addEventListener('click', function (e) {
+            if (e) e.preventDefault();
+
             var current = (langText && langText.textContent === 'EN') ? 'en' : 'id';
             var nextLang = current === 'id' ? 'en' : 'id';
-            
+
             try {
                 localStorage.setItem('preferredLanguage', nextLang);
-            } catch (e) {}
-            
+            } catch (e) {
+                // localStorage unavailable
+            }
+
             setGoogleTranslateCookie(nextLang);
             window.location.reload();
         });

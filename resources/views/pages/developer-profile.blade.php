@@ -259,6 +259,29 @@
                 gap: 8px;
             }
         }
+
+        /* Dark Mode Overrides for Developer Profile */
+        body.dark-mode .dev-page {
+            background: #0f1610;
+        }
+        body.dark-mode .dev-overview {
+            background: #152018;
+            border-color: #1f2e22;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        body.dark-mode .dev-overview h2 { color: #e4efe6; }
+        body.dark-mode .dev-overview p { color: #a9b8ab; }
+        body.dark-mode .dev-kicker { background: #1f2e22; color: #66bb6a; }
+        body.dark-mode .dev-meta-item { background: #0c120d; border-color: #1f2e22; }
+        body.dark-mode .dev-meta-label { color: #8a9a8d; }
+        body.dark-mode .dev-meta-value { color: #e4efe6; }
+        body.dark-mode .dev-card { background: #152018; border-color: #1f2e22; box-shadow: 0 14px 34px rgba(0,0,0,0.4); }
+        body.dark-mode .dev-card-body h3 { color: #e4efe6; }
+        body.dark-mode .dev-card-body p { color: #a9b8ab; }
+        body.dark-mode .dev-card-footer { background: #0c120d; border-color: #1f2e22; }
+        body.dark-mode .dev-btn { background: #2e7d32; color: #fff; }
+        body.dark-mode .dev-btn:hover { background: #388e3c; }
+        body.dark-mode .dev-status { background: rgba(102,187,106,0.1); color: #66bb6a; border-color: #2e7d32; }
     </style>
 @endpush
 

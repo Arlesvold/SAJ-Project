@@ -2,6 +2,201 @@
 
 @section('title', 'Prosedur Daur Ulang - Go Green School')
 
+@push('styles')
+    <style>
+        .procedure-content {
+            padding: 72px 0;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(129, 199, 132, .2), transparent 34%),
+                radial-gradient(circle at 88% 84%, rgba(46, 125, 50, .12), transparent 36%),
+                linear-gradient(180deg, #f8fcf8 0%, #f2f8f2 100%);
+        }
+
+        .procedure-layout {
+            display: grid;
+            gap: 24px;
+        }
+
+        .procedure-top-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .procedure-panel {
+            position: relative;
+            background: linear-gradient(145deg, #ffffff 0%, #f6fbf7 100%);
+            border: 1px solid rgba(46, 125, 50, .12);
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 16px 38px rgba(17, 53, 30, .1);
+            overflow: hidden;
+        }
+
+        .procedure-panel::before {
+            content: '';
+            position: absolute;
+            top: -70px;
+            right: -80px;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(129, 199, 132, .24), rgba(129, 199, 132, 0));
+            pointer-events: none;
+        }
+
+        .procedure-panel-title {
+            margin: 0 0 18px;
+            color: #174927;
+            font-size: 1.45rem;
+            font-weight: 800;
+            letter-spacing: .01em;
+        }
+
+        .procedure-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .procedure-list li {
+            position: relative;
+            padding: 12px 14px 12px 42px;
+            border-radius: 12px;
+            background: rgba(232, 245, 233, .65);
+            border: 1px solid rgba(76, 175, 80, .12);
+            color: #2d4934;
+            line-height: 1.65;
+            font-weight: 500;
+        }
+
+        .procedure-list li::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            box-shadow: 0 0 0 4px rgba(102, 187, 106, .24);
+        }
+
+        .steps-list {
+            display: grid;
+            gap: 16px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .step-card {
+            display: grid;
+            grid-template-columns: 58px minmax(0, 1fr);
+            gap: 14px;
+            align-items: start;
+            padding: 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .82);
+            border: 1px solid rgba(46, 125, 50, .14);
+            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(46, 125, 50, .28);
+            box-shadow: 0 10px 24px rgba(22, 66, 36, .14);
+        }
+
+        .step-badge {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fff;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            box-shadow: 0 8px 18px rgba(46, 125, 50, .32);
+        }
+
+        .step-text {
+            margin: 0;
+            color: #304e38;
+            line-height: 1.75;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .procedure-top-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .procedure-content {
+                padding: 54px 0;
+            }
+
+            .procedure-panel {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .procedure-panel-title {
+                font-size: 1.25rem;
+            }
+
+            .step-card {
+                grid-template-columns: 48px minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .step-badge {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                font-size: 1.05rem;
+            }
+        }
+
+        body.dark-mode .procedure-content {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(76, 175, 80, .16), transparent 34%),
+                radial-gradient(circle at 88% 84%, rgba(102, 187, 106, .08), transparent 36%),
+                linear-gradient(180deg, #0f1610 0%, #121a13 100%);
+        }
+
+        body.dark-mode .procedure-panel {
+            background: linear-gradient(145deg, #152018 0%, #132217 100%);
+            border-color: #1f2e22;
+            box-shadow: 0 16px 38px rgba(0, 0, 0, .42);
+        }
+
+        body.dark-mode .procedure-panel-title {
+            color: #d6ead9;
+        }
+
+        body.dark-mode .procedure-list li {
+            background: rgba(19, 34, 23, .82);
+            border-color: #2b3d30;
+            color: #c2d5c6;
+        }
+
+        body.dark-mode .step-card {
+            background: rgba(19, 34, 23, .88);
+            border-color: #2b3d30;
+        }
+
+        body.dark-mode .step-text {
+            color: #c2d5c6;
+        }
+    </style>
+@endpush
+
 @section('content')
     <section class="page-hero"
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
@@ -51,153 +246,64 @@
         </div>
     </section>
 
-    <section class="procedure-section" style="padding: 60px 0; background: #fbfdfb;">
+    <section class="procedure-content">
         <div class="container">
+            <div class="procedure-layout">
+                <div class="procedure-top-grid">
+                    <article class="procedure-panel">
+                        <h2 class="procedure-panel-title">Bahan yang dibutuhkan:</h2>
+                        <ul class="procedure-list">
+                            <li>Tiga tempat sampah terpisah (Organik, Anorganik, dan Kertas).</li>
+                            <li>Label atau stiker untuk setiap tempat sampah.</li>
+                            <li>Sarung tangan untuk keamanan.</li>
+                            <li>Satu wadah kompos (untuk sampah organik).</li>
+                        </ul>
+                    </article>
 
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 15px;">Langkah-Langkah Daur Ulang</h2>
-                <p style="color: var(--gray); max-width: 600px; margin: 0 auto;">Pelajari proses daur ulang yang benar untuk
-                    berkontribusi pada lingkungan yang lebih bersih</p>
-            </div>
-
-            <div class="procedure-steps"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
-                <div class="procedure-step"
-                    style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5e9;  cursor: pointer; text-align: center;">
-                    <div class="step-number"
-                        style="width: 60px; height: 60px; background: var(--primary-color, #2e7d32); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
-                        1</div>
-                    <div class="step-icon"
-                        style="font-size: 2rem; color: var(--primary-color, #2e7d32); margin-bottom: 15px; transition: all 0.3s ease;">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <h3 class="step-title"
-                        style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 15px; transition: color 0.3s ease;">
-                        Pengumpulan</h3>
-                    <p class="step-description"
-                        style="color: #666; line-height: 1.6; font-size: 0.95rem; transition: color 0.3s ease;">Kumpulkan
-                        sampah yang dapat didaur ulang seperti plastik, kertas, kaca, dan logam dari rumah, sekolah, atau
-                        lingkungan sekitar.</p>
+                    <article class="procedure-panel">
+                        <h2 class="procedure-panel-title">Tips untuk Sukses:</h2>
+                        <ul class="procedure-list">
+                            <li>Konsisten: Selalu periksa tempat sampah untuk memastikan tidak ada "kontaminasi silang"
+                                (misalnya plastik di tempat sampah organik).</li>
+                            <li>Kurangi Terlebih Dahulu: Ingat bahwa daur ulang adalah pilihan terakhir; cara terbaik untuk
+                                membantu adalah mengurangi sampah dari awal.</li>
+                            <li>Kolaborasi: Bekerja sama dengan kantin sekolah untuk meminimalkan penggunaan kemasan plastik
+                                dalam pelayanannya.</li>
+                        </ul>
+                    </article>
                 </div>
 
-                <div class="procedure-step"
-                    style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5e9;  cursor: pointer; text-align: center;">
-                    <div class="step-number"
-                        style="width: 60px; height: 60px; background: var(--primary-color, #2e7d32); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
-                        2</div>
-                    <div class="step-icon"
-                        style="font-size: 2rem; color: var(--primary-color, #2e7d32); margin-bottom: 15px; transition: all 0.3s ease;">
-                        <i class="fas fa-sort"></i>
+                <article class="procedure-panel">
+                    <h2 class="procedure-panel-title">Langkah-langkah:</h2>
+                    <div class="steps-list">
+                        <div class="step-card">
+                            <div class="step-badge">1</div>
+                            <p class="step-text">Pertama, kategorikan tempat sampah dengan memberi label yang jelas:
+                                "Organik" untuk sisa makanan, "Anorganik" untuk plastik/kaleng, dan "Kertas" untuk buku
+                                tulis atau kardus.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-badge">2</div>
+                            <p class="step-text">Kedua, kumpulkan sampah setiap hari dan pastikan benda anorganik, seperti
+                                botol plastik atau kotak susu, dibilas dan dikeringkan untuk mencegah bau dan bakteri.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-badge">3</div>
+                            <p class="step-text">Ketiga, pindahkan sampah organik ke area pengomposan atau ke wadah kompos
+                                untuk diproses menjadi pupuk alami bagi kebun sekolah.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-badge">4</div>
+                            <p class="step-text">Selanjutnya, sortir sampah anorganik. Benda yang masih dalam kondisi baik
+                                dapat di-"upcycle" menjadi kerajinan atau dekorasi sekolah.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-badge">5</div>
+                            <p class="step-text">Terakhir, kirim sisa material yang dapat didaur ulang (seperti kertas dan
+                                plastik bersih) ke pusat daur ulang setempat atau ke "Bank Sampah".</p>
+                        </div>
                     </div>
-                    <h3 class="step-title"
-                        style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 15px; transition: color 0.3s ease;">
-                        Pemisahan</h3>
-                    <p class="step-description"
-                        style="color: #666; line-height: 1.6; font-size: 0.95rem; transition: color 0.3s ease;">Pisahkan
-                        sampah berdasarkan jenis materialnya. Pastikan plastik, kertas, kaca, dan logam dipisahkan dengan
-                        benar untuk memudahkan proses selanjutnya.</p>
-                </div>
-
-                <div class="procedure-step"
-                    style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5e9;  cursor: pointer; text-align: center;">
-                    <div class="step-number"
-                        style="width: 60px; height: 60px; background: var(--primary-color, #2e7d32); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
-                        3</div>
-                    <div class="step-icon"
-                        style="font-size: 2rem; color: var(--primary-color, #2e7d32); margin-bottom: 15px; transition: all 0.3s ease;">
-                        <i class="fas fa-hand-sparkles"></i>
-                    </div>
-                    <h3 class="step-title"
-                        style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 15px; transition: color 0.3s ease;">
-                        Pembersihan</h3>
-                    <p class="step-description"
-                        style="color: #666; line-height: 1.6; font-size: 0.95rem; transition: color 0.3s ease;">Bersihkan
-                        sampah dari kotoran, makanan, atau bahan lain yang menempel. Cuci plastik dan kaca hingga bersih
-                        sebelum didaur ulang.</p>
-                </div>
-
-                <div class="procedure-step"
-                    style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5e9;  cursor: pointer; text-align: center;">
-                    <div class="step-number"
-                        style="width: 60px; height: 60px; background: var(--primary-color, #2e7d32); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
-                        4</div>
-                    <div class="step-icon"
-                        style="font-size: 2rem; color: var(--primary-color, #2e7d32); margin-bottom: 15px; transition: all 0.3s ease;">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="step-title"
-                        style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 15px; transition: color 0.3s ease;">
-                        Pengolahan</h3>
-                    <p class="step-description"
-                        style="color: #666; line-height: 1.6; font-size: 0.95rem; transition: color 0.3s ease;">Proses
-                        material daur ulang melalui mesin penghancur, pencairan, atau pemrosesan lainnya untuk mengubahnya
-                        menjadi bahan baku baru.</p>
-                </div>
-
-                <div class="procedure-step"
-                    style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5e9;  cursor: pointer; text-align: center;">
-                    <div class="step-number"
-                        style="width: 60px; height: 60px; background: var(--primary-color, #2e7d32); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
-                        5</div>
-                    <div class="step-icon"
-                        style="font-size: 2rem; color: var(--primary-color, #2e7d32); margin-bottom: 15px; transition: all 0.3s ease;">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <h3 class="step-title"
-                        style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 15px; transition: color 0.3s ease;">
-                        Pembuatan Produk Baru</h3>
-                    <p class="step-description"
-                        style="color: #666; line-height: 1.6; font-size: 0.95rem; transition: color 0.3s ease;">Gunakan
-                        bahan daur ulang untuk membuat produk baru seperti kertas, botol plastik, atau barang lainnya yang
-                        dapat digunakan kembali.</p>
-                </div>
-
-                <div class="procedure-step"
-                    style="background: #fff; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #e8f5e9;  cursor: pointer; text-align: center;">
-                    <div class="step-number"
-                        style="width: 60px; height: 60px; background: var(--primary-color, #2e7d32); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3); transition: all 0.3s ease;">
-                        6</div>
-                    <div class="step-icon"
-                        style="font-size: 2rem; color: var(--primary-color, #2e7d32); margin-bottom: 15px; transition: all 0.3s ease;">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3 class="step-title"
-                        style="font-size: 1.3rem; font-weight: 600; color: #333; margin-bottom: 15px; transition: color 0.3s ease;">
-                        Distribusi</h3>
-                    <p class="step-description"
-                        style="color: #666; line-height: 1.6; font-size: 0.95rem; transition: color 0.3s ease;">
-                        Distribusikan produk daur ulang ke pasar atau gunakan kembali dalam kehidupan sehari-hari untuk
-                        melanjutkan siklus daur ulang yang berkelanjutan.</p>
-                </div>
-            </div>
-
-            <div class="procedure-tips"
-                style="background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-radius: 15px; padding: 40px; text-align: center; border: 2px solid #c8e6c9;">
-                <h3
-                    style="color: var(--primary-color, #2e7d32); font-size: 1.8rem; margin-bottom: 20px; font-weight: 600;">
-                    <i class="fas fa-lightbulb"></i> Tips Daur Ulang
-                </h3>
-                <ul
-                    style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
-                    <li
-                        style="padding: 15px; background: rgba(255, 255, 255, 0.8); border-radius: 10px; border-left: 4px solid var(--primary-color, #2e7d32); font-weight: 500; color: #555;">
-                        Cuci kemasan sebelum membuangnya</li>
-                    <li
-                        style="padding: 15px; background: rgba(255, 255, 255, 0.8); border-radius: 10px; border-left: 4px solid var(--primary-color, #2e7d32); font-weight: 500; color: #555;">
-                        Pisahkan sampah organik dan anorganik</li>
-                    <li
-                        style="padding: 15px; background: rgba(255, 255, 255, 0.8); border-radius: 10px; border-left: 4px solid var(--primary-color, #2e7d32); font-weight: 500; color: #555;">
-                        Gunakan kembali barang sebanyak mungkin</li>
-                    <li
-                        style="padding: 15px; background: rgba(255, 255, 255, 0.8); border-radius: 10px; border-left: 4px solid var(--primary-color, #2e7d32); font-weight: 500; color: #555;">
-                        Belajar mengenali simbol daur ulang</li>
-                    <li
-                        style="padding: 15px; background: rgba(255, 255, 255, 0.8); border-radius: 10px; border-left: 4px solid var(--primary-color, #2e7d32); font-weight: 500; color: #555;">
-                        Ajari teman dan keluarga tentang pentingnya daur ulang</li>
-                    <li
-                        style="padding: 15px; background: rgba(255, 255, 255, 0.8); border-radius: 10px; border-left: 4px solid var(--primary-color, #2e7d32); font-weight: 500; color: #555;">
-                        Ikuti program daur ulang di sekolah</li>
-                </ul>
+                </article>
             </div>
         </div>
     </section>
