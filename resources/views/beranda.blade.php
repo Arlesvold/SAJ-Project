@@ -163,15 +163,20 @@
                             </div>
                         </div>
                         <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
-                            <strong>Go Green School</strong> adalah inisiatif pendidikan berkelanjutan yang
-                            didedikasikan untuk menanamkan kesadaran lingkungan pada generasi muda. Kami percaya bahwa
-                            sekolah bukan hanya tempat belajar akademis, tetapi juga laboratorium hidup untuk
-                            mempraktikkan gaya hidup ramah lingkungan.
+                            <strong>Go Green School</strong> Go Green School adalah platform digital edukatif yang
+                            dirancang untuk mendukung transformasi sekolah menjadi institusi yang lebih sadar dan
+                            bertanggung jawab terhadap lingkungan. Melalui penyediaan berbagai literasi, panduan
+                            praktis, dan sumber daya informatif, kami membantu guru serta siswa untuk merancang
+                            sekaligus mengembangkan program lingkungan yang efektif dan berdampak nyata bagi seluruh
+                            komunitas sekolah.
                         </p>
                         <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px;">
-                            Melalui berbagai program terpadu seperti pengelolaan sampah, efisiensi energi, dan
-                            pelestarian ruang terbuka hijau, kami mengajak seluruh warga sekolah untuk mengambil peran
-                            aktif dalam menjaga kelestarian bumi demi masa depan yang lebih baik.
+                            Kami berkomitmen menciptakan ekosistem belajar yang mengintegrasikan nilai-nilai ekologis ke
+                            dalam rutinitas harian melalui penerapan prinsip 4R yaitu Reduce, Reuse, Recycle, dan
+                            Replant yang bertujuan untuk efisiensi energi. Dengan menggabungkan teori akademik dan aksi
+                            nyata, Go Green School bertujuan untuk melahirkan generasi yang tidak hanya unggul dalam
+                            pengetahuan, tetapi juga memiliki karakter dan kebiasaan hidup berkelanjutan demi menjaga
+                            kelestarian bumi.
                         </p>
                         <a href="{{ route('information') }}" class="btn-primary"
                             style="display: inline-flex; align-items: center; gap: 8px;">

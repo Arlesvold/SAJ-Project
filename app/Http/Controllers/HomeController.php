@@ -56,9 +56,9 @@ class HomeController extends Controller
         return [
             [
                 'badge'   => ['icon' => 'fas fa-seedling', 'text' => 'Go Green School 2026'],
-                'title'   => 'Membentuk Generasi',
-                'accent'  => 'Berkarakter Hijau',
-                'desc'    => 'Kami menghadirkan pengalaman belajar yang menggabungkan ilmu, aksi nyata, dan kebiasaan ramah lingkungan agar siswa tumbuh sebagai agen perubahan untuk masa depan bumi.',
+                'title'   => 'Forum Edukasi Sekolah',
+                'accent'  => 'Berwawasan Lingkungan',
+                'desc'    => 'Kami hadir sebagai platform informatif yang menyediakan artikel lengkap, panduan, dan sumber daya bagi guru dan siswa untuk mengembangkan program lingkungan yang efektif dan berdampak.',
                 'buttons' => [
                     ['href' => '#programs', 'class' => 'btn-primary', 'icon' => 'fas fa-play-circle', 'text' => 'Lihat Program'],
                     ['href' => '#', 'class' => 'btn-outline', 'icon' => 'fas fa-file-alt', 'text' => 'Unduh Panduan'],
@@ -76,9 +76,9 @@ class HomeController extends Controller
             ],
             [
                 'badge'   => ['icon' => 'fas fa-award', 'text' => 'Penghargaan Adiwiyata'],
-                'title'   => 'Komitmen Nyata',
-                'accent'  => 'Sekolah Berkelanjutan',
-                'desc'    => 'Setiap program dirancang untuk membangun budaya sekolah yang bersih, sehat, dan berkelanjutan melalui kolaborasi siswa, guru, dan orang tua.',
+                'title'   => 'Panduan Praktis Aksi',
+                'accent'  => 'dan Budaya Hijau',
+                'desc'    => 'Melalui instruksi langkah demi langkah, ide kreatif, dan edukasi pengelolaan sampah, kami membantu sekolah menerapkan kebiasaan ramah lingkungan sebagai gaya hidup berkelanjutan.',
                 'buttons' => [
                     ['href' => '#', 'class' => 'btn-primary', 'icon' => 'fas fa-trophy', 'text' => 'Lihat Prestasi'],
                     ['href' => '#', 'class' => 'btn-outline', 'icon' => 'fas fa-images', 'text' => 'Dokumentasi'],
@@ -96,9 +96,9 @@ class HomeController extends Controller
             ],
             [
                 'badge'   => ['icon' => 'fas fa-recycle', 'text' => 'Zero Waste Campaign'],
-                'title'   => 'Gerakan Bersama',
-                'accent'  => 'Bumi Lebih Lestari',
-                'desc'    => 'Dari ruang kelas hingga lingkungan sekitar, kami menumbuhkan kebiasaan 3R secara konsisten untuk menciptakan dampak positif yang berkelanjutan.',
+                'title'   => 'Transformasi Ekologis',
+                'accent'  => 'Ekosistem Pembelajaran',
+                'desc'    => 'Kami berkomitmen untuk mengubah sekolah menjadi lingkungan belajar yang tidak hanya unggul secara akademis, tetapi juga memiliki tanggung jawab penuh terhadap keberlanjutan ekologis di masa depan.',
                 'buttons' => [
                     ['href' => '#', 'class' => 'btn-primary', 'icon' => 'fas fa-hands-helping', 'text' => 'Ikut Berpartisipasi'],
                     ['href' => '#', 'class' => 'btn-outline', 'icon' => 'fas fa-info-circle', 'text' => 'Pelajari Lebih'],
@@ -109,7 +109,7 @@ class HomeController extends Controller
                     'stats' => [
                         ['icon' => 'fas fa-ban',            'color' => 'rgba(76,175,80,.3)',  'value' => 'Zero',       'label' => 'Plastik Sekali Pakai'],
                         ['icon' => 'fas fa-percentage',     'color' => 'rgba(33,150,243,.3)', 'value' => '78%',        'label' => 'Reduksi Sampah'],
-                        ['icon' => 'fas fa-dumpster-fire',  'color' => 'rgba(255,152,0,.3)',  'value' => 'Bank Sampah','label' => 'Dikelola Siswa'],
+                        ['icon' => 'fas fa-dumpster-fire',  'color' => 'rgba(255,152,0,.3)',  'value' => 'Bank Sampah', 'label' => 'Dikelola Siswa'],
                         ['icon' => 'fas fa-leaf',           'color' => 'rgba(156,39,176,.3)', 'value' => 'Kompos',     'label' => 'Dari Sampah Organik'],
                     ],
                 ],
@@ -239,7 +239,7 @@ class HomeController extends Controller
             ['image' => 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80', 'title' => 'Workshop Daur Ulang',      'date' => '5 Februari 2026'],
             ['image' => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80', 'title' => 'Taman Kupu-Kupu',          'date' => '1 Februari 2026'],
             ['image' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80', 'title' => 'Instalasi Panel Surya',     'date' => '28 Januari 2026'],
-            ['image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80', 'title' => 'Edukasi Lingkungan Outdoor','date' => '20 Januari 2026'],
+            ['image' => 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80', 'title' => 'Edukasi Lingkungan Outdoor', 'date' => '20 Januari 2026'],
         ];
     }
 
