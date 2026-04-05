@@ -8,7 +8,7 @@
         </div>
         <div class="quick-links">
             <a href="{{ route('contact') }}#contact"><i class="fas fa-phone-alt"></i> Hubungi Kami</a>
-            <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="{{ route('information') }}#faq-tanya-jawab"><i class="fas fa-question-circle"></i> FAQ</a>
         </div>
     </div>
 </div>

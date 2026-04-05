@@ -92,15 +92,9 @@
             gap: 8px;
         }
 
-        /* Dark Mode Overrides for Information Contact Cards */
-        body.dark-mode .info-badge {
-            background: #1f2e22;
-            color: #66bb6a;
+        #faq-tanya-jawab {
+            scroll-margin-top: 120px;
         }
-        body.dark-mode .info-detail h3 { color: #e4efe6; }
-        body.dark-mode .info-detail p { color: #a9b8ab; }
-        body.dark-mode .info-icon { background: #152018; color: #66bb6a; }
-        body.dark-mode .info-card { background: #152018; border-color: #1f2e22; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
     </style>
 @endpush
 
@@ -256,7 +250,8 @@
                 </div>
             </div>
 
-            <div class="faq-section" style="margin-top: 80px; padding: 60px 0; background: #fafdfb; border-radius: 30px;">
+            <div id="faq-tanya-jawab" class="faq-section"
+                style="margin-top: 80px; padding: 60px 0; background: #fafdfb; border-radius: 30px;">
                 <div style="text-align: center; margin-bottom: 50px; padding: 0 20px;">
                     <br>
                     <span class="faq-header-badge"><i class="fas fa-question-circle"></i> FAQ Lingkungan</span>
