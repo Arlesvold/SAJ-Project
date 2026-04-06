@@ -247,7 +247,7 @@
                     <a href="{{ route('home') }}" style="color: #a5d6a7; text-decoration: none;"><i class="fas fa-home"></i>
                         Beranda</a>
                     <span class="separator" style="color: #999;"><i class="fas fa-chevron-right"></i></span>
-                    <span class="current" style="color: white;">Hubungi Kami</span>
+                    <span class="current" style="color: white;">Hubungi Kita</span>
                 </div>
             </div>
         </div>

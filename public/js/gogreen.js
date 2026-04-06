@@ -642,80 +642,131 @@
     }, 'GalleryLightbox');
 
     // ============================================
-    // 13. DARK MODE TOGGLE
+    // 13. QUICK TOGGLE MENU
+    // ============================================
+    safeExecute(function () {
+        var quickToggleWrapper = $('#quickToggleWrapper');
+        var quickToggleMain = $('#quickToggleMain');
+        var quickToggleDropdown = $('#quickToggleDropdown');
+
+        if (!quickToggleWrapper || !quickToggleMain || !quickToggleDropdown) return;
+
+        function setMenuState(open) {
+            quickToggleWrapper.classList.toggle('open', open);
+            quickToggleMain.setAttribute('aria-expanded', open ? 'true' : 'false');
+            quickToggleDropdown.setAttribute('aria-hidden', open ? 'false' : 'true');
+        }
+
+        quickToggleMain.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            setMenuState(!quickToggleWrapper.classList.contains('open'));
+        });
+
+        quickToggleDropdown.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        $$('.toggle-action-btn', quickToggleDropdown).forEach(function (button) {
+            button.addEventListener('click', function () {
+                setMenuState(false);
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!quickToggleWrapper.contains(e.target)) {
+                setMenuState(false);
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                setMenuState(false);
+            }
+        });
+    }, 'QuickToggleMenu');
+
+    // ============================================
+    // 14. DARK THEME TOGGLE
     // ============================================
     safeExecute(function () {
         var darkToggle = $('#darkToggle');
         if (!darkToggle) return;
 
-        var darkIcon = darkToggle.querySelector('i');
-        var darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
-        var isDark = false;
-        var hasManualPreference = false;
+        var darkToggleIcon = darkToggle.querySelector('.dark-toggle-icon');
+        var darkToggleText = darkToggle.querySelector('.dark-toggle-text');
 
-        try {
-            var storedPreference = localStorage.getItem('darkMode');
-            hasManualPreference = storedPreference !== null;
-            if (hasManualPreference) {
-                isDark = storedPreference === 'true';
-            } else if (darkMediaQuery) {
-                // Sediakan dukungan preferensi sistem jika tidak ada di localStorage
-                isDark = darkMediaQuery.matches;
+        var storageKey = 'goGreenTheme';
+        var darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+        function updateDarkToggleUI(isDark) {
+            if (darkToggleIcon) {
+                darkToggleIcon.className = 'fas ' + (isDark ? 'fa-moon' : 'fa-sun') + ' dark-toggle-icon';
             }
-        } catch (e) {
-            // localStorage not available, gunakan preferensi sistem sebagai fallback
-            if (darkMediaQuery) {
-                isDark = darkMediaQuery.matches;
+            if (darkToggleText) {
+                darkToggleText.textContent = isDark ? 'Gelap' : 'Terang';
+            }
+            darkToggle.classList.toggle('is-dark', isDark);
+        }
+
+        function applyTheme(theme, persist) {
+            var isDark = theme === 'dark';
+            document.body.classList.toggle('dark-theme', isDark);
+            // Keep compatibility with existing page-specific dark-mode styles.
+            document.body.classList.toggle('dark-mode', isDark);
+            darkToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+            darkToggle.title = isDark ? 'Beralih ke mode terang' : 'Aktifkan mode gelap';
+            updateDarkToggleUI(isDark);
+
+            if (persist) {
+                try {
+                    localStorage.setItem(storageKey, isDark ? 'dark' : 'light');
+                } catch (e) {
+                    // localStorage unavailable
+                }
             }
         }
 
-        function applyDarkMode(dark, persistPreference) {
-            document.body.classList.toggle('dark-mode', dark);
-            if (darkIcon) darkIcon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
-            darkToggle.title = dark ? 'Mode Terang' : 'Mode Gelap';
-
-            if (!persistPreference) return;
-
+        function getSavedTheme() {
             try {
-                localStorage.setItem('darkMode', String(dark));
+                var saved = localStorage.getItem(storageKey);
+                if (saved === 'dark' || saved === 'light') return saved;
             } catch (e) {
                 // localStorage unavailable
             }
+            return null;
         }
 
-        // Terapkan tema awal tanpa memaksa preferensi sistem ke localStorage.
-        applyDarkMode(isDark, false);
-
-        function handleSystemThemeChange(e) {
-            if (hasManualPreference) return;
-            isDark = !!e.matches;
-            applyDarkMode(isDark, false);
-        }
-
-        // Pantau perubahan preferensi sistem
-        if (darkMediaQuery) {
-            if (typeof darkMediaQuery.addEventListener === 'function') {
-                darkMediaQuery.addEventListener('change', handleSystemThemeChange);
-            } else if (typeof darkMediaQuery.addListener === 'function') {
-                // Fallback untuk browser lama.
-                darkMediaQuery.addListener(handleSystemThemeChange);
-            }
+        var savedTheme = getSavedTheme();
+        if (savedTheme) {
+            applyTheme(savedTheme, false);
+        } else if (darkMediaQuery && darkMediaQuery.matches) {
+            applyTheme('dark', false);
+        } else {
+            applyTheme('light', false);
         }
 
         darkToggle.addEventListener('click', function () {
-            isDark = !isDark;
-            hasManualPreference = true;
-            applyDarkMode(isDark, true);
-            showToast(
-                isDark ? 'Mode Gelap Aktif' : 'Mode Terang Aktif',
-                isDark ? 'Tampilan berubah ke mode gelap' : 'Tampilan berubah ke mode terang',
-                'info'
-            );
+            var nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+            applyTheme(nextTheme, true);
         });
-    }, 'DarkMode');
+
+        if (darkMediaQuery) {
+            var handleSystemTheme = function (event) {
+                if (getSavedTheme()) return;
+                applyTheme(event.matches ? 'dark' : 'light', false);
+            };
+
+            if (typeof darkMediaQuery.addEventListener === 'function') {
+                darkMediaQuery.addEventListener('change', handleSystemTheme);
+            } else if (typeof darkMediaQuery.addListener === 'function') {
+                darkMediaQuery.addListener(handleSystemTheme);
+            }
+        }
+    }, 'DarkThemeToggle');
 
     // ============================================
-    // 14. LANGUAGE TOGGLE (ID/EN)
+    // 15. LANGUAGE TOGGLE (ID/EN)
     // ============================================
     safeExecute(function () {
         var langToggle = $('#langToggle');

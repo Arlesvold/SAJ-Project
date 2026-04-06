@@ -3,9 +3,10 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-about">
-                <div class="logo-footer">
-                    <div class="icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Go Green School</h3>
+                <div class="logo-footer" style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo Go Green School"
+                        style="height: 50px; width: auto; border-radius: 50%;">
+                    <h3 style="margin: 0;">Go Green School</h3>
                 </div>
                 <p>Menciptakan ekosistem pendidikan yang harmonis dengan alam, mencetak pemimpin masa depan yang
                     proaktif, peduli, dan bertanggung jawab terhadap lingkungan sekitarnya.</p>

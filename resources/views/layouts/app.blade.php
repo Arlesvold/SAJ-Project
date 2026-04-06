@@ -39,16 +39,25 @@
     {{-- Toast Container --}}
     <div class="toast-container" id="toastContainer"></div>
 
-    {{-- Dark Mode Toggle --}}
-    <button class="dark-toggle" id="darkToggle" title="Mode Gelap" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    {{-- Language Toggle --}}
-    <button class="lang-toggle" id="langToggle" title="Ganti Bahasa" aria-label="Toggle language">
-        <i class="fas fa-language"></i>
-        <span class="lang-toggle-text">ID</span>
-    </button>
+    {{-- Quick Toggle Menu --}}
+    <div class="quick-toggle-wrapper" id="quickToggleWrapper">
+        <button class="quick-toggle-main" id="quickToggleMain" title="Pengaturan tampilan"
+            aria-label="Toggle menu pengaturan" aria-expanded="false" aria-controls="quickToggleDropdown">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+        <div class="quick-toggle-dropdown" id="quickToggleDropdown" aria-hidden="true">
+            <button class="lang-toggle toggle-action-btn" id="langToggle" title="Ganti Bahasa"
+                aria-label="Toggle language">
+                <i class="fas fa-language"></i>
+                <span class="lang-toggle-text">ID</span>
+            </button>
+            <button class="dark-toggle toggle-action-btn" id="darkToggle" title="Aktifkan mode gelap"
+                aria-label="Toggle dark mode" aria-pressed="false">
+                <i class="fas fa-sun dark-toggle-icon"></i>
+                <span class="dark-toggle-text">Terang</span>
+            </button>
+        </div>
+    </div>
     <div id="google_translate_element" class="google-translate-element" aria-hidden="true"></div>
 
     {{-- Top Bar --}}
