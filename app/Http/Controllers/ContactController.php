@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -43,10 +44,11 @@ final class ContactController extends Controller
             $targetWhatsapp = $this->normalizeWhatsapp($validated['whatsapp']);
             $message = $this->buildWhatsappMessage($validated);
 
-            $fonnteToken = (string) config('services.fonnte.token');
-            $fonnteEndpoint = (string) config('services.fonnte.endpoint', 'https://api.fonnte.com/send');
+            ['token' => $fonnteToken, 'endpoint' => $fonnteEndpoint] = $this->resolveFonnteConfig();
 
             if ($fonnteToken === '') {
+                Log::warning('Fonnte token is missing. Please configure FONNTE_TOKEN in environment variables.');
+
                 return back()->withInput()->with('error', 'Integrasi WhatsApp belum dikonfigurasi. Silakan hubungi admin.');
             }
 
@@ -93,6 +95,59 @@ final class ContactController extends Controller
                 ->withInput()
                 ->with('error', 'Maaf, pesan belum berhasil dikirim. Silakan coba kembali beberapa saat lagi.');
         }
+    }
+
+    /**
+     * Resolve Fonnte config safely across local/cloud env naming and cache differences.
+     *
+     * @return array{token: string, endpoint: string}
+     */
+    private function resolveFonnteConfig(): array
+    {
+        $tokenCandidates = [
+            (string) config('services.fonnte.token', ''),
+            (string) env('FONNTE_TOKEN', ''),
+            (string) env('FONTE_TOKEN', ''),
+            (string) env('FOONTE_TOKEN', ''),
+        ];
+
+        $endpointCandidates = [
+            (string) config('services.fonnte.endpoint', ''),
+            (string) env('FONNTE_ENDPOINT', ''),
+            (string) env('FONTE_ENDPOINT', ''),
+            (string) env('FOONTE_ENDPOINT', ''),
+        ];
+
+        $token = '';
+        foreach ($tokenCandidates as $candidate) {
+            $normalized = $this->sanitizeConfigValue($candidate);
+            if ($normalized !== '') {
+                $token = $normalized;
+                break;
+            }
+        }
+
+        $endpoint = 'https://api.fonnte.com/send';
+        foreach ($endpointCandidates as $candidate) {
+            $normalized = $this->sanitizeConfigValue($candidate);
+            if ($normalized !== '') {
+                $endpoint = $normalized;
+                break;
+            }
+        }
+
+        return [
+            'token' => $token,
+            'endpoint' => $endpoint,
+        ];
+    }
+
+    /**
+     * Remove accidental quotes/spaces from environment-backed values.
+     */
+    private function sanitizeConfigValue(string $value): string
+    {
+        return trim($value, " \t\n\r\0\x0B\"'");
     }
 
     /**

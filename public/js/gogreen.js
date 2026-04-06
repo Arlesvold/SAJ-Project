@@ -697,7 +697,6 @@
         var darkToggleText = darkToggle.querySelector('.dark-toggle-text');
 
         var storageKey = 'goGreenTheme';
-        var darkMediaQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
         function updateDarkToggleUI(isDark) {
             if (darkToggleIcon) {
@@ -738,9 +737,7 @@
         }
 
         var savedTheme = getSavedTheme();
-        if (savedTheme) {
-            applyTheme(savedTheme, false);
-        } else if (darkMediaQuery && darkMediaQuery.matches) {
+        if (savedTheme === 'dark') {
             applyTheme('dark', false);
         } else {
             applyTheme('light', false);
@@ -750,19 +747,6 @@
             var nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
             applyTheme(nextTheme, true);
         });
-
-        if (darkMediaQuery) {
-            var handleSystemTheme = function (event) {
-                if (getSavedTheme()) return;
-                applyTheme(event.matches ? 'dark' : 'light', false);
-            };
-
-            if (typeof darkMediaQuery.addEventListener === 'function') {
-                darkMediaQuery.addEventListener('change', handleSystemTheme);
-            } else if (typeof darkMediaQuery.addListener === 'function') {
-                darkMediaQuery.addListener(handleSystemTheme);
-            }
-        }
     }, 'DarkThemeToggle');
 
     // ============================================
