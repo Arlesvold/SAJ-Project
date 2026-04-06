@@ -111,6 +111,8 @@
             padding: 0;
             background: linear-gradient(120deg, #e8f5e9, #f3faf4);
             border-right: 1px solid rgba(46, 125, 50, .08);
+            overflow: hidden;
+            position: relative;
         }
 
         .dev-avatar {
@@ -118,6 +120,13 @@
             height: 100%;
             min-height: 200px;
             object-fit: cover;
+            transition: transform 0.4s ease;
+            transform: scale(var(--dev-photo-zoom, 1));
+            transform-origin: center;
+        }
+
+        .dev-card:hover .dev-avatar {
+            transform: scale(calc(var(--dev-photo-zoom, 1) + .08));
         }
 
         .dev-headline {
@@ -236,12 +245,15 @@
             .dev-card-photo {
                 border-right: none;
                 border-bottom: 1px solid rgba(46, 125, 50, .08);
+                aspect-ratio: 4 / 5;
+                min-height: 0;
             }
 
             .dev-avatar {
                 width: 100%;
-                height: 200px;
-                min-height: auto;
+                height: 100%;
+                min-height: 0;
+                object-position: center 18%;
             }
 
             .dev-card-body {
@@ -259,29 +271,6 @@
                 gap: 8px;
             }
         }
-
-        /* Dark Mode Overrides for Developer Profile */
-        body.dark-mode .dev-page {
-            background: #0f1610;
-        }
-        body.dark-mode .dev-overview {
-            background: #152018;
-            border-color: #1f2e22;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-        body.dark-mode .dev-overview h2 { color: #e4efe6; }
-        body.dark-mode .dev-overview p { color: #a9b8ab; }
-        body.dark-mode .dev-kicker { background: #1f2e22; color: #66bb6a; }
-        body.dark-mode .dev-meta-item { background: #0c120d; border-color: #1f2e22; }
-        body.dark-mode .dev-meta-label { color: #8a9a8d; }
-        body.dark-mode .dev-meta-value { color: #e4efe6; }
-        body.dark-mode .dev-card { background: #152018; border-color: #1f2e22; box-shadow: 0 14px 34px rgba(0,0,0,0.4); }
-        body.dark-mode .dev-card-body h3 { color: #e4efe6; }
-        body.dark-mode .dev-card-body p { color: #a9b8ab; }
-        body.dark-mode .dev-card-footer { background: #0c120d; border-color: #1f2e22; }
-        body.dark-mode .dev-btn { background: #2e7d32; color: #fff; }
-        body.dark-mode .dev-btn:hover { background: #388e3c; }
-        body.dark-mode .dev-status { background: rgba(102,187,106,0.1); color: #66bb6a; border-color: #2e7d32; }
     </style>
 @endpush
 
@@ -374,7 +363,7 @@
                     <article class="dev-card">
                         <div class="dev-card-photo">
                             <img class="dev-avatar" src="{{ $developer['photo'] }}" alt="Foto {{ $developer['name'] }}"
-                                loading="lazy">
+                                style="--dev-photo-zoom: {{ $developer['photo_zoom'] ?? '1' }};" loading="lazy">
                         </div>
                         <div class="dev-card-body">
                             <div class="dev-headline">

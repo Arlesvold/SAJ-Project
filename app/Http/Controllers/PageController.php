@@ -339,17 +339,19 @@ class PageController extends Controller
     private function getDeveloperProfiles(): array
     {
         return [
+            // Atur zoom foto per developer: 1 = normal, >1 zoom in, <1 zoom out.
             [
                 'name' => 'Charles Adrian',
                 'age' => '17 tahun',
                 'class' => 'XII RPL',
                 'school' => 'SMK Karya Bangsa Sintang',
                 'role' => 'Fullstack Developer',
-                'focus' => 'UI/UX, responsive layout, dan animasi antarmuka',
-                'contribution' => 'Merancang tampilan beranda, hero section, dan komponen visual utama.',
+                'focus' => 'Responsive layout, Logika web, Integrasi API',
+                'contribution' => 'Arsitektur halaman, membangun logika web, integrasi API Whatsapp dan Email.',
                 'year' => '27 Oktober 2008',
                 'email' => 'adrianrian7449@gmail.com',
-                'photo' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80',
+                'photo' => asset('images/charless1.png'),
+                'photo_zoom' => '1.30',
             ],
             [
                 'name' => 'Calya De’prila Maheswari ',
@@ -357,11 +359,12 @@ class PageController extends Controller
                 'class' => 'XII RPL',
                 'school' => 'SMK Karya Bangsa Sintang',
                 'role' => 'Frontend Developer',
-                'focus' => 'Alur data, validasi form, dan integrasi API',
-                'contribution' => 'Membangun logika fitur kontak, pengiriman notifikasi, dan pengelolaan data JSON.',
+                'focus' => 'Isi konten, pengujian fitur',
+                'contribution' => 'Memberikan isi/konten web, pengelolaan data JSON, pengujian fitur.',
                 'year' => '19 Juli 2008',
                 'email' => 'calyadeprilamaheswari@karyabangsa.sch.id',
-                'photo' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80',
+                'photo' => asset('images/calya.jpeg'),
+                'photo_zoom' => '1.30',
             ],
             [
                 'name' => 'Lingga Arkananta M.',
@@ -369,11 +372,12 @@ class PageController extends Controller
                 'class' => 'XII RPL',
                 'school' => 'SMK Karya Bangsa Sintang',
                 'role' => 'Fullstack Developer',
-                'focus' => 'Arsitektur halaman, performa, dan pengujian fitur',
-                'contribution' => 'Menyatukan frontend-backend serta optimasi alur berita, filter, dan pagination.',
+                'focus' => 'Merancang tampilan awal, performa, logika web',
+                'contribution' => 'Merancang tampilan awal, membangun logika web, optimasi performa.',
                 'year' => '7 Oktober 2008',
                 'email' => 'lingga@karyabangsa.sch.id',
                 'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80',
+                'photo_zoom' => '1.00',
             ],
             [
                 'name' => 'Ignasius Agri',
@@ -381,11 +385,12 @@ class PageController extends Controller
                 'class' => 'XII RPL',
                 'school' => 'SMK Karya Bangsa Sintang',
                 'role' => 'Frontend Developer',
-                'focus' => 'Uji fitur, konsistensi konten, dan aksesibilitas antarmuka',
-                'contribution' => 'Memastikan kualitas pengalaman pengguna serta ketepatan konten edukasi lingkungan.',
+                'focus' => 'Uji fitur, isi/konten, dan aksesibilitas antarmuka',
+                'contribution' => 'Memastikan kualitas pengalaman pengguna serta ketepatan konten.',
                 'year' => '10 Mei 2008',
                 'email' => 'ignasiusagri@karyabangsa.sch.id',
-                'photo' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80',
+                'photo' => asset('images/agri.jpeg'),
+                'photo_zoom' => '1.00',
             ],
         ];
     }
