@@ -350,7 +350,7 @@ class PageController extends Controller
                 'contribution' => 'Arsitektur halaman, membangun logika web, integrasi API Whatsapp dan Email.',
                 'year' => '27 Oktober 2008',
                 'email' => 'adrianrian7449@gmail.com',
-                'photo' => asset('images/charless1.png'),
+                'photo' => asset('images/charlesxf.png'),
                 'photo_zoom' => '1.30',
             ],
             [
@@ -376,7 +376,7 @@ class PageController extends Controller
                 'contribution' => 'Merancang tampilan awal, membangun logika web, optimasi performa.',
                 'year' => '7 Oktober 2008',
                 'email' => 'lingga@karyabangsa.sch.id',
-                'photo' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80',
+                'photo' => asset('images/linggafix.jpeg'),
                 'photo_zoom' => '1.00',
             ],
             [
