@@ -39,7 +39,7 @@
                 'tag_bg' => '#e67e22',
             ],
             [
-                'title' => 'Pemanenan Air Hujan',
+                'title' => 'Penampungan Air Hujan',
                 'category' => 'Konservasi',
                 'desc' =>
                     'Sistem canggih penampungan dan penyaringan air hujan untuk keperluan non-konsumsi, seperti menyiram taman, mencuci kendaraan, dan flushing toilet.',

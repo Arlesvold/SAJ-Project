@@ -2386,9 +2386,9 @@ body.dark-theme .back-to-top {
         font-size: 28px;
     }
 
-    .hero-slide {
+    .hero-slide, .page-hero {
         min-height: auto;
-        background-attachment: scroll;
+        background-attachment: scroll !important;
         background-position: center center !important;
     }
 
