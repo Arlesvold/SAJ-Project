@@ -58,6 +58,10 @@
             gap: 34px;
         }
 
+        .contact-modern-grid>* {
+            min-width: 0;
+        }
+
         .contact-modern-intro h2 {
             font-size: 2.1rem;
             line-height: 1.25;
@@ -124,6 +128,20 @@
             border: 1px solid #e2ede5;
             border-radius: 16px;
             padding: 24px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .contact-form-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-form-col {
+            flex: 1 1 calc(50% - 10px);
+            min-width: 0;
         }
 
         .contact-modern-form .field-label {
@@ -164,6 +182,16 @@
             display: none;
         }
 
+        .contact-rich-editor trix-toolbar {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .contact-rich-editor trix-toolbar .trix-button-row {
+            flex-wrap: nowrap;
+            width: max-content;
+        }
+
         .contact-editor-meta {
             margin-top: 8px;
             display: flex;
@@ -198,6 +226,23 @@
 
             .contact-modern-features {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-modern-form {
+                padding: 16px;
+            }
+
+            .contact-form-row {
+                gap: 12px;
+            }
+
+            .contact-form-col {
+                flex: 1 1 100%;
+            }
+
+            .contact-editor-meta {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -301,27 +346,27 @@
                             </div>
                         @endif
 
-                        <div style="display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
-                            <div style="flex: 1 1 calc(50% - 10px);">
+                        <div class="contact-form-row">
+                            <div class="contact-form-col">
                                 <label for="full_name" class="field-label">Nama Lengkap</label>
                                 <input type="text" id="full_name" name="full_name" required
                                     placeholder="Masukkan nama lengkap" class="field-input" value="{{ old('full_name') }}">
                             </div>
-                            <div style="flex: 1 1 calc(50% - 10px);">
+                            <div class="contact-form-col">
                                 <label for="email" class="field-label">Email Aktif</label>
                                 <input type="email" id="email" name="email" required placeholder="contoh@email.com"
                                     class="field-input" value="{{ old('email') }}">
                             </div>
                         </div>
 
-                        <div style="display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
-                            <div style="flex: 1 1 calc(50% - 10px);">
+                        <div class="contact-form-row">
+                            <div class="contact-form-col">
                                 <label for="whatsapp" class="field-label">Nomor WhatsApp</label>
                                 <input type="text" id="whatsapp" name="whatsapp" required pattern="(\+62|08)[0-9]{8,13}"
                                     placeholder="+62812xxxxxxx atau 08xxxxxxxxxx" class="field-input"
                                     value="{{ old('whatsapp') }}">
                             </div>
-                            <div style="flex: 1 1 calc(50% - 10px);">
+                            <div class="contact-form-col">
                                 <label for="preferred_channel" class="field-label">Kanal Balasan</label>
                                 <input type="text" id="preferred_channel" name="preferred_channel"
                                     value="{{ old('preferred_channel', 'email & whatsapp') }}" class="field-input"

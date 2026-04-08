@@ -26,18 +26,17 @@
                     <li><a href="#programs">Program Lingkungan</a></li>
                     <li><a href="#gallery">Galeri Kegiatan</a></li>
                     <li><a href="#news">Berita & Artikel</a></li>
-                    <li><a href="#contact">Tentang Kami</a></li>
+                    <li><a href="{{ route('contact') }}">Tentang Kami</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4>Berita</h4>
+                <h4>Ikuti Kami</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Penghijauan Sekolah</a></li>
-                    <li><a href="#">Bank Sampah</a></li>
-                    <li><a href="#">Energi Terbarukan</a></li>
-                    <li><a href="#">Konservasi Air</a></li>
-                    <li><a href="#">Edukasi Lingkungan</a></li>
+                    <li><a href="#"><i class="fab fa-facebook-f" style="margin-right: 8px;"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp</a></li>
+                    <li><a href="mailto:copilotke1@gmail.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>
+                            Email</a></li>
                 </ul>
             </div>
 
