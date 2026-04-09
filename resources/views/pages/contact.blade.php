@@ -277,7 +277,8 @@
                     style="background: rgba(76, 175, 80, 0.8); color: white; border: none; padding: 8px 20px; font-weight: bold; border-radius: 30px; display: inline-block; margin-bottom: 20px;">
                     <i class="fas fa-circle" style="color: #c8e6c9;"></i> Go Green School
                 </div>
-                <h1 style="color: white; font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                <h1 id="contactHeroTitle"
+                    style="color: white; font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                     <span class="highlight" style="color: #a5d6a7; text-shadow: none;">Hubungi</span>&nbsp;Kami
                 </h1>
                 <div class="page-hero-decor-line" style="background: #a5d6a7; height: 4px; width: 60px; margin: 20px auto;">
@@ -292,7 +293,7 @@
                     <a href="{{ route('home') }}" style="color: #a5d6a7; text-decoration: none;"><i class="fas fa-home"></i>
                         Beranda</a>
                     <span class="separator" style="color: #999;"><i class="fas fa-chevron-right"></i></span>
-                    <span class="current" style="color: white;">Hubungi Kita</span>
+                    <span class="current" style="color: white;">Hubungi Kami</span>
                 </div>
             </div>
         </div>
@@ -415,6 +416,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var form = document.getElementById('contactForm');
+            var contactHeroTitle = document.getElementById('contactHeroTitle');
             var fullName = document.getElementById('full_name');
             var email = document.getElementById('email');
             var whatsapp = document.getElementById('whatsapp');
@@ -451,6 +453,32 @@
 
                 messagePayload.value = JSON.stringify(payload);
             };
+
+            var normalizeContactTitleTranslation = function() {
+                if (!contactHeroTitle) {
+                    return;
+                }
+
+                var normalized = (contactHeroTitle.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+                if (normalized === 'contact we') {
+                    contactHeroTitle.innerHTML =
+                        '<span class="highlight" style="color: #a5d6a7; text-shadow: none;">Contact</span>&nbsp;Us';
+                }
+            };
+
+            normalizeContactTitleTranslation();
+
+            if (contactHeroTitle && 'MutationObserver' in window) {
+                var titleObserver = new MutationObserver(function() {
+                    normalizeContactTitleTranslation();
+                });
+
+                titleObserver.observe(contactHeroTitle, {
+                    childList: true,
+                    subtree: true,
+                    characterData: true
+                });
+            }
 
             form.addEventListener('trix-change', syncTextMessage);
             form.addEventListener('input', syncPayload);

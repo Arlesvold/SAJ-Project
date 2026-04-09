@@ -215,31 +215,22 @@
                     <h3 style="color: #1b5e20; font-size: 2rem; margin-bottom: 25px; font-weight: 800;">Mengapa Kami
                         Memerangi Sampah?</h3>
 
-                    <div style="margin-bottom: 20px; border-left: 4px solid #4caf50; padding-left: 20px;">
-                        <h4 style="color: #2e7d32; font-size: 1.2rem; margin-bottom: 10px;">Pernyataan Umum</h4>
-                        <p style="color: #555; line-height: 1.7; font-size: 1.05rem; margin: 0;">
-                            Sampah di lingkungan sekolah terdiri dari limbah organik yang mudah terurai secara alami, serta
-                            sampah anorganik dan plastik yang sulit didekomposisi oleh tanah. Perbedaan sifat ini menuntut
-                            pengelolaan yang tepat agar tidak mengganggu keseimbangan ekosistem dan kesehatan di area
-                            pendidikan.
-                        </p>
-                    </div>
+                    <p style="color: #555; line-height: 1.8; font-size: 1.1rem; margin-bottom: 15px;">
+                        Sampah di lingkungan sekolah terdiri dari limbah organik yang mudah terurai secara alami, serta
+                        sampah anorganik dan plastik yang sulit didekomposisi oleh tanah. Perbedaan sifat ini menuntut
+                        pengelolaan yang tepat agar tidak mengganggu keseimbangan ekosistem dan kesehatan di area
+                        pendidikan.
+                    </p>
 
-                    <div style="margin-bottom: 20px; border-left: 4px solid #4caf50; padding-left: 20px;">
-                        <h4 style="color: #2e7d32; font-size: 1.2rem; margin-bottom: 10px;">Deretan Penjelasan
-                            (Sebab-Akibat)</h4>
-                        <p style="color: #555; line-height: 1.7; font-size: 1.05rem; margin: 0;">
-                            Sampah organik yang menumpuk tanpa pengelolaan dapat membusuk dan menimbulkan bau, sedangkan
-                            sampah plastik serta anorganik yang tertimbun akan merusak struktur tanah dan menghambat resapan
-                            air. Jika sampah-sampah ini dibakar, mereka akan melepaskan senyawa kimia beracun ke udara yang
-                            sangat membahayakan sistem pernapasan warga sekolah serta memperburuk kualitas lingkungan.
-                        </p>
-                    </div>
+                    <p style="color: #555; line-height: 1.8; font-size: 1.1rem; margin-bottom: 25px;">
+                        Sampah organik yang menumpuk tanpa pengelolaan dapat membusuk dan menimbulkan bau, sedangkan
+                        sampah plastik serta anorganik yang tertimbun akan merusak struktur tanah dan menghambat resapan
+                        air. Jika sampah-sampah ini dibakar, mereka akan melepaskan senyawa kimia beracun ke udara yang
+                        sangat membahayakan sistem pernapasan warga sekolah serta memperburuk kualitas lingkungan.
+                    </p>
 
                     <div
-                        style="background: rgba(255, 255, 255, 0.6); padding: 20px; border-radius: 12px; margin-top: 30px; border: 1px solid rgba(255,255,255, 0.9);">
-                        <h4 style="color: #1b5e20; font-size: 1.1rem; margin-bottom: 10px;"><i class="fas fa-check-circle"
-                                style="color: #4caf50; margin-right: 8px;"></i> Interpretasi (Simpulan)</h4>
+                        style="background: rgba(255, 255, 255, 0.6); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255, 0.9);">
                         <p style="color: #444; line-height: 1.7; font-size: 1.05rem; margin: 0; font-weight: 500;">
                             Oleh karena itu, kebijakan pemilahan sampah dan pengurangan plastik di sekolah merupakan langkah
                             strategis yang sangat krusial. Upaya ini bukan sekadar mengikuti tren lingkungan, melainkan

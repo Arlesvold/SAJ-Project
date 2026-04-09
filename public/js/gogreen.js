@@ -244,11 +244,20 @@
         });
 
         function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 5000);
+            if (!slideInterval) {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
         }
 
         function resetAutoSlide() {
-            clearInterval(slideInterval);
+            stopAutoSlide();
             startAutoSlide();
         }
 
@@ -257,11 +266,24 @@
         // Touch/Swipe support
         var heroEl = $('.hero');
         if (heroEl) {
+            // Mencegah slider berpindah saat cursor ditahan
+            heroEl.addEventListener('mousedown', function () {
+                stopAutoSlide();
+            });
+            heroEl.addEventListener('mouseup', function () {
+                startAutoSlide();
+            });
+            heroEl.addEventListener('mouseleave', function () {
+                startAutoSlide();
+            });
+
             heroEl.addEventListener('touchstart', function (e) {
+                stopAutoSlide();
                 touchStartX = e.changedTouches[0].screenX;
             }, { passive: true });
 
             heroEl.addEventListener('touchend', function (e) {
+                startAutoSlide();
                 try {
                     var touchEndX = e.changedTouches[0].screenX;
                     var diff = touchStartX - touchEndX;

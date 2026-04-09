@@ -19,8 +19,13 @@
 
         .procedure-top-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1fr);
             gap: 24px;
+        }
+
+        .procedure-top-grid .procedure-panel {
+            width: 100%;
+            max-width: 100%;
         }
 
         .procedure-panel {
@@ -130,6 +135,32 @@
             font-weight: 500;
         }
 
+        .procedure-panel-tips {
+            background: linear-gradient(145deg, #f8fff9 0%, #ecf9ee 100%);
+            border-color: rgba(46, 125, 50, .2);
+            box-shadow: 0 18px 36px rgba(21, 72, 36, .12);
+        }
+
+        .procedure-panel-tips .procedure-panel-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .procedure-panel-tips .procedure-panel-title::before {
+            content: '✓';
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            color: #fff;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            box-shadow: 0 6px 14px rgba(46, 125, 50, .3);
+        }
+
         @media (max-width: 992px) {
             .procedure-top-grid {
                 grid-template-columns: 1fr;
@@ -189,6 +220,12 @@
         body.dark-mode .step-card {
             background: rgba(19, 34, 23, .88);
             border-color: #2b3d30;
+        }
+
+        body.dark-mode .procedure-panel-tips {
+            background: linear-gradient(145deg, #142016 0%, #17261a 100%);
+            border-color: #35503c;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, .44);
         }
 
         body.dark-mode .step-text {
@@ -253,22 +290,14 @@
                     <article class="procedure-panel">
                         <h2 class="procedure-panel-title">Bahan yang dibutuhkan:</h2>
                         <ul class="procedure-list">
-                            <li>Tiga tempat sampah terpisah (Organik, Anorganik, dan Kertas).</li>
-                            <li>Label atau stiker untuk setiap tempat sampah.</li>
-                            <li>Sarung tangan untuk keamanan.</li>
-                            <li>Satu wadah kompos (untuk sampah organik).</li>
-                        </ul>
-                    </article>
-
-                    <article class="procedure-panel">
-                        <h2 class="procedure-panel-title">Tips untuk Sukses:</h2>
-                        <ul class="procedure-list">
-                            <li>Konsisten: Selalu periksa tempat sampah untuk memastikan tidak ada "kontaminasi silang"
-                                (misalnya plastik di tempat sampah organik).</li>
-                            <li>Kurangi Terlebih Dahulu: Ingat bahwa daur ulang adalah pilihan terakhir; cara terbaik untuk
-                                membantu adalah mengurangi sampah dari awal.</li>
-                            <li>Kolaborasi: Bekerja sama dengan kantin sekolah untuk meminimalkan penggunaan kemasan plastik
-                                dalam pelayanannya.</li>
+                            <li><strong>Tiga tempat sampah terpisah:</strong> Membedakan jenis sampah organik, anorganik,
+                                dan kertas agar mudah didaur ulang.</li>
+                            <li><strong>Label atau stiker:</strong> Menjadi penanda visual agar warga sekolah membuang
+                                sampah pada tempat yang tepat.</li>
+                            <li><strong>Sarung tangan keamanan:</strong> Melindungi tangan dari kotoran dan bakteri saat
+                                melakukan proses pemilahan sampah.</li>
+                            <li><strong>Wadah khusus komposter:</strong> Menampung sisa sampah organik untuk difermentasi
+                                menjadi pupuk kompos alami.</li>
                         </ul>
                     </article>
                 </div>
@@ -303,6 +332,18 @@
                                 plastik bersih) ke pusat daur ulang setempat atau ke "Bank Sampah".</p>
                         </div>
                     </div>
+                </article>
+
+                <article class="procedure-panel procedure-panel-tips">
+                    <h2 class="procedure-panel-title">Tips untuk Sukses:</h2>
+                    <ul class="procedure-list">
+                        <li>Konsisten: Selalu periksa tempat sampah untuk memastikan tidak ada "kontaminasi silang"
+                            (misalnya plastik di tempat sampah organik).</li>
+                        <li>Kurangi Terlebih Dahulu: Ingat bahwa daur ulang adalah pilihan terakhir; cara terbaik untuk
+                            membantu adalah mengurangi sampah dari awal.</li>
+                        <li>Kolaborasi: Bekerja sama dengan kantin sekolah untuk meminimalkan penggunaan kemasan plastik
+                            dalam pelayanannya.</li>
+                    </ul>
                 </article>
             </div>
         </div>

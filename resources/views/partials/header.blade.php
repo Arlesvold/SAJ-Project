@@ -13,14 +13,14 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
                 </li>
+                <li><a href="{{ route('information') }}"
+                        class="{{ request()->routeIs('information') ? 'active' : '' }}">Informasi</a></li>
                 <li><a href="{{ route('programs') }}"
                         class="{{ request()->routeIs('programs') ? 'active' : '' }}">Program</a></li>
                 <li><a href="{{ route('gallery') }}"
                         class="{{ request()->routeIs('gallery') ? 'active' : '' }}">Galeri</a></li>
                 <li><a href="{{ route('news') }}" class="{{ request()->routeIs('news') ? 'active' : '' }}">Berita</a>
                 </li>
-                <li><a href="{{ route('information') }}"
-                        class="{{ request()->routeIs('information') ? 'active' : '' }}">Informasi</a></li>
                 <li><a href="{{ route('procedure') }}"
                         class="{{ request()->routeIs('procedure') ? 'active' : '' }}">Prosedur</a></li>
                 <li><a href="{{ route('contact') }}"

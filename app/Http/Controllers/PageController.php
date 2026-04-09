@@ -350,8 +350,8 @@ class PageController extends Controller
                 'contribution' => 'Arsitektur halaman, membangun logika web, integrasi API Whatsapp dan Email.',
                 'year' => '27 Oktober 2008',
                 'email' => 'adrianrian7449@gmail.com',
-                'photo' => asset('images/chaa.jpg'),
-                'photo_zoom' => '1.00',
+                'photo' => asset('images/chafix.jpg'),
+                'photo_zoom' => '1.35',
             ],
             [
                 'name' => 'Calya De’prila Maheswari ',

@@ -93,10 +93,10 @@
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="{{ route('home') }}"
                             class="{{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a></li>
+                    <li><a href="{{ route('information') }}">Informasi</a></li>
                     <li><a href="{{ route('programs') }}">Program</a></li>
                     <li><a href="{{ route('gallery') }}">Galeri</a></li>
                     <li><a href="{{ route('news') }}">Berita</a></li>
-                    <li><a href="{{ route('information') }}">Informasi</a></li>
                     <li><a href="{{ route('procedure') }}">Prosedur</a></li>
                     <li><a href="{{ route('contact') }}">Kontak</a></li>
                     <li><a href="{{ route('developer-profile') }}">Developer</a></li>
