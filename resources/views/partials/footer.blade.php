@@ -33,10 +33,17 @@
             <div>
                 <h4>Ikuti Kami</h4>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fab fa-facebook-f" style="margin-right: 8px;"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp</a></li>
-                    <li><a href="mailto:copilotke1@gmail.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>
-                            Email</a></li>
+                    <li><a href="https://www.facebook.com/share/1E37QzcgdW/?mibextid=wwXIfr"><i
+                                class="fab fa-facebook-f" style="margin-right: 8px;"></i> Facebook</a></li>
+                    <li>
+                        <a href="https://wa.me/6281545317046?text=Halo%20saya%20ingin%20bertanya" target="_blank">
+                            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp
+                        </a>
+                    </li>
+                    <a href="mailto:adrianrian7449@gmail.com?subject=Pertanyaan&body=Halo%20saya%20ingin%20bertanya">
+                        <i class="fas fa-envelope" style="margin-right: 8px;"></i> Email
+                    </a>
+                    </li>
                 </ul>
             </div>
 
