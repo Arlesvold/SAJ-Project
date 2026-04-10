@@ -43,3 +43,9 @@ Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan
 
 > **Poster Tampilan & Fitur Website** (Digital Marketing)  
 > <img src="public/images/Poster%20Go%20Green%20School%20Kelompok%203%20-%20Digital%20Marketing.jpg" width="600" alt="Poster Desain Website">
+
+## 🎬 Video Promosi
+
+Selain pembuatan poster dan website, proyek ini juga dilengkapi dengan video promosi. Anda dapat mengakses dan menonton video promosi kami melalui tautan berikut:
+
+📍 **[Tonton Video Promosi (Google Drive)](https://drive.google.com/drive/folders/1sBkvz5AjVsmP-RIJfwaENW5hVqoXZFQQ)**
