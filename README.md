@@ -48,4 +48,4 @@ Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan
 
 Selain pembuatan poster dan website, proyek ini juga dilengkapi dengan video promosi. Anda dapat mengakses dan menonton video promosi kami melalui tautan berikut:
 
-📍 **[Tonton Video Promosi (Google Drive)](https://drive.google.com/drive/folders/1sBkvz5AjVsmP-RIJfwaENW5hVqoXZFQQ)**
+📍 **[Tonton Video Promosi (Google Drive)](https://drive.google.com/file/d/14sWLQOk_Sn96E21Lmza91fLUo1q0GeKC/view?usp=sharing)**
