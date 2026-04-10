@@ -7,53 +7,39 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## 👥 Pembagian Tugas Tim
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Berikut adalah rincian pembagian tugas untuk masing-masing anggota tim dalam proyek **Go Green School**:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Lingga Arkananta Mahardika**
+    - Bertanggung jawab dalam pembuatan website, meliputi perancangan awal tampilan dan pengembangan fitur-fitur web.
+    - Mengisi konten pada bagian _explanation text_.
+    - Membuat poster Go Green School untuk mata pelajaran Digital Marketing.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Charles Adrian**
+    - Bertanggung jawab dalam pembuatan website, termasuk merancang arsitektur halaman web, membangun logika sistem, dan melakukan integrasi API WhatsApp serta email.
+    - Mengembangkan fitur-fitur web dan mengisi konten pada bagian _procedure text_.
+    - Turut membantu dalam pembuatan poster Go Green School untuk mata pelajaran Digital Marketing dan Bahasa Indonesia.
 
-## Learning Laravel
+- **Calya De’prila Maheswari**
+    - Bertanggung jawab dalam pengisian konten website pada bagian _information about the website_ serta melakukan pengujian fitur-fitur web.
+    - Menangani promosi website, termasuk pembuatan dan pengeditan video promosi.
+    - Mengelola akun media sosial (Facebook) untuk keperluan promosi.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- **Ignasius Agri**
+    - Bertanggung jawab dalam pengisian konten website pada bagian _description text_.
+    - Melakukan pengujian fitur-fitur web.
+    - Membuat poster Go Green School untuk mata pelajaran Bahasa Indonesia.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🖼️ Dokumentasi Poster
 
-## Laravel Sponsors
+Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan dan desain website:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+> **Poster Edukasi - Teks Eksplanasi** (Bahasa Indonesia)  
+> <img src="public/images/Poster%20Go%20Green%20School%20Kelompok%203%20-%20Bahasa%20Indonesia.jpg" width="600" alt="Poster Teks Eksplanasi">
 
-### Premium Partners
+> **Poster Edukasi - Teks Prosedur** (Bahasa Indonesia)  
+> <img src="public/images/Poster%20Go%20Green%20School%20Kelompok%203%20-%20Bahasa%20Indonesia%20(2).jpg" width="600" alt="Poster Teks Prosedur">
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> **Poster Tampilan & Fitur Website** (Digital Marketing)  
+> <img src="public/images/Poster%20Go%20Green%20School%20Kelompok%203%20-%20Bahasa%20Inggris.jpg" width="600" alt="Poster Desain Website">
