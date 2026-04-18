@@ -31,6 +31,43 @@ Berikut adalah rincian pembagian tugas untuk masing-masing anggota tim dalam pro
     - Melakukan pengujian fitur-fitur web.
     - Membuat poster Go Green School untuk mata pelajaran Bahasa Indonesia.
 
+## ✨ Fitur & Halaman yang Dikembangkan
+
+Berikut adalah rincian halaman dan fitur yang dibuat oleh masing-masing anggota tim:
+
+**1. Lingga Arkananta Mahardika**
+Bertanggung jawab dalam pengembangan beberapa halaman dan fitur utama, meliputi:
+
+- 🏠 Pembuatan halaman beranda
+- 🧮 Pembuatan halaman kalkulator sampah
+- 🌙 Implementasi fitur dark mode
+- 🌐 Berkontribusi dalam pembuatan fitur toggle language
+- 🎨 Mendesain antarmuka yang user-friendly
+
+**2. Charles Adrian**
+Bertanggung jawab dalam pengembangan berbagai halaman pada website, meliputi:
+
+- 🏠 Halaman beranda
+- ℹ️ Halaman informasi
+- 🎯 Halaman program
+- 📸 Halaman galeri
+- 📰 Halaman berita
+- 📋 Halaman prosedur
+- 📞 Halaman kontak
+- 👨‍💻 Halaman developer
+- 🧮 Halaman kalkulator sampah
+
+**3. Calya De’prila Maheswari**
+Bertanggung jawab dalam:
+
+- 📝 Pengisian konten website pada halaman beranda
+
+**4. Ignasius Agri**
+Bertanggung jawab dalam:
+
+- 📝 Pengisian konten website pada halaman beranda
+- ℹ️ Pengisian konten pada halaman informasi
+
 ## 🖼️ Dokumentasi Poster
 
 Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan dan desain website:
