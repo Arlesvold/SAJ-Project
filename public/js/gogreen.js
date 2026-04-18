@@ -25,23 +25,17 @@
     }
 
     // ============================================
-    // 1. PRELOADER
+    // 1. PAGE LOAD TOAST (Former Preloader Section)
     // ============================================
     safeExecute(function () {
         window.addEventListener('load', function () {
-            // Langsung sembunyikan preloader setelah halaman selesai dimuat
             try {
-                const preloader = $('#preloader');
-                if (preloader) {
-                    preloader.classList.add('hidden');
-                    setTimeout(function () { preloader.remove(); }, 600);
-                }
                 showToast('Selamat Datang!', 'Selamat datang di Go Green School', 'success');
             } catch (e) {
-                console.warn('[GoGreen] Preloader error:', e.message);
+                console.warn('[GoGreen] Toast error:', e.message);
             }
         });
-    }, 'Preloader');
+    }, 'Page Load Toast');
 
     // ============================================
     // 2. DYNAMIC DATE & LIVE CLOCK

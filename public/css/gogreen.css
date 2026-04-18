@@ -1811,71 +1811,6 @@ body {
     top: 0 !important;
 }
 
-/* ===== PRELOADER ===== */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    transition: opacity .6s, visibility .6s;
-}
-
-.preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.preloader-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(46, 125, 50, .15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    animation: preloaderPulse 1.5s ease infinite;
-}
-
-.preloader-icon img {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-}
-
-.preloader-text {
-    color: #1b5e20;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 2px;
-}
-
-.preloader-bar {
-    width: 200px;
-    height: 3px;
-    background: rgba(46, 125, 50, .15);
-    border-radius: 3px;
-    margin-top: 16px;
-    overflow: hidden;
-}
-
-.preloader-bar-inner {
-    width: 0%;
-    height: 100%;
-    background: #66bb6a;
-    border-radius: 3px;
-    animation: preloaderLoad 2s ease forwards;
-}
-
 /* ===== LIGHTBOX MODAL ===== */
 .lightbox {
     position: fixed;
@@ -2195,18 +2130,6 @@ body {
 @keyframes heroFadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes preloaderPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(102, 187, 106, .4); }
-    50%      { transform: scale(1.08); box-shadow: 0 0 0 20px rgba(102, 187, 106, 0); }
-}
-
-@keyframes preloaderLoad {
-    0%   { width: 0%; }
-    40%  { width: 60%; }
-    80%  { width: 85%; }
-    100% { width: 100%; }
 }
 
 @keyframes blink {
