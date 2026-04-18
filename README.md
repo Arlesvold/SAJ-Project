@@ -38,35 +38,36 @@ Berikut adalah rincian halaman dan fitur yang dibuat oleh masing-masing anggota 
 **1. Lingga Arkananta Mahardika**
 Bertanggung jawab dalam pengembangan beberapa halaman dan fitur utama, meliputi:
 
-- 🏠 Pembuatan halaman beranda
-- 🧮 Pembuatan halaman kalkulator sampah
-- 🌙 Implementasi fitur dark mode
-- 🌐 Berkontribusi dalam pembuatan fitur toggle language
+- 🏠 Pembuatan halaman Beranda
+- 🧮 Pembuatan halaman Kalkulator Sampah
+- 🌙 Implementasi fitur Dark Mode
+- 🌐 Berkontribusi dalam pembuatan fitur Toggle Language
 - 🎨 Mendesain antarmuka yang user-friendly
 
 **2. Charles Adrian**
 Bertanggung jawab dalam pengembangan berbagai halaman pada website, meliputi:
 
-- 🏠 Halaman beranda
-- ℹ️ Halaman informasi
-- 🎯 Halaman program
-- 📸 Halaman galeri
-- 📰 Halaman berita
-- 📋 Halaman prosedur
-- 📞 Halaman kontak
-- 👨‍💻 Halaman developer
-- 🧮 Halaman kalkulator sampah
+- 🏠 Halaman Beranda
+- ℹ️ Halaman Informasi
+- 🎯 Halaman Program
+- 📸 Halaman Galeri
+- 📰 Halaman Berita
+- 📋 Halaman Prosedur
+- 📞 Halaman Kontak
+- 👨‍💻 Halaman Developer
+- 🧮 Halaman Kalkulator Sampah
+- 🌐 Berkontribusi dalam pembuatan fitur Toggle Language
 
 **3. Calya De’prila Maheswari**
 Bertanggung jawab dalam:
 
-- 📝 Pengisian konten website pada halaman beranda
+- 📝 Pengisian konten website pada halaman Beranda
 
 **4. Ignasius Agri**
 Bertanggung jawab dalam:
 
-- 📝 Pengisian konten website pada halaman beranda
-- ℹ️ Pengisian konten pada halaman informasi
+- 📝 Pengisian konten website pada halaman Beranda
+- ℹ️ Pengisian konten pada halaman Informasi
 
 ## 🖼️ Dokumentasi Poster
 
@@ -86,3 +87,5 @@ Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan
 Selain pembuatan poster dan website, proyek ini juga dilengkapi dengan video promosi. Anda dapat mengakses dan menonton video promosi kami melalui tautan berikut:
 
 📍 **[Tonton Video Promosi (Google Drive)](https://drive.google.com/file/d/14sWLQOk_Sn96E21Lmza91fLUo1q0GeKC/view?usp=sharing)**
+
+📍 **[Tonton Video Promosi (Facebook)](https://www.facebook.com/share/1E37QzcgdW/?mibextid=wwXIfr)**
