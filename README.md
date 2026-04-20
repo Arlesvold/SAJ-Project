@@ -69,6 +69,52 @@ Bertanggung jawab dalam:
 - 📝 Pengisian konten website pada halaman Beranda
 - ℹ️ Pengisian konten pada halaman Informasi
 
+## 🌍 Website Live (Online)
+
+Proyek **Go Green School** ini sudah dapat diakses dan digunakan secara langsung melalui internet pada tautan berikut:
+
+📍 **[Kunjungi Website Go Green School](https://saj-project-main-bpry3o.free.laravel.cloud/)**
+
+Dengan mengakses tautan di atas, Anda dapat mencoba secara langsung berbagai fitur yang telah kami kembangkan, mulai dari melihat informasi seputar program sekolah hijau, galeri kegiatan ekologis, mencari prosedur daur ulang, hingga mencoba fitur interaktif seperti **Kalkulator Sampah**.
+
+## 🧮 Cara Kerja Kalkulator Sampah (Waste Calculator)
+
+Salah satu fitur unggulan yang interaktif dalam website ini adalah **Kalkulator Sampah**. Fitur ini dirancang khusus untuk mengedukasi siswa dan warga sekolah dalam memantau, menganalisis, serta memprediksi volume sampah harian hingga bulanan di kelas masing-masing. Berikut adalah alur dan cara kerja kalkulator yang informatif dan menarik ini:
+
+### 1️⃣ Input Data Sampah Kelas
+
+Pengguna (misalnya perwakilan kelas atau regu piket) diminta untuk memasukkan laporan data berat sampah yang terkumpul. Variabel input yang harus diisi meliputi:
+
+- **Nama Kelas:** Identitas kelas yang melapor (contoh: "X MIPA 1").
+- **Jumlah Hari:** Durasi pengumpulan sampah yang dilaporkan (berapa hari data ini direkam).
+- **Kategori Sampah (dalam kilogram):**
+    - 🥬 **Organik:** Sisa makanan, kulit buah, atau dedaunan.
+    - 📦 **Anorganik:** Kertas, kardus, kaca, dan logam.
+    - 🥤 **Plastik:** Botol minum plastik, kantong kresek, dan bungkus makanan ringan.
+
+### 2️⃣ Proses Kalkulasi & Prediksi Masa Depan
+
+Setelah pengguna menekan tombol **"Hitung Sampah"**, sistem di belakang layar akan langsung memproses data tersebut dalam hitungan detik:
+
+- Menghitung **Total Sampah Keseluruhan** (Organik + Anorganik + Plastik).
+- Membuat **Prediksi Produksi Sampah 30 Hari**. Sistem akan menghitung rata-rata harian (Total Sampah ÷ Jumlah Hari), lalu mengalikannya dengan 30. Hal ini berguna untuk menyadarkan siswa tentang _seberapa besar penumpukan sampah yang akan terjadi selama sebulan jika kebiasaan mereka tidak diubah._
+
+### 3️⃣ Visualisasi Data Interaktif dengan Grafik
+
+Untuk memberikan pengalaman yang menyenangkan (_user-friendly_) dan mudah dipahami, hasil perhitungan disajikan dalam tiga _dashboard_ visual (_Interactive Charts_):
+
+- 🍩 **Grafik Komposisi (Doughnut Chart):** Memperlihatkan persentase komposisi sampah. Membantu melihat sampah tipe apa yang paling dominan di kelas tersebut.
+- 📊 **Grafik Perbandingan Tipe (Bar Chart):** Menampilkan perbandingan berat aktual dari masing-masing kategori sampah.
+- 📈 **Grafik Tren Prediksi (Line Chart):** Memvisualisasikan perbandingan grafik antara total sampah riil yang ada saat ini dengan lonjakan prediksi timbulan sampah dalam satu bulan ke depan.
+
+### 4️⃣ Penyimpanan History Otomatis & Analisis Lanjutan
+
+Website ini memegang teguh prinsip sederhana namun _powerful_. Seluruh hasil kalkulasi dari kalkulator sampah tidak akan hilang karena disimpan secara otomatis menggunakan teknologi penyimpanan file lokal bawaan Laravel (berbasis `JSON`) tanpa bergantung pada sistem _Database_ konvensional. Fitur manajemen datanya mencakup:
+
+- **Tabel Riwayat (_History Table_):** Melacak jejak riwayat input secara transparan (Waktu lapor, nama kelas, rincian, dan hasil akhir).
+- **Fitur Hapus (_Delete & Bulk Delete_):** Memudahkan penghapusan satu atau banyak data riwayat sekaligus jika ada kesalahan.
+- **Bisa Diekspor! (Export to CSV):** Memungkinkan wali kelas atau OSIS untuk mendownload/mengunduh seluruh riwayat rekapan sampah menjadi file _Excel (CSV)_ untuk keperluan laporan akhir semester atau penilaian lomba kebersihan antar kelas.
+
 ## 🖼️ Dokumentasi Poster
 
 Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan dan desain website:
