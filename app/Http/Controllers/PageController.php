@@ -350,8 +350,8 @@ class PageController extends Controller
                 'contribution' => 'Arsitektur halaman, membangun logika web, integrasi API Whatsapp dan Email.',
                 'year' => '27 Oktober 2008',
                 'email' => 'adrianrian7449@gmail.com',
-                'photo' => asset('images/chafix.jpg'),
-                'photo_zoom' => '1.35',
+                'photo' => asset('images/charles.png'),
+                'photo_zoom' => '1.15',
             ],
             [
                 'name' => 'Calya De’prila Maheswari ',
@@ -363,8 +363,8 @@ class PageController extends Controller
                 'contribution' => 'Memberikan isi/konten web, pengelolaan data JSON, pengujian fitur.',
                 'year' => '19 Juli 2008',
                 'email' => 'calyadeprilamaheswari@karyabangsa.sch.id',
-                'photo' => asset('images/calya.jpeg'),
-                'photo_zoom' => '1.30',
+                'photo' => asset('images/calya.png'),
+                'photo_zoom' => '1.15',
             ],
             [
                 'name' => 'Lingga Arkananta M.',
@@ -376,8 +376,8 @@ class PageController extends Controller
                 'contribution' => 'Merancang tampilan awal, membangun logika web, optimasi performa.',
                 'year' => '7 Oktober 2008',
                 'email' => 'lingga@karyabangsa.sch.id',
-                'photo' => asset('images/lingfix.jpg'),
-                'photo_zoom' => '1.00',
+                'photo' => asset('images/lingga.png'),
+                'photo_zoom' => '1.15',
             ],
             [
                 'name' => 'Ignasius Agri',
@@ -389,8 +389,8 @@ class PageController extends Controller
                 'contribution' => 'Memastikan kualitas pengalaman pengguna serta ketepatan konten.',
                 'year' => '10 Mei 2008',
                 'email' => 'ignasiusagri@karyabangsa.sch.id',
-                'photo' => asset('images/agri.jpeg'),
-                'photo_zoom' => '1.00',
+                'photo' => asset('images/agri.png'),
+                'photo_zoom' => '1.15',
             ],
         ];
     }
