@@ -128,7 +128,7 @@ Berikut adalah beberapa hasil karya proyek kami berupa poster edukasi lingkungan
 > <img src="public/images/Poster%20Go%20Green%20School%20Kelompok%203%20-%20Bahasa%20Indonesia%20(2).jpg" width="600" alt="Poster Teks Prosedur">
 
 > **Poster Tampilan & Fitur Website** (Digital Marketing)  
-> <img src="public/images/Poster%20Go%20Green%20School%20Kelompok%203%20-%20Digital%20Marketing.jpg" width="600" alt="Poster Desain Website">
+> <img src="public/images/poster%20fix%20k3.png" width="600" alt="Poster Desain Website">
 
 ## 🎬 Video Promosi
 
