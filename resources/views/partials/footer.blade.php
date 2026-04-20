@@ -52,8 +52,11 @@
                 <ul class="footer-links footer-contact">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Jl. Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan
-                            Barat 78616</span>
+                        <a href="https://www.google.com/maps/place/SMK+KARYA+BANGSA+SINTANG/@0.0333023,111.3865185,13z/data=!4m10!1m2!2m1!1sJl.+Sintang,+Kapuas+Kanan+Hulu,+Kec.+Sungai+Tebelian,+Kabupaten+Sintang,+Kalimantan+Barat+78616!3m6!1s0x31fe21fa6473db11:0x7383ddaf507df07c!8m2!3d0.0333036!4d111.4627361!15sCl9KbC4gU2ludGFuZywgS2FwdWFzIEthbmFuIEh1bHUsIEtlYy4gU3VuZ2FpIFRlYmVsaWFuLCBLYWJ1cGF0ZW4gU2ludGFuZywgS2FsaW1hbnRhbiBCYXJhdCA3ODYxNlpbIllqbCBzaW50YW5nIGthcHVhcyBrYW5hbiBodWx1IGtlYyBzdW5nYWkgdGViZWxpYW4ga2FidXBhdGVuIHNpbnRhbmcga2FsaW1hbnRhbiBiYXJhdCA3ODYxNpIBGnZvY2F0aW9uYWxfdHJhaW5pbmdfc2Nob29smgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ0YWRGcHFTVFZhYWxwS1lVVmFUVk5ZUW5SVlJFNUZVV3BzVGs1clJSQULgAQD6AQUI4QIQSA!16s%2Fg%2F11mtfdp2wc?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer">
+                            <span>Jl. Sintang, Kapuas Kanan Hulu, Kec. Sungai Tebelian, Kabupaten Sintang, Kalimantan
+                                Barat 78616</span>
+                        </a>
                     </li>
                     <li>
                         <i class="fas fa-phone-alt"></i>
@@ -76,3 +79,8 @@
         </div>
     </div>
 </footer>
+
+{{-- Back To Top --}}
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+</button>

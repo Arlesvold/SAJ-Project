@@ -121,8 +121,15 @@
                                 <div style="font-size:13px; font-weight:700; color:#2b6d38; margin-bottom:8px;">
                                     Isi Pesan Anda
                                 </div>
-                                <div style="font-size:14px; line-height:1.7; color:#2e3c34; white-space:pre-wrap;">
-                                    {!! nl2br(e($messageText)) !!}</div>
+                                @if (!empty($messageHtml))
+                                    <div style="font-size:14px; line-height:1.7; color:#2e3c34;">
+                                        {!! $messageHtml !!}
+                                    </div>
+                                @else
+                                    <div style="font-size:14px; line-height:1.7; color:#2e3c34; white-space:pre-wrap;">
+                                        {!! nl2br(e($messageText)) !!}
+                                    </div>
+                                @endif
                             </div>
                         </td>
                     </tr>

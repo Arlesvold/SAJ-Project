@@ -41,6 +41,15 @@ final class ContactController extends Controller
             }
 
             $validated = $validator->validated();
+            $validated['message_html'] = $this->sanitizeMessageHtml($validated['message_html']);
+            $validated['message_text'] = $this->htmlToPlainText($validated['message_html']);
+
+            if (mb_strlen($validated['message_text']) < 10) {
+                return back()
+                    ->withErrors(['message_html' => 'Pesan minimal 10 karakter setelah format diproses.'])
+                    ->withInput();
+            }
+
             $targetWhatsapp = $this->normalizeWhatsapp($validated['whatsapp']);
             $message = $this->buildWhatsappMessage($validated);
 
@@ -177,6 +186,11 @@ final class ContactController extends Controller
      */
     private function buildWhatsappMessage(array $data): string
     {
+        $formattedMessage = $this->convertHtmlToWhatsappFormat((string) ($data['message_html'] ?? ''));
+        if ($formattedMessage === '') {
+            $formattedMessage = (string) ($data['message_text'] ?? '');
+        }
+
         return implode("\n", [
             'Halo ' . $data['full_name'] . ',',
             '',
@@ -187,7 +201,7 @@ final class ContactController extends Controller
             '- Kanal Balasan: ' . $data['preferred_channel'],
             '',
             'Isi Pesan:',
-            $data['message_text'],
+            $formattedMessage,
             '',
             'Tim kami akan menindaklanjuti maksimal 1x24 jam kerja.',
             'Salam hijau,',
@@ -208,6 +222,7 @@ final class ContactController extends Controller
                 'email' => $data['email'],
                 'whatsapp' => $normalizedWhatsapp,
                 'preferredChannel' => $data['preferred_channel'],
+                'messageHtml' => $data['message_html'],
                 'messageText' => $data['message_text'],
                 'submittedAt' => now()->locale('id')->translatedFormat('d F Y, H:i') . ' WIB',
                 'logoUrl' => $logoUrl,
@@ -237,6 +252,163 @@ final class ContactController extends Controller
         }
 
         return asset('images/logo.png');
+    }
+
+    /**
+     * Sanitize Trix HTML output to keep safe formatting for email rendering.
+     */
+    private function sanitizeMessageHtml(string $html): string
+    {
+        try {
+            $rawHtml = trim($html);
+            if ($rawHtml === '') {
+                return '';
+            }
+
+            libxml_use_internal_errors(true);
+
+            $dom = new \DOMDocument('1.0', 'UTF-8');
+            $dom->loadHTML('<?xml encoding="utf-8" ?>' . $rawHtml, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+            $allowedTags = ['p', 'div', 'br', 'strong', 'b', 'em', 'i', 'u', 's', 'strike', 'del', 'ul', 'ol', 'li', 'blockquote', 'a', 'code', 'pre'];
+            $allowedAttributes = [
+                'a' => ['href'],
+            ];
+
+            $nodes = iterator_to_array($dom->getElementsByTagName('*'));
+            foreach ($nodes as $node) {
+                $tag = strtolower($node->nodeName);
+
+                if (! in_array($tag, $allowedTags, true)) {
+                    $this->unwrapDomNode($node);
+                    continue;
+                }
+
+                if ($node->hasAttributes()) {
+                    $attributes = iterator_to_array($node->attributes);
+                    foreach ($attributes as $attribute) {
+                        $attributeName = strtolower($attribute->nodeName);
+                        $tagAttributes = $allowedAttributes[$tag] ?? [];
+
+                        if (! in_array($attributeName, $tagAttributes, true)) {
+                            $node->removeAttribute($attributeName);
+                        }
+                    }
+                }
+
+                if ($tag === 'a') {
+                    $href = trim((string) $node->getAttribute('href'));
+                    if ($href === '' || ! preg_match('/^https?:\/\//i', $href)) {
+                        $node->removeAttribute('href');
+                    }
+                }
+            }
+
+            $sanitized = trim((string) $dom->saveHTML());
+            libxml_clear_errors();
+
+            return $sanitized;
+        } catch (Throwable $e) {
+            report($e);
+
+            return trim(strip_tags($html, '<p><div><br><strong><b><em><i><u><s><strike><del><ul><ol><li><blockquote><a><code><pre>'));
+        }
+    }
+
+    /**
+     * Convert sanitized HTML into plain text for storage and minimal length checks.
+     */
+    private function htmlToPlainText(string $html): string
+    {
+        try {
+            $text = preg_replace('/<\s*br\s*\/?\s*>/i', "\n", $html) ?? $html;
+            $text = preg_replace('/<\s*\/?(div|p|li|blockquote)\b[^>]*>/i', "\n", $text) ?? $text;
+            $text = html_entity_decode(strip_tags($text), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $text = preg_replace("/\r\n?|\n/", "\n", $text) ?? $text;
+            $text = preg_replace('/[ \t]+\n/', "\n", $text) ?? $text;
+            $text = preg_replace('/\n{3,}/', "\n\n", $text) ?? $text;
+
+            return trim($text);
+        } catch (Throwable $e) {
+            report($e);
+
+            return trim(strip_tags($html));
+        }
+    }
+
+    /**
+     * Convert rich HTML into WhatsApp-compatible text formatting.
+     */
+    private function convertHtmlToWhatsappFormat(string $html): string
+    {
+        try {
+            if (trim($html) === '') {
+                return '';
+            }
+
+            $normalized = str_replace(["\r\n", "\r"], "\n", $html);
+
+            $normalized = preg_replace_callback(
+                '/<\s*a\b[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)<\s*\/a\s*>/is',
+                function (array $matches): string {
+                    $label = trim($this->htmlToPlainText($matches[2]));
+                    $url = trim($matches[1]);
+
+                    if ($label === '' || $label === $url) {
+                        return $url;
+                    }
+
+                    return $label . ' (' . $url . ')';
+                },
+                $normalized
+            ) ?? $normalized;
+
+            $normalized = preg_replace_callback('/<\s*(strong|b)\b[^>]*>(.*?)<\s*\/\1\s*>/is', function (array $matches): string {
+                return '*' . trim($this->htmlToPlainText($matches[2])) . '*';
+            }, $normalized) ?? $normalized;
+
+            $normalized = preg_replace_callback('/<\s*(em|i)\b[^>]*>(.*?)<\s*\/\1\s*>/is', function (array $matches): string {
+                return '_' . trim($this->htmlToPlainText($matches[2])) . '_';
+            }, $normalized) ?? $normalized;
+
+            $normalized = preg_replace_callback('/<\s*(s|strike|del)\b[^>]*>(.*?)<\s*\/\1\s*>/is', function (array $matches): string {
+                return '~' . trim($this->htmlToPlainText($matches[2])) . '~';
+            }, $normalized) ?? $normalized;
+
+            $normalized = preg_replace_callback('/<\s*li\b[^>]*>(.*?)<\s*\/li\s*>/is', function (array $matches): string {
+                return "\n- " . trim($this->htmlToPlainText($matches[1]));
+            }, $normalized) ?? $normalized;
+
+            $normalized = preg_replace('/<\s*br\s*\/?\s*>/i', "\n", $normalized) ?? $normalized;
+            $normalized = preg_replace('/<\s*\/?(div|p|ul|ol|blockquote|pre)\b[^>]*>/i', "\n", $normalized) ?? $normalized;
+
+            $plain = html_entity_decode(strip_tags($normalized), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $plain = preg_replace('/[ \t]+\n/', "\n", $plain) ?? $plain;
+            $plain = preg_replace('/\n{3,}/', "\n\n", $plain) ?? $plain;
+
+            return trim($plain);
+        } catch (Throwable $e) {
+            report($e);
+
+            return trim($this->htmlToPlainText($html));
+        }
+    }
+
+    /**
+     * Remove node while keeping its children inside parent container.
+     */
+    private function unwrapDomNode(\DOMNode $node): void
+    {
+        $parent = $node->parentNode;
+        if (! $parent) {
+            return;
+        }
+
+        while ($node->firstChild) {
+            $parent->insertBefore($node->firstChild, $node);
+        }
+
+        $parent->removeChild($node);
     }
 
     /**
