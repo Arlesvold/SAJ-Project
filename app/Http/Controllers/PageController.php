@@ -386,7 +386,7 @@ class PageController extends Controller
                 'school' => 'SMK Karya Bangsa Sintang',
                 'role' => 'Frontend Developer',
                 'focus' => 'Uji fitur, isi/konten, dan aksesibilitas antarmuka',
-                'contribution' => 'Memastikan kualitas pengalaman pengguna serta ketepatan konten.',
+                'contribution' => 'Memberikan isi/konten web, memastikan kualitas pengalaman pengguna serta ketepatan konten.',
                 'year' => '10 Mei 2008',
                 'email' => 'ignasiusagri@karyabangsa.sch.id',
                 'photo' => asset('images/agri.png'),
